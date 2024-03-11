@@ -1,5 +1,6 @@
 ---
 title: "Schedule"
+subtitle: "Thursday, March 21th, 2024"
 ---
 
 | Time         | Session                           | 

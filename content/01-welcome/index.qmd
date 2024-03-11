@@ -1,10 +1,9 @@
 ---
 title: Welcome and Introduction
-subtitle: R for Data Science
 author: 
   - name: Heather Turner
-date: 2024-03-21
-date-format: long
+date: 2024-03-21T10:00:00Z
+date-format: "MMMM DD, YYYY, HH:mma"
 ---
 
 ## Slides

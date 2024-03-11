@@ -3,11 +3,12 @@ title: "Content"
 listing:
   contents: content
   sort: "date asc"
+  date-format: "MMMM DD, YYYY, HH:mma"
   type: table
   categories: false
   sort-ui: false
   filter-ui: false
-  fields: [date, title]
+  fields: [title]
 page-layout: full
 title-block-banner: false
 ---

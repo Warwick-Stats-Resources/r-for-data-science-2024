@@ -1,0 +1,40 @@
+---
+title: Introduction to R and RStudio
+date: 2024-03-21T10:10:00Z
+date-format: "MMMM DD, YYYY, HH:mma"
+---
+
+## Slides
+
+Here's a link to the [slides](/slides/02-intro/index.qmd){target="_blank"} in a new window. 
+
+Here are the slides embedded:
+
+<iframe class="slide-deck ar3x2" src="/slides/02-intro/index.html" title="02-intro slides">
+</iframe>
+
+## Resources
+
+### R and RStudio
+
+- RStudio IDE cheatsheet
+
+  <https://rstudio.github.io/cheatsheets/html/rstudio-ide.html>
+  
+- Beginner resources from the RStudio Education team
+
+  <https://education.rstudio.com/learn/beginner/>
+  
+- Introduction to R and RStudio from the Carpentries
+
+  <https://carpentries-incubator.github.io/r-tidyverse-4-datasets/01-project-introduction.html>
+
+### Packages
+
+- **tidyverse**
+
+  <https://www.tidyverse.org>
+  
+- **palmerpenguins**
+
+  <https://allisonhorst.github.io/palmerpenguins/index.html>

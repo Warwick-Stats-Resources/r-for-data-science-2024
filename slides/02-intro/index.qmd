@@ -1,0 +1,570 @@
+---
+title: Introduction to R and RStudio
+subtitle: R Foundations Course
+author: Heather Turner | Department of Statistics | University of Warwick
+title-slide-attributes:
+  data-background-color: "#552D62"
+date: 2024-03-21
+date-format: long
+format: 
+  warwickpres-revealjs:
+    execute:
+      echo: true
+      code-overflow: wrap
+---
+
+## Overview
+
+-   Why use R?
+
+-   Use RStudio to write and run R programmes
+
+-   Create and start an R project
+
+-   Use `install.packages()` to install packages
+
+-   How to get help in R
+
+-   See examples of data wrangling and visualisation
+
+# Why use R? {.inverse}
+
+## What can R do? {.smaller90}
+
+::: columns
+::: {.column width="50%"}
+-   Data import
+
+-   Data management and wrangling
+
+-   Exploratory data analysis
+
+-   Statistical modelling
+
+-   Advanced statistics
+
+-   Machine learning
+:::
+
+::: {.column width="50%"}
+-   Data visualisation
+
+-   Reports, articles
+
+-   Dashboards, web apps
+
+-   Integrates well with other languages
+
+-   Packages: share your code and use others
+:::
+:::
+
+## The R Ecosystem
+
+### Base R
+
+::: columns
+::: {.column width="50%"}
+#### 15 base packages
+
+-   Create R objects
+-   Summaries
+-   Maths functions
+-   Statistics
+-   Graphics
+-   Datasets
+:::
+
+::: {.column width="50%"}
+#### 15 recommended packages
+
+-   Statistics methodology
+-   More maths
+-   More graphics
+:::
+:::
+
+::: notes
+R is distributed with fifteen "base packages": base, compiler, datasets, grDevices, graphics, grid, methods, parallel, splines, stats, stats4, tcltk, tools, translations, and utils.
+
+In addition, there are fifteen "recommended packages" from CRAN which are included with binary distributions of R: KernSmooth, MASS, Matrix, boot, class, cluster, codetools, foreign, lattice, mgcv, nlme, nnet, rpart, spatial, and survival.
+
+https://en.wikipedia.org/wiki/R_package#Base_and_recommended_packages
+:::
+
+## The R Ecosystem
+
+### Contributed packages
+
+::: columns
+::: {.column width="50%"}
+#### CRAN
+
+-   Official R repository
+-   <https://cran.r-project.org>
+-   nearly 20000 packages
+:::
+
+::: {.column width="50%"}
+#### Bioconductor
+
+-   Bioinformatics packages
+-   <https://www.bioconductor.org>
+-   \~2100 packages
+:::
+:::
+
+#### GitHub
+
+-   Packages in development
+-   GitHub-only packages
+
+## The tidyverse
+
+The [tidyverse](https://www.tidyverse.org) is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar and data structures.
+
+![From <https://education.rstudio.com/blog/2020/07/teaching-the-tidyverse-in-2020-part-1-getting-started/>](images/tidyverse-packages.png){fig-align="center"}
+
+**tidyverse** 2.0.0. includes **lubridate** for date-times as well (not shown in image).
+
+## palmerpenguins
+
+-   [**palmerpenguins**](https://allisonhorst.github.io/palmerpenguins/) is a dataset package, designed to be a great example for data exploration and visualisation.
+
+-   It contains measurement data for 344 penguins, from three different species, collected from three islands in the Palmer Archipelago, Antarctica.
+
+![Penguin artwork by Allison Horst <https://allisonhorst.github.io/palmerpenguins/articles/art.html>](images/lter_penguins.png){fig-align="center"}
+
+## The R community
+
+Another reason to love R is the community around it.
+
+It prides itself on being friendly, diverse, helpful, and supportive.
+
+-   [R user groups](https://benubah.github.io/r-community-explorer/rugs.html){target="_blank"}, especially [Warwick RUG](https://warwickrug.github.io){target="_blank"}
+
+-   [RLadies](https://rladies.org){target="_blank"}, especially [RLadies Coventry](https://www.meetup.com/rladies-coventry/){target="_blank"}
+
+-   [RStudio Community](https://community.rstudio.com){target="_blank"}
+
+-   [R for Data Science](https://www.rfordatasci.com){target="_blank"}
+
+-   #RStats and #TidyTuesday on Mastodon
+
+-   [rainbowR](https://rainbowr.netlify.app){target="_blank"} (LGBTQ+)
+
+-   [MiR](https://mircommunity.com){target="_blank"} (minorities in R)
+
+# Introducing RStudio {.inverse}
+
+## At first
+
+![](images/new-RStudio-project.png)
+
+## With script
+
+![](images/RStudio-project-with-script.png) [RStudio cheatsheet](https://rstudio.github.io/cheatsheets/html/rstudio-ide.html)
+
+## Best practice: use R projects
+
+An RStudio project is a contect for working on a specific project
+
+-   Keeps files well-organised
+
+-   Automatically sets working directory to project root
+
+-   Has separate workspace and command history
+
+-   Works well with version control via git or svn
+
+## Getting started with projects
+
+-   Create a project from a new or existing directory via the file menu or new project button
+
+-   Switch project, or open a different project in a new RStudio instance via the project menu
+
+## RStudio project demo
+
+-   Create R-Foundations project
+
+-   Create first script
+
+## Using the console
+
+-   For things that only need doing once, e.g. installing packages
+
+-   For doing things you don't need to track, e.g. requesting help files
+
+-   To quickly explore new ideas before adding them to a script
+
+## Using the console: shortcuts
+
+RStudio provides a few shortcuts to help write code in the R console
+
+-   <kbd title = "up arrow">↑</kbd>/<kbd title = "down arrow">↓</kbd> go back/forward through history one command at a time
+-   <kbd>Ctrl</kbd>/<kbd title = "command">⌘</kbd> + <kbd title = "up arrow">↑</kbd> review recent history and select command
+-   <kbd>Tab</kbd> view possible completions for part-written expression
+
+Code completion (using <kbd>Tab</kbd>) is also provided in the source editor
+
+## Using the console: demo
+
+``` r
+1 + 1
+?log
+log(10)
+exp(-4 * 4 / 2) / sqrt(2 * pi)
+install.packages("tidyverse")
+install.packages("palmerpenguins")
+```
+
+## Using scripts
+
+Text files saved with an .R suffix are recognised as R code
+
+Code can be sent directly from a script to the console as follows:
+
+-   <kbd>Ctrl</kbd>/<kbd title = "command">⌘</kbd> + <kbd title = "enter">↵</kbd> or <img src="images/run_button.png" alt="Run button" height="50px" style="vertical-align: middle;"/> run current line
+    -   Run multiple lines by selecting first
+-   <kbd>Ctrl</kbd>/<kbd title = "command">⌘</kbd> + <kbd>Shift</kbd> + <kbd title = "enter">↵</kbd> or <img src="images/source_button.png" alt="Source button" height="50px" style="vertical-align: middle;"/>
+    -   Run the script from start to finish.
+
+## Why R scripts?
+
+Writing an R script for an analysis has several advantages over a graphical user interface (GUI)
+
+-   It provides a record of the exact approach used in an analysis
+-   It enables the analysis to be easily reproduced and modified
+-   It allows greater control
+
+## Good practice for R Scripts
+
+Organising your R script well will help you and others understand and use it.
+
+-   Add comment or two at start to describe purpose of script
+    -   Use one or more `#` to start a comment
+-   Load required data and packages at the start
+-   Avoid hard-coding: define variables such as file paths early on
+-   Give functions and variable meaningful names
+-   use `###` or `#---` to separate sections (in RStudio Code \> Insert Section)
+
+## Installing packages
+
+*In console*
+
+-   Install a package with `install.packages("package_name")`
+
+    -   Watch out for the plural!
+
+-   Install multiple packages with `install.packages(c("package1", "package2"))`
+
+    -   The `c()` function creates a vector
+
+-   Or use install button in packages pane:
+
+![](images/install_packages.png){width="400" fig-align="center"}
+
+## Loading packages
+
+*In script*
+
+-   Load packages with `library(package_name)`
+
+## R script demo
+
+``` r
+### load packages
+library(palmerpenguins)
+library(tidyverse)
+
+### Inspect data
+View(penguins)
+glimpse(penguins)
+head(penguins)
+summary(penguins)
+```
+
+# Getting help in R {.inverse}
+
+## Within R: Help with functions
+
+```{r eval = FALSE}
+# help with a specific function
+help(function_name)
+?function_name
+
+# quick reminder of the function arguments
+arg(function_name)
+
+# see an example
+example(function_name)
+
+# see the source code
+## in console
+function_name
+## in View pane (easier to read, syntax highlighting)
+View(function_name)
+```
+
+## Within R: `help.search`
+
+```{r eval = FALSE}
+# when ?function_name fails (e.g. don't have package loaded)
+help.search("function_name") # note quotation marks
+??function_name
+
+# for when you can't quite remember the function name
+??something_like_function_name
+
+# R help start page
+help.start()
+## note that using the RStudio Help home button gives even more resources
+```
+
+## Within R: Help with package
+
+```{r eval = FALSE}
+# `help`
+help(package = "package_name")
+# Help panel in RStudio will give links to all documentation
+# and help pages for that package
+
+# find/browse vignettes for installed (or specific) packages
+browseVignettes()
+browseVignettes("package_name")
+
+# use auto-completion in RStudio to see what functions 
+# are in a package
+?package::
+```
+
+**dplyr** demo
+
+RStudio Help home demo
+
+## Your turn
+
+-   Create an R project called "R-foundations"
+
+-   Install the packages **palmerpenguins** and **tidyverse**
+
+-   Find the help page for the `penguins` dataset
+
+-   Find the help page for the `filter` function in the `dplyr` package
+
+-   Experiment typing commands into the console or in an R script.
+
+link to [slides](https://warwick-stats-resources.github.io/R-foundations/slides/01-intro/#/title-slide){target="_blank"}
+
+## Getting help at Warwick
+
+### During the course
+
+-   Clinic hours: Thursday 10-11 in weeks 3, 5 and 9.
+
+### In general
+
+-   The [Warwick R Users Viva Engage](https://web.yammer.com/main/org/warwick.ac.uk/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiIxMTk5MzIzODczMjgifQ/all)
+
+#  {#penguin-questions data-menu-title="What can we learn about penguins?" background-image="images/gentoo.jpeg"}
+
+::: columns
+::: {.column width="50%"}
+[What can we learn about penguins?]{#penguin-slide-text}
+:::
+
+::: {.column width="50%"}
+:::
+:::
+
+## The data
+
+::: smaller90
+```{r}
+#| message: false
+library(palmerpenguins)
+library(tidyverse)
+```
+
+```{r}
+penguins
+```
+:::
+
+## How many of each species?
+
+```{r}
+count(penguins, species)
+```
+
+## How many of each species on each island?
+
+```{r}
+count(penguins, species, island, .drop = FALSE)
+```
+
+## Show me the bill dimensions of the 5 heaviest female Gentoo penguins
+
+```{r}
+penguins |>
+  filter(sex == "female",
+         species == "Gentoo") |>
+  slice_max(body_mass_g, n = 5) |>
+  select(contains("bill"))
+  
+```
+
+## The native pipe
+
+`|>` is a pipe.
+
+It passes what comes before into the first argument of what comes after.
+
+Pipes are a powerful tool for clearly expressing a sequence of multiple operations.
+
+We'll talk more about pipes in the data wrangling session.
+
+## What's the mean bill length, by species?
+
+```{r}
+penguins |>
+  summarise(mean_bill_length = mean(bill_length_mm, na.rm = TRUE),
+            .by = species)
+```
+
+## What's the relationship between bill length and depth? {.smaller80}
+
+::: panel-tabset
+### picture
+
+![Artwork by Allison Horst <https://allisonhorst.github.io/palmerpenguins/articles/art.html>](images/culmen_depth.png){width="50%"}
+
+### plot 1
+
+![](%60r%20knitr::fig_chunk(%22bill-no-species%22,%20%22png%22)%60){width="80%"}
+
+### code 1
+
+```{r}
+#| label: bill-no-species
+#| fig-show: hide
+ggplot(data = penguins,
+       aes(x = bill_length_mm,
+           y = bill_depth_mm)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE, color = "gray50") +
+  labs(title = "Penguin bill dimensions",
+       subtitle = "Bill length and depth for Penguins at Palmer Station LTER",
+       x = "Bill length (mm)",
+       y = "Bill depth (mm)") +
+  theme_minimal() + 
+  theme(plot.title.position = "plot")
+```
+
+### plot 2
+
+![](%60r%20knitr::fig_chunk(%22bill-species%22,%20%22png%22)%60){width="80%"}
+
+### code 2
+
+```{r}
+#| label: bill-species
+#| fig-show: hide
+#| code-overflow: wrap
+ggplot(data = penguins,
+       aes(x = bill_length_mm,
+           y = bill_depth_mm,
+           group = species)) +
+  geom_point(aes(color = species, 
+                 shape = species),
+             size = 3,
+             alpha = 0.8) +
+  geom_smooth(method = "lm", se = FALSE, aes(color = species)) +
+  scale_color_manual(values = c("darkorange","purple","cyan4")) +
+  labs(title = "Penguin bill dimensions",
+       subtitle = "Bill length and depth for Adelie, Chinstrap and Gentoo Penguins at Palmer Station LTER",
+       x = "Bill length (mm)",
+       y = "Bill depth (mm)",
+       color = "Penguin species",
+       shape = "Penguin species") +
+  theme_minimal() +
+  theme(plot.title.position = "plot",
+        plot.subtitle = element_text(size = rel(0.95)))
+```
+
+### what?
+
+This is an illustration of [Simpson's Paradox](https://en.wikipedia.org/wiki/Simpson's_paradox){target="_blank"}.
+
+> Simpson's paradox is a phenomenon in probability and statistics in which a trend appears in several groups of data but disappears or reverses when the groups are combined.
+:::
+
+[Example adapted from https://allisonhorst.github.io/palmerpenguins/articles/examples.html](https://allisonhorst.github.io/palmerpenguins/articles/examples.html){style="font-size: 50%"}
+
+# End matter {.inverse}
+
+## Resources
+
+Material inspired by and remixed from:
+
+-   <https://www.heatherturner.net/teaching/zero-to-hero/#1>
+
+-   <https://ellakaye.github.io/Rladies-Coventry-getting-help-in-R/getting_help_in_R.html#1>
+
+-   <https://portal.stats.ox.ac.uk/userdata/ruth/APTS2013/Rcourse1.pdf>
+
+-   <https://carpentries-incubator.github.io/r-tidyverse-4-datasets/>
+
+## License
+
+Licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License ([CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/){target="_blank"}).
+
+```{=html}
+<!-- needs to be last chunk of presentation otherwise creates an extra slide -->
+<!-- requires Quarto v1.3 -->
+<!-- tint80 for border, tint20 for title -->
+<!-- this should hopefully no longer be necessary in Quarto 1.4 -->
+<!-- https://github.com/quarto-dev/quarto-cli/issues/5038 -->
+<style type="text/css">
+div.callout-note {
+  border-left-color: #336695 !important;
+}
+
+div.callout-note.callout-style-default .callout-title {
+  background-color: #CCD9E4 !important;
+}
+
+div.callout-caution {
+  border-left-color: #AE4240 !important;
+}
+
+div.callout-caution.callout-style-default .callout-title {
+  background-color: #ebd0cf !important;
+}
+
+div.callout-tip {
+  border-left-color: #618157 !important;
+}
+
+div.callout-tip.callout-style-default .callout-title {
+  background-color: #d8e0d5 !important;
+}
+
+div.callout-important {
+  border-left-color: #775781 !important;
+}
+
+div.callout-important.callout-style-default .callout-title {
+  background-color: #ddd5e0 !important;
+}
+
+div.callout-warning {
+  border-left-color: #956133 !important;
+}
+
+div.callout-warning.callout-style-default .callout-title {
+  background-color: #e4d8cc !important;
+}
+</style>
+```
+
