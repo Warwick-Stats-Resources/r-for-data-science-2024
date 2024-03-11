@@ -79,7 +79,7 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
       searchColumns: ["listing-date","listing-title","listing-author"],
     };
@@ -215,52 +215,34 @@ window.Quarto = {
 <thead>
 <tr>
 <th>
-Date
-</th>
-<th>
 Title
 </th>
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-listing-date-sort="1696892400000" data-listing-file-modified-sort="1696934750764" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="61" data-listing-title-sort="Introduction to R and RStudio" data-listing-filename-sort="index.qmd">
+<tr data-index="0" data-listing-date-sort="1711015200000" data-listing-file-modified-sort="1710157463832" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="20" data-listing-title-sort="Welcome and Introduction" data-listing-filename-sort="index.qmd">
 <td>
-<span class="listing-date">Oct 10, 2023</span>
+<a href="./content/01-welcome/index.html" class="title listing-title">Welcome and Introduction</a>
 </td>
+</tr>
+<tr data-index="1" data-listing-date-sort="1711015800000" data-listing-file-modified-sort="1710157216658" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="61" data-listing-title-sort="Introduction to R and RStudio" data-listing-filename-sort="index.qmd">
 <td>
 <a href="./content/02-intro/index.html" class="title listing-title">Introduction to R and RStudio</a>
 </td>
 </tr>
-<tr data-index="1" data-listing-date-sort="1698102000000" data-listing-file-modified-sort="1697893953541" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="50" data-listing-title-sort="Data Types, Structures and Wrangling" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Oct 24, 2023</span>
-</td>
+<tr data-index="2" data-listing-date-sort="1711021200000" data-listing-file-modified-sort="1710157243509" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="50" data-listing-title-sort="Data Types, Structures and Wrangling" data-listing-filename-sort="index.qmd">
 <td>
 <a href="./content/03-data-wrangling/index.html" class="title listing-title">Data Types, Structures and Wrangling</a>
 </td>
 </tr>
-<tr data-index="2" data-listing-date-sort="1700092800000" data-listing-file-modified-sort="1699013570610" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="56" data-listing-title-sort="Quarto" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Nov 16, 2023</span>
-</td>
-<td>
-<a href="./content/05-quarto/index.html" class="title listing-title">Quarto</a>
-</td>
-</tr>
-<tr data-index="3" data-listing-date-sort="1701734400000" data-listing-file-modified-sort="1699011722711" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="129" data-listing-title-sort="Graphics" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Dec 5, 2023</span>
-</td>
+<tr data-index="3" data-listing-date-sort="1711027800000" data-listing-file-modified-sort="1710157270370" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="129" data-listing-title-sort="Graphics" data-listing-filename-sort="index.qmd">
 <td>
 <a href="./content/04-graphics/index.html" class="title listing-title">Graphics</a>
 </td>
 </tr>
-<tr data-index="4" data-listing-date-sort="1710979200000" data-listing-file-modified-sort="1710156058123" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="20" data-listing-title-sort="Welcome and Introduction" data-listing-filename-sort="index.qmd">
+<tr data-index="4" data-listing-date-sort="1711034100000" data-listing-file-modified-sort="1710157290441" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="56" data-listing-title-sort="Quarto" data-listing-filename-sort="index.qmd">
 <td>
-<span class="listing-date">Mar 21, 2024</span>
-</td>
-<td>
-<a href="./content/01-welcome/index.html" class="title listing-title">Welcome and Introduction</a>
+<a href="./content/05-quarto/index.html" class="title listing-title">Quarto</a>
 </td>
 </tr>
 </tbody>
@@ -350,7 +332,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/Warwick-Stats-Resources\.github\.io\/r-for-data-science-2024\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
