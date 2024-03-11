@@ -1,24 +1,26 @@
 ---
-title: "quarto-course-website"
+title: "R for Data Science"
 ---
 
-Welcome to the course!
+Welcome to the R for Data Science course for 2024!
 
-This course is aimed primarily at...
+This course is taking place as part of the University of Warwick's 2024 Spring Training Week, organised by the [SCRPT](https://warwick.ac.uk/research/rtp/sc/).
 
 ## Syllabus overview
 
-What we're covering...
+This is a beginner's level course in R, assuming no prior knowledge. We'll introduce the R programming language and RStudio, a popular IDE (integrated development environment) in which to work. We'll cover data types and structures in the core of the R language. We'll also introduce the [tidyverse](https://tidyverse.org), a well-established set of packages designed for data science, and show how they can be used to import and wrangle data. We'll also introduce you to R's powerful graphics capabilities, for producing production quality plots and tables. Finally, we'll offer a brief introduction to [Quarto](https://quarto.org), an open-source scientific and technical publishing system, which allows the interweaving of code and text to create reproducible documents, presentations and more.
+
+Although no prior knowledge of R is assumed, we do ask that you follow these [prerequisites](prerequisites.qmd), to ensure that you have all necessary software installed prior to the course.
 
 All slides and further resources can be accessed from the [content](content.qmd) page and also via the [schedule](schedule.qmd). 
 
 ## Session details
 
-{{< fa calendar >}} &nbsp; **DAY OF COURSE**
+{{< fa calendar >}} &nbsp; **Thursday, March 21st, 2024**
 
-{{< fa clock >}} &nbsp; **TIME OF COURSE**
+{{< fa clock >}} &nbsp; **9:30 -- 16:30**
 
-{{< fa location-dot >}} &nbsp; **LOCATION** 
+{{< fa location-dot >}} &nbsp; **A1.25 Millburn** 
 
 {{< fa calendar-alt >}} &nbsp; See the full [schedule](schedule.qmd).
 
@@ -26,10 +28,10 @@ Please see the [join](join.qmd) page for more details on how to attend the cours
 
 ## Instructor details
 
-{{< fa user >}} &nbsp; [**INSTRUCTOR**](https://INTSTRUCTOR-WEB-PAGE)
+{{< fa user >}} &nbsp; [**Heather Turner**](https://warwick.ac.uk/heatherturner)
 
-{{< fa envelope >}} &nbsp; [**INSTRUCTOR E-MAIL**](mailto:INSTRUCTOR-E-MAIL)
+{{< fa envelope >}} &nbsp; [**h.turner.1@warwick.ac.uk**](mailto:h.turner.1@warwick.ac.uk)
 
 ## Prerequistes
 
-Please see the [prerequisites](prerequisites.qmd) page for details on getting set up in advance of the first session.
+Please see the [prerequisites](prerequisites.qmd) page for details on getting set up in advance of the workshop.

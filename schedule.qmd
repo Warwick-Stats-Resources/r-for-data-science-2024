@@ -2,4 +2,14 @@
 title: "Schedule"
 ---
 
-**Schedule goes here**
+| Time         | Session                           | 
+|--------------|-----------------------------------| 
+| 09:30--10:00 | Coffee                     | 
+| 10:00--10:10 | [Welcome!](content/01-welcome/index.qmd) | 
+| 10:10--11:25 | [Introduction to R and RStudio](content/02-intro/index.qmd)  | 
+| 11:25--11:40 | Coffee                     | 
+| 11:40--13:00 | [Data Types, Structures and Wrangling](content/03-data-wrangling/index.qmd)  | 
+| 13:00--13:30 | Lunch                             | 
+| 13:30--15:00 | [Graphics](content/04-graphics/index.qmd)   |
+| 15:00--15:15 | Coffee              | 
+| 15:15--16:30 | [Quarto](content/05-quarto/index.qmd) | 

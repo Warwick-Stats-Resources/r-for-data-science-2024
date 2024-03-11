@@ -1,0 +1,17 @@
+---
+title: Welcome and Introduction
+subtitle: R for Data Science
+author: 
+  - name: Heather Turner
+date: 2024-03-21
+date-format: long
+---
+
+## Slides
+
+Here's a link to the [slides](/slides/01-welcome/index.qmd){target="_blank"} in a new window. 
+
+Here are the slides embedded:
+
+<iframe class="slide-deck ar3x2" src="/slides/01-welcome/index.html" title="01-welcome slides">
+</iframe>

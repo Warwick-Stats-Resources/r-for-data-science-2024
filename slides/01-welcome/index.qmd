@@ -1,0 +1,61 @@
+---
+title: Welcome and Introduction
+subtitle: R for Data Science
+author: 
+  - name: Heather Turner
+  - name: Department of Statistics, University of Warwick
+title-slide-attributes:
+  data-background-color: "#552D62"
+date: 2024-03-21
+date-format: long
+format: 
+  warwickpres-revealjs:
+    execute:
+      echo: true
+      code-overflow: wrap
+---
+
+# Hello! {.inverse .center-h}
+
+## Your instructor
+
+:::{.center-h}
+![](images/heather_turner.jpg){width=25%}
+
+Heather Turner
+
+RSE Fellow, Department of Statistics
+
+University of Warwick
+
+<https://warwick.ac.uk/heatherturner>
+:::
+
+## Course material
+
+- Website and slides 
+  
+  <https://Warwick-Stats-Resources.github.io/r-for-data-science>
+  
+- Website and slides repo
+
+  <https://github.com/Warwick-Stats-Resources/r-for-data-science>
+
+  
+## Schedule
+
+:::{.smaller70}
+| Time         | Session                           | 
+|--------------|-----------------------------------| 
+| 09:30--10:00 | Coffee                     | 
+| 10:00--10:10 | [Welcome!](content/01-welcome/index.qmd) | 
+| 10:10--11:25 | [Introduction to R and RStudio](content/02-intro/index.qmd)  | 
+| 11:25--11:40 | Coffee                     | 
+| 11:40--13:00 | [Data Types, Structures and Wrangling](content/03-data-wrangling/index.qmd)  | 
+| 13:00--13:30 | Lunch                             | 
+| 13:30--15:00 | [Graphics](content/04-graphics/index.qmd)   |
+| 15:00--15:15 | Coffee              | 
+| 15:15--16:30 | [Quarto](content/05-quarto/index.qmd) | 
+:::
+
+# Let's begin... {.inverse .center-h}

@@ -2,10 +2,7 @@
 title: "Join the class"
 ---
 
-Add any instructions for joining the course here.
+This workshop is now full.
 
-If there are no joining instructions:
+Please fill in the following form to register interest in future courses: <https://warwick.ac.uk/research/rtp/sc/rse/training/register-interest/>
 
-- delete the `join.qmd` file
-- delete the link to the join page in the 'Session Details' section of `index.qmd`
-- remove the lines in `_quarto.yml` which add a link to this file in the navbar.
