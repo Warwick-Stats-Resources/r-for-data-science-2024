@@ -64,4 +64,6 @@ Sign up by clicking [here](https://skillsforge.warwick.ac.uk/warwick/#he/dev/eve
 
 After the course, e-mail [ella.m.kaye@warwick.ac.uk](mailto:ella.m.kaye@warwick.ac.uk) with the password and she'll register you as having attended.
 
+You will be given the password at the **end** of the course.
+
 # Let's begin... {.inverse .center-h}

@@ -448,6 +448,7 @@ quarto publish <document>
 
 - [Quarto for R and RStudio workshop](https://posit-conf-2023.github.io/quarto-r/)
 
+# SkillsForge password {.inverse}
 
 # End matter {.inverse}
 
