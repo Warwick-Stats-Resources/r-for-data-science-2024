@@ -9,7 +9,7 @@
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.551">
+  <meta name="generator" content="quarto-1.4.549">
 
   <meta name="author" content="Heather Turner | Department of Statistics | University of Warwick">
   <meta name="dcterms.date" content="2024-03-21">
@@ -515,7 +515,7 @@ Heather Turner | Department of Statistics | University of Warwick
 <h2>The tidyverse</h2>
 <p>The <a href="https://www.tidyverse.org">tidyverse</a> is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar and data structures.</p>
 
-<img data-src="images/tidyverse-packages.png" class="r-stretch quarto-figure-center"><p class="caption">From <a href="https://education.rstudio.com/blog/2020/07/teaching-the-tidyverse-in-2020-part-1-getting-started/" class="uri">https://education.rstudio.com/blog/2020/07/teaching-the-tidyverse-in-2020-part-1-getting-started/</a></p><p><strong>tidyverse</strong> 2.0.0. includes <strong>lubridate</strong> for date-times as well (not shown in image).</p>
+<img data-src="images/tidyverse-packages.png" class="quarto-figure quarto-figure-center r-stretch"><p class="caption">From <a href="https://education.rstudio.com/blog/2020/07/teaching-the-tidyverse-in-2020-part-1-getting-started/" class="uri">https://education.rstudio.com/blog/2020/07/teaching-the-tidyverse-in-2020-part-1-getting-started/</a></p><p><strong>tidyverse</strong> 2.0.0. includes <strong>lubridate</strong> for date-times as well (not shown in image).</p>
 </section>
 <section id="palmerpenguins" class="slide level2">
 <h2>palmerpenguins</h2>
@@ -524,7 +524,7 @@ Heather Turner | Department of Statistics | University of Warwick
 <li><p>It contains measurement data for 344 penguins, from three different species, collected from three islands in the Palmer Archipelago, Antarctica.</p></li>
 </ul>
 
-<img data-src="images/lter_penguins.png" class="r-stretch quarto-figure-center"><p class="caption">Penguin artwork by Allison Horst <a href="https://allisonhorst.github.io/palmerpenguins/articles/art.html" class="uri">https://allisonhorst.github.io/palmerpenguins/articles/art.html</a></p></section>
+<img data-src="images/lter_penguins.png" class="quarto-figure quarto-figure-center r-stretch"><p class="caption">Penguin artwork by Allison Horst <a href="https://allisonhorst.github.io/palmerpenguins/articles/art.html" class="uri">https://allisonhorst.github.io/palmerpenguins/articles/art.html</a></p></section>
 <section id="the-r-community" class="slide level2">
 <h2>The R community</h2>
 <p>Another reason to love R is the community around it.</p>
@@ -1347,11 +1347,6 @@ div.callout-warning.callout-style-default .callout-title {
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {
-            // undo the damage that might have been done by quarto-nav.js in the case of
-            // links that we want to consider external
-            if (link.dataset.originalHref !== undefined) {
-              link.href = link.dataset.originalHref;
-            }
               // target, if specified
               link.setAttribute("target", "_blank");
               if (link.getAttribute("rel") === null) {
@@ -1395,11 +1390,7 @@ div.callout-warning.callout-style-default .callout-title {
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          if (note) {
-            return note.innerHTML;
-          } else {
-            return "";
-          }
+          return note.innerHTML;
         });
       }
       const findCites = (el) => {

@@ -1,5 +1,425 @@
 [
   {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "Schedule",
+    "section": "",
+    "text": "Time\nSession\n\n\n\n\n09:30–10:00\nCoffee\n\n\n10:00–10:10\nWelcome!\n\n\n10:10–11:25\nIntroduction to R and RStudio\n\n\n11:25–11:40\nCoffee\n\n\n11:40–13:00\nData Types, Structures and Wrangling\n\n\n13:00–13:30\nLunch\n\n\n13:30–15:00\nGraphics\n\n\n15:00–15:15\nCoffee\n\n\n15:15–16:30\nQuarto"
+  },
+  {
+    "objectID": "slides/05-quarto/index.html#disclaimer",
+    "href": "slides/05-quarto/index.html#disclaimer",
+    "title": "Quarto",
+    "section": "Disclaimer",
+    "text": "Disclaimer\nThese slides are almost entirely copied from Tom Mock’s ‘Getting Started with Quarto’ workshop at rstudio::conf(2022).\n\nWorkshop website\nWorkshop repo\n\nShared under Creative Commons 4.0 License."
+  },
+  {
+    "objectID": "slides/05-quarto/index.html#hello-quarto",
+    "href": "slides/05-quarto/index.html#hello-quarto",
+    "title": "Quarto",
+    "section": "Hello Quarto",
+    "text": "Hello Quarto\n\nQuarto® is an open-source scientific and technical publishing system built on Pandoc\n\n\n\nYou can weave together narrative text and code to produce elegantly formatted output as documents, web pages, blog posts, books and more."
+  },
+  {
+    "objectID": "slides/05-quarto/index.html#what-about-rmarkdown",
+    "href": "slides/05-quarto/index.html#what-about-rmarkdown",
+    "title": "Quarto",
+    "section": "What about RMarkdown?",
+    "text": "What about RMarkdown?"
+  },
+  {
+    "objectID": "slides/05-quarto/index.html#so-what-is-quarto",
+    "href": "slides/05-quarto/index.html#so-what-is-quarto",
+    "title": "Quarto",
+    "section": "So what is Quarto?",
+    "text": "So what is Quarto?\n\nQuarto is the next generation of R Markdown. For everyone.\n\n\nQuarto is a command line interface (CLI) that renders plain text formats (.qmd, .rmd, .md) OR mixed formats (.ipynb/Jupyter notebook) into static PDF/Word/HTML reports, books, websites, presentations and more"
+  },
+  {
+    "objectID": "slides/05-quarto/index.html#quarto-more-than-just-knitr",
+    "href": "slides/05-quarto/index.html#quarto-more-than-just-knitr",
+    "title": "Quarto",
+    "section": "Quarto, more than just knitr",
+    "text": "Quarto, more than just knitr\nWe learned from 10 years of literate programming with knitr + rmarkdown"
+  },
+  {
+    "objectID": "slides/05-quarto/index.html#for-everyone",
+    "href": "slides/05-quarto/index.html#for-everyone",
+    "title": "Quarto",
+    "section": "For everyone",
+    "text": "For everyone\n\nWorks with R, Python, Julia, Observable JS\nknitr and jupyter engines\nWorks in RStudio, Jupyter Notebooks, VS Code\n\n\nFor the R Foundations course, we’ll focus on R and RStudio"
+  },
+  {
+    "objectID": "slides/05-quarto/index.html#so-what-is-quarto-1",
+    "href": "slides/05-quarto/index.html#so-what-is-quarto-1",
+    "title": "Quarto",
+    "section": "So what is Quarto?",
+    "text": "So what is Quarto?\n\nA Quarto document i.e. a .qmd is a plain text file, like a .rmd, that can be rendered to many different formats"
+  },
+  {
+    "objectID": "slides/05-quarto/index.html#one-install-batteries-included",
+    "href": "slides/05-quarto/index.html#one-install-batteries-included",
+    "title": "Quarto",
+    "section": "One install, “Batteries included”",
+    "text": "One install, “Batteries included”\n\nRMarkdown grew into a large ecosystem, with varying syntax.\n\n\nQuarto comes “batteries included” straight out of the box\n\nHTML reports and websites\nPDF reports\nMS Office (Word, Powerpoint)\nPresentations (Powerpoint, Beamer, revealjs)\nBooks\n\n\n\n\nAny language, exact same approach and syntax"
+  },
+  {
+    "objectID": "slides/05-quarto/index.html#quarto-for-rmarkdown-users",
+    "href": "slides/05-quarto/index.html#quarto-for-rmarkdown-users",
+    "title": "Quarto",
+    "section": "Quarto for RMarkdown users",
+    "text": "Quarto for RMarkdown users\nSee FAQs, including a conversion from RMarkdown formats to Quarto equivalents."
+  },
+  {
+    "objectID": "slides/05-quarto/index.html#anatomy-of-a-quarto-document",
+    "href": "slides/05-quarto/index.html#anatomy-of-a-quarto-document",
+    "title": "Quarto",
+    "section": "Anatomy of a Quarto document",
+    "text": "Anatomy of a Quarto document\n\nMetadata (YAML)\n\n---\nformat: html\n---"
+  },
+  {
+    "objectID": "slides/05-quarto/index.html#anatomy-of-a-quarto-document-1",
+    "href": "slides/05-quarto/index.html#anatomy-of-a-quarto-document-1",
+    "title": "Quarto",
+    "section": "Anatomy of a Quarto document",
+    "text": "Anatomy of a Quarto document\n\nCode\n\n\n```{r}\n#| eval: true\nlibrary(dplyr)\nmtcars %&gt;% \n  group_by(cyl) %&gt;%\n  summarize(mean = mean(mpg), .groups = \"drop\")\n```\n\n# A tibble: 3 × 2\n    cyl  mean\n  &lt;dbl&gt; &lt;dbl&gt;\n1     4  26.7\n2     6  19.7\n3     8  15.1"
+  },
+  {
+    "objectID": "slides/05-quarto/index.html#anatomy-of-a-quarto-document-2",
+    "href": "slides/05-quarto/index.html#anatomy-of-a-quarto-document-2",
+    "title": "Quarto",
+    "section": "Anatomy of a Quarto document",
+    "text": "Anatomy of a Quarto document\n\nText\n\n# Heading 1\nThis is a sentence with some **bold text** and some *italic text* \nThis is an [image](image.png)."
+  },
+  {
+    "objectID": "slides/05-quarto/index.html#metadata-yaml",
+    "href": "slides/05-quarto/index.html#metadata-yaml",
+    "title": "Quarto",
+    "section": "Metadata: YAML",
+    "text": "Metadata: YAML\nThe YAML metadata or header is:\n\nprocessed in many stages of the rendering process and can influence the final document in many different ways. It is placed at the very beginning of the document and is read by each of Pandoc, Quarto and knitr. Along the way, the information that it contains can affect the code, content, and the rendering process."
+  },
+  {
+    "objectID": "slides/05-quarto/index.html#yaml",
+    "href": "slides/05-quarto/index.html#yaml",
+    "title": "Quarto",
+    "section": "YAML",
+    "text": "YAML\n---\ntitle: \"My Document\"\nformat: \n  html:\n    toc: true\n    code-fold: true\n---"
+  },
+  {
+    "objectID": "slides/05-quarto/index.html#markdown",
+    "href": "slides/05-quarto/index.html#markdown",
+    "title": "Quarto",
+    "section": "Markdown",
+    "text": "Markdown\n\nQuarto is based on Pandoc and uses its variation of markdown as its underlying document syntax. Pandoc markdown is an extended and slightly revised version of John Gruber’s Markdown syntax.\n\n\n\nMarkdown is a plain text format that is designed to be easy to write, and, even more importantly, easy to read"
+  },
+  {
+    "objectID": "slides/05-quarto/index.html#text-formatting",
+    "href": "slides/05-quarto/index.html#text-formatting",
+    "title": "Quarto",
+    "section": "Text Formatting",
+    "text": "Text Formatting\n\n\n\n\n\n\n\nMarkdown Syntax\nOutput\n\n\n\n\n*italics* and **bold**\nitalics and bold\n\n\nsuperscript^2^ / subscript~2~\nsuperscript2 / subscript2\n\n\n~~strikethrough~~\nstrikethrough\n\n\n`verbatim code`\nverbatim code"
+  },
+  {
+    "objectID": "slides/05-quarto/index.html#headings",
+    "href": "slides/05-quarto/index.html#headings",
+    "title": "Quarto",
+    "section": "Headings",
+    "text": "Headings\n\n\n\n\n\n\n\nMarkdown Syntax\nOutput\n\n\n\n\n# Header 1\nHeader 1\n\n\n## Header 2\nHeader 2\n\n\n### Header 3\nHeader 3\n\n\n#### Header 4\nHeader 4\n\n\n##### Header 5\nHeader 5\n\n\n###### Header 6\nHeader 6"
+  },
+  {
+    "objectID": "slides/05-quarto/index.html#links",
+    "href": "slides/05-quarto/index.html#links",
+    "title": "Quarto",
+    "section": "Links",
+    "text": "Links\n\nThere are several types of “links” or hyperlinks.\n\n\nMarkdownOutput\n\n\nYou can embed [named hyperlinks](https://quarto.org/),\ndirect urls like &lt;https://quarto.org/&gt;, and links to \n[other places](#quarto-anatomy) in \nthe document. The syntax is similar for embedding an\ninline image: ![Penguins](images/lter_penguins.png).\n\n\nYou can embed named hyperlinks, direct urls like https://quarto.org/, and links to other places in the document. The syntax is similar for embedding an inline image:"
+  },
+  {
+    "objectID": "slides/05-quarto/index.html#code",
+    "href": "slides/05-quarto/index.html#code",
+    "title": "Quarto",
+    "section": "Code",
+    "text": "Code\n\n\n```{r}\n#| output-location: column\n#| label: fig-airquality\n#| fig-cap: Temperature and ozone level.\n#| warning: false\n\nlibrary(ggplot2)\n\nggplot(airquality, aes(Temp, Ozone)) + \n  geom_point() + \n  geom_smooth(method = \"loess\")\n```\n\n\n\n\n\n\n\n\nFigure 1: Temperature and ozone level."
+  },
+  {
+    "objectID": "slides/05-quarto/index.html#literate-programming",
+    "href": "slides/05-quarto/index.html#literate-programming",
+    "title": "Quarto",
+    "section": "Literate programming",
+    "text": "Literate programming\nLiterate programming is writing out the program logic in a human language with included (separated by a primitive markup) code snippets and macros. - Wikipedia\n---\ntitle: \"ggplot2 demo\"\ndate: \"5/22/2021\"\nformat: html\n---\n\n## Air Quality\n\nThere is a relationship between temperature and the ozone level.\n\n```{r}\n#| label: fig-airquality\nlibrary(ggplot2)\nggplot(airquality, aes(Temp, Ozone)) + \n  geom_point() + \n  geom_smooth(method = \"loess\")\n```"
+  },
+  {
+    "objectID": "slides/05-quarto/index.html#metadata-yaml-1",
+    "href": "slides/05-quarto/index.html#metadata-yaml-1",
+    "title": "Quarto",
+    "section": "Metadata: YAML",
+    "text": "Metadata: YAML\n“Yet Another Markup Language” or “YAML Ain’t Markup Language”\n---\nkey: value\n---"
+  },
+  {
+    "objectID": "slides/05-quarto/index.html#output-options",
+    "href": "slides/05-quarto/index.html#output-options",
+    "title": "Quarto",
+    "section": "Output Options",
+    "text": "Output Options\n---\nformat: something\n---\n\n---\nformat: html\n---\n---\nformat: pdf\n---\n---\nformat: revealjs\n---"
+  },
+  {
+    "objectID": "slides/05-quarto/index.html#options-on-options",
+    "href": "slides/05-quarto/index.html#options-on-options",
+    "title": "Quarto",
+    "section": "Options on options",
+    "text": "Options on options\nThen add option arguments!\n---\nformat: \n  html:\n    toc: true\n    code-fold: true\n---\n\nSub-options should be below the main format output and spacing matters!\n---\nformat: \n  html:\n    option1: text\n    option2: logical\n---"
+  },
+  {
+    "objectID": "slides/05-quarto/index.html#yaml-for-format-html",
+    "href": "slides/05-quarto/index.html#yaml-for-format-html",
+    "title": "Quarto",
+    "section": "YAML for format: html",
+    "text": "YAML for format: html"
+  },
+  {
+    "objectID": "slides/05-quarto/index.html#yaml-is-sensitive",
+    "href": "slides/05-quarto/index.html#yaml-is-sensitive",
+    "title": "Quarto",
+    "section": "YAML is sensitive",
+    "text": "YAML is sensitive\n---\nformat:html # invalid, no space between\n---\n\n---\nformat: # invalid, read as missing\nhtml\n---\n\n---\nformat: \n  html: # valid but needs next object\n---"
+  },
+  {
+    "objectID": "slides/05-quarto/index.html#anatomy-of-a-code-chunk",
+    "href": "slides/05-quarto/index.html#anatomy-of-a-code-chunk",
+    "title": "Quarto",
+    "section": "Anatomy of a code chunk",
+    "text": "Anatomy of a code chunk\n```{r}\n#| label: car-stuff\n#| echo: false\nmtcars %&gt;% \n  distinct(cyl)\n```\n\n\nHas 3x backticks on each end ```\n\nIndicate engine (r) between curly braces {r}\n\nPlace options underneath, behind the #| (hashpipe):\n\n#| option1: value"
+  },
+  {
+    "objectID": "slides/05-quarto/index.html#quarto-presentations",
+    "href": "slides/05-quarto/index.html#quarto-presentations",
+    "title": "Quarto",
+    "section": "Quarto presentations",
+    "text": "Quarto presentations\n---\nformat: revealjs\n---\n---\nformat: \n  revealjs:\n    slide-number: true\n---"
+  },
+  {
+    "objectID": "slides/05-quarto/index.html#this-quarto-presentation",
+    "href": "slides/05-quarto/index.html#this-quarto-presentation",
+    "title": "Quarto",
+    "section": "This Quarto presentation",
+    "text": "This Quarto presentation\n---\ntitle: Quarto\nsubtitle: R Foundations course\nauthor: Ella Kaye | Department of Statistics | University of Warwick\ntitle-slide-attributes:\n  data-background-color: \"#552D62\"\ndate: 2023-11-16\ndate-format: long\nformat: \n  revealjs:\n    theme: [default, ../../slides.scss]\n    slide-number: true\n    execute:\n      echo: true\n---"
+  },
+  {
+    "objectID": "slides/05-quarto/index.html#more-on-quarto-presentations",
+    "href": "slides/05-quarto/index.html#more-on-quarto-presentations",
+    "title": "Quarto",
+    "section": "More on Quarto presentations",
+    "text": "More on Quarto presentations\n\nOfficial guide\nSlidecraft 101 by Emil Hvitfeldt\n\nColours and Fonts\nCode and Output\nTheme variants\nAdvanced slide themes\n7 tips and tricks"
+  },
+  {
+    "objectID": "slides/05-quarto/index.html#web-publishing-venues",
+    "href": "slides/05-quarto/index.html#web-publishing-venues",
+    "title": "Quarto",
+    "section": "Web publishing venues",
+    "text": "Web publishing venues\n\n\n\nDestination\nDescription\n\n\n\n\nQuarto Pub\nPublishing service for Quarto documents, websites, and books.\n\n\nGitHub Pages\nPublish content based on source code managed within a GitHub repository.\n\n\nPosit Connect\nPublishing platform for secure sharing of data products within an organization.\n\n\nNetlify\nProfessional web publishing platform.\n\n\nConfluence\nPublishing platform for supporting team collaboration.\n\n\n\n… and more."
+  },
+  {
+    "objectID": "slides/05-quarto/index.html#quarto-pub",
+    "href": "slides/05-quarto/index.html#quarto-pub",
+    "title": "Quarto",
+    "section": "Quarto Pub",
+    "text": "Quarto Pub\nVisit https://quartopub.com/ and set up a free account."
+  },
+  {
+    "objectID": "slides/05-quarto/index.html#quarto-publish",
+    "href": "slides/05-quarto/index.html#quarto-publish",
+    "title": "Quarto",
+    "section": "quarto publish",
+    "text": "quarto publish\n\n\n\nAt the Terminal, run:\n\n\n\nquarto publish &lt;document&gt;"
+  },
+  {
+    "objectID": "slides/05-quarto/index.html#resources",
+    "href": "slides/05-quarto/index.html#resources",
+    "title": "Quarto",
+    "section": "Resources",
+    "text": "Resources\n\nhttps://quarto.org: The official documentation\nAwesome Quarto: A curated list of Quarto talks, tools, examples & articles\nBeautiful Reports and Persentations with Quarto\nGetting Started with Quarto workshop website\nQuarto for R and RStudio workshop"
+  },
+  {
+    "objectID": "slides/05-quarto/index.html#resources-1",
+    "href": "slides/05-quarto/index.html#resources-1",
+    "title": "Quarto",
+    "section": "Resources",
+    "text": "Resources\nThese slides are almost entirely copied from Tom Mock’s ‘Getting Started with Quarto’ workshop at rstudio::conf(2022).\n\nWorkshop website\nWorkshop repo\n\nShared under Creative Commons 4.0 License."
+  },
+  {
+    "objectID": "slides/05-quarto/index.html#license",
+    "href": "slides/05-quarto/index.html#license",
+    "title": "Quarto",
+    "section": "License",
+    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
+  },
+  {
+    "objectID": "slides/01-welcome/index.html#your-instructor",
+    "href": "slides/01-welcome/index.html#your-instructor",
+    "title": "Welcome and Introduction",
+    "section": "Your instructor",
+    "text": "Your instructor\n\n\nHeather Turner\nRSE Fellow, Department of Statistics\nUniversity of Warwick\nhttps://warwick.ac.uk/heatherturner"
+  },
+  {
+    "objectID": "slides/01-welcome/index.html#course-material",
+    "href": "slides/01-welcome/index.html#course-material",
+    "title": "Welcome and Introduction",
+    "section": "Course material",
+    "text": "Course material\n\nWebsite and slides\nhttps://Warwick-Stats-Resources.github.io/r-for-data-science\nWebsite and slides repo\nhttps://github.com/Warwick-Stats-Resources/r-for-data-science"
+  },
+  {
+    "objectID": "slides/01-welcome/index.html#schedule",
+    "href": "slides/01-welcome/index.html#schedule",
+    "title": "Welcome and Introduction",
+    "section": "Schedule",
+    "text": "Schedule\n\n\n\n\nTime\nSession\n\n\n\n\n09:30–10:00\nCoffee\n\n\n10:00–10:10\nWelcome!\n\n\n10:10–11:25\nIntroduction to R and RStudio\n\n\n11:25–11:40\nCoffee\n\n\n11:40–13:00\nData Types, Structures and Wrangling\n\n\n13:00–13:30\nLunch\n\n\n13:30–15:00\nGraphics\n\n\n15:00–15:15\nCoffee\n\n\n15:15–16:30\nQuarto"
+  },
+  {
+    "objectID": "slides/01-welcome/index.html#skillsforge",
+    "href": "slides/01-welcome/index.html#skillsforge",
+    "title": "Welcome and Introduction",
+    "section": "SkillsForge",
+    "text": "SkillsForge\nSign up by clicking here or by going to https://skillsforge.warwick.ac.uk and searching for “R for Data Science”.\nAfter the course, e-mail ella.m.kaye@warwick.ac.uk with the password and she’ll register you as having attended."
+  },
+  {
+    "objectID": "slides/00-template/index.html#overview",
+    "href": "slides/00-template/index.html#overview",
+    "title": "SESSION TITLE",
+    "section": "Overview",
+    "text": "Overview\n\nWhat we’re covering"
+  },
+  {
+    "objectID": "slides/00-template/index.html#resources",
+    "href": "slides/00-template/index.html#resources",
+    "title": "SESSION TITLE",
+    "section": "Resources",
+    "text": "Resources\nMaterial inspired by and remixed from:"
+  },
+  {
+    "objectID": "slides/00-template/index.html#license",
+    "href": "slides/00-template/index.html#license",
+    "title": "SESSION TITLE",
+    "section": "License",
+    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
+  },
+  {
+    "objectID": "content/03-data-wrangling/index.html",
+    "href": "content/03-data-wrangling/index.html",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "",
+    "text": "Here’s a link to the slides in a new window.\nHere are the slides embedded:"
+  },
+  {
+    "objectID": "content/03-data-wrangling/index.html#slides",
+    "href": "content/03-data-wrangling/index.html#slides",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "",
+    "text": "Here’s a link to the slides in a new window.\nHere are the slides embedded:"
+  },
+  {
+    "objectID": "content/03-data-wrangling/index.html#resources",
+    "href": "content/03-data-wrangling/index.html#resources",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "Resources",
+    "text": "Resources\n\nR and RStudio\n\nRStudio cheatsheets\ndplyr cheatsheet\nR for data science book\n\n\n\nPackages\n\ndplyr\nhttps://dplyr.tidyverse.org\nforcats\nhttps://forcats.tidyverse.org\nferriswheels\nhttps://github.com/EmilHvitfeldt/ferriswheels\nhere\nhttps://here.r-lib.org"
+  },
+  {
+    "objectID": "content/04-graphics/index.html",
+    "href": "content/04-graphics/index.html",
+    "title": "Graphics",
+    "section": "",
+    "text": "Here’s a link to the slides in a new window.\nHere are the slides embedded:"
+  },
+  {
+    "objectID": "content/04-graphics/index.html#slides",
+    "href": "content/04-graphics/index.html#slides",
+    "title": "Graphics",
+    "section": "",
+    "text": "Here’s a link to the slides in a new window.\nHere are the slides embedded:"
+  },
+  {
+    "objectID": "content/04-graphics/index.html#resources",
+    "href": "content/04-graphics/index.html#resources",
+    "title": "Graphics",
+    "section": "Resources",
+    "text": "Resources\n\nReading\n\nggplot2: Elegant Graphics for Data Analysis (for an in-depth understanding)\nR for Data Science book: Chapters 3: Data Visualisation and 28: Graphics for Communication, to get up and running quickly\nPlotting anything with ggplot2 webinar with Thomas Lin Pederson (one of the main ggplot2 authors)\nR graphics cookbook, a practical guide that provides more than 150 recipes to help you generate high-quality graphs quickly\nCedric Scherer’s tutorial\nCedric Scherer’s ‘Engaging and Beautiful Data Visualizations with ggplot2’ workshop\nggplot2 reference\n\n\n\nPackages\n\nggplot2\nhttps://ggplot2.tidyverse.org\ngt\nhttps://gt.rstudio.com\ngtsummary\nhttps://www.danieldsjoberg.com/gtsummary/"
+  },
+  {
+    "objectID": "content/02-intro/index.html",
+    "href": "content/02-intro/index.html",
+    "title": "Introduction to R and RStudio",
+    "section": "",
+    "text": "Here’s a link to the slides in a new window.\nHere are the slides embedded:"
+  },
+  {
+    "objectID": "content/02-intro/index.html#slides",
+    "href": "content/02-intro/index.html#slides",
+    "title": "Introduction to R and RStudio",
+    "section": "",
+    "text": "Here’s a link to the slides in a new window.\nHere are the slides embedded:"
+  },
+  {
+    "objectID": "content/02-intro/index.html#resources",
+    "href": "content/02-intro/index.html#resources",
+    "title": "Introduction to R and RStudio",
+    "section": "Resources",
+    "text": "Resources\n\nR and RStudio\n\nRStudio IDE cheatsheet\nhttps://rstudio.github.io/cheatsheets/html/rstudio-ide.html\nBeginner resources from the RStudio Education team\nhttps://education.rstudio.com/learn/beginner/\nIntroduction to R and RStudio from the Carpentries\nhttps://carpentries-incubator.github.io/r-tidyverse-4-datasets/01-project-introduction.html\n\n\n\nPackages\n\ntidyverse\nhttps://www.tidyverse.org\npalmerpenguins\nhttps://allisonhorst.github.io/palmerpenguins/index.html"
+  },
+  {
+    "objectID": "prerequisites.html",
+    "href": "prerequisites.html",
+    "title": "Getting set up",
+    "section": "",
+    "text": "Please ensure that you have the latest versions of R and RStudio installed prior to the first session. Currently, that’s R-4.3.3 and RStudio-2023.12.1.\nWe also strongly recommend you install the development tools to avoid potential issues installing packages.\n\nInstalling R\nDownload the pre-compiled binary for your OS from https://cloud.r-project.org/ and install. More specifically:\nFor Windows\nClick “Download R for Windows”, then “base”, then “Download R-4.3.3 for Windows”. This will download an .exe file; once downloaded, open to start the installation.\nFor Mac\nClick “Download R for macOS”, then “R-4.3.3-arm64.pkg” (the first option) to download the installer for Macs with Apple Silicon chips or “R-4.3.3-x86_64.pkg” (the second option) to download the installer for Macs with Intel chips. Run the installer to complete installation.\nFor Linux\nClick “Download R for Linux”. Instructions on installing are given for Debian, Fedora, Redhat, Suse and Ubuntu distributions. Where there is a choice, install both r-base and r-base-dev.\n\n\nInstalling R Studio Desktop (Open Source Edition)\nDownloads are available from https://posit.co/download/rstudio-desktop/\nDownload the relevant installer either under the “Install RStudio” header or, scrolling down the page, from the ‘All installers and Tarballs’ section. Run the installer to complete installation.\nFor Windows with no admin rights\nDownload the .zip source archive under “Zip/Tarballs”. Extract the files to a folder where you have write access, e.g. C:\\Users\\username\\RStudio. In this folder, open the bin directory and find the RStudio program: it is named rstudio.exe, but the file extension will typically be hidden, so look for rstudio. Right-click this executable to create a desktop shortcut. Double-click the executable or use the shortcut to open.\nFor all other operating systems\nDownload the relevant installer for your OS listed under “Installers for Supported Platforms”. Run the installer to complete installation.\n\n\nDevelopment Tools\nSome additional tools may be required to compile R packages from source.\nFor Windows with no admin rights\nDownload the latest (recommended) Rtools installer, Rtools.exe, from https://cran.r-project.org/bin/windows/Rtools/. Run the installer keeping the default settings.\nFor Windows with admin rights\nDownload the latest Rtools installer, Rtools.exe, from https://cran.r-project.org/bin/windows/Rtools/. Run the installer making the following selections: keep the default settings for the installation location and components to install; check the box to add rtools to the system PATH.\nFor Mac\nInstall XCode. Either:\n\nDownload and install XCode from the Mac AppStore: http://itunes.apple.com/us/app/xcode/id497799835?mt=12\nWithin XCode go to Preferences : Downloads and install the Command Line Tools\n\nOr for a smaller download size:\n\nRegister as an Apple Developer (free) here: https://developer.apple.com/programs/register/\nDownload the Command Line Tools for XCode appropriate for the version of OS X you are running from here: https://developer.apple.com/downloads/\n\nFor Linux\nIf you installed r-base-dev, when installing R, you should have all you need to build packages from source. Otherwise return to the instructions for installing R for your distribution and follow the instructions there to install the additional tools."
+  },
+  {
+    "objectID": "content.html",
+    "href": "content.html",
+    "title": "Content",
+    "section": "",
+    "text": "Title\n\n\n\n\n\n\nWelcome and Introduction\n\n\n\n\nIntroduction to R and RStudio\n\n\n\n\nData Types, Structures and Wrangling\n\n\n\n\nGraphics\n\n\n\n\nQuarto\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "join.html",
+    "href": "join.html",
+    "title": "Join the class",
+    "section": "",
+    "text": "This workshop is now full.\nPlease fill in the following form to register interest in future courses: https://warwick.ac.uk/research/rtp/sc/rse/training/register-interest/"
+  },
+  {
+    "objectID": "content/01-welcome/index.html",
+    "href": "content/01-welcome/index.html",
+    "title": "Welcome and Introduction",
+    "section": "",
+    "text": "Here’s a link to the slides in a new window.\nHere are the slides embedded:"
+  },
+  {
+    "objectID": "content/01-welcome/index.html#slides",
+    "href": "content/01-welcome/index.html#slides",
+    "title": "Welcome and Introduction",
+    "section": "",
+    "text": "Here’s a link to the slides in a new window.\nHere are the slides embedded:"
+  },
+  {
+    "objectID": "content/05-quarto/index.html",
+    "href": "content/05-quarto/index.html",
+    "title": "Quarto",
+    "section": "",
+    "text": "Here’s a link to the slides in a new window.\nHere are the slides embedded:"
+  },
+  {
+    "objectID": "content/05-quarto/index.html#slides",
+    "href": "content/05-quarto/index.html#slides",
+    "title": "Quarto",
+    "section": "",
+    "text": "Here’s a link to the slides in a new window.\nHere are the slides embedded:"
+  },
+  {
+    "objectID": "content/05-quarto/index.html#resources",
+    "href": "content/05-quarto/index.html#resources",
+    "title": "Quarto",
+    "section": "Resources",
+    "text": "Resources\n\nReading\n\nhttps://quarto.org: The official documentation\nAwesome Quarto: A curated list of Quarto talks, tools, examples & articles\nBeautiful Reports and Persentations with Quarto\nGetting Started with Quarto workshop website\nQuarto for R and RStudio workshop"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "R for Data Science",
@@ -278,27 +698,6 @@
     "title": "Introduction to R and RStudio",
     "section": "License",
     "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
-  },
-  {
-    "objectID": "slides/01-welcome/index.html#your-instructor",
-    "href": "slides/01-welcome/index.html#your-instructor",
-    "title": "Welcome and Introduction",
-    "section": "Your instructor",
-    "text": "Your instructor\n\n\nHeather Turner\nRSE Fellow, Department of Statistics\nUniversity of Warwick\nhttps://warwick.ac.uk/heatherturner"
-  },
-  {
-    "objectID": "slides/01-welcome/index.html#course-material",
-    "href": "slides/01-welcome/index.html#course-material",
-    "title": "Welcome and Introduction",
-    "section": "Course material",
-    "text": "Course material\n\nWebsite and slides\nhttps://Warwick-Stats-Resources.github.io/r-for-data-science\nWebsite and slides repo\nhttps://github.com/Warwick-Stats-Resources/r-for-data-science"
-  },
-  {
-    "objectID": "slides/01-welcome/index.html#schedule",
-    "href": "slides/01-welcome/index.html#schedule",
-    "title": "Welcome and Introduction",
-    "section": "Schedule",
-    "text": "Schedule\n\n\n\n\nTime\nSession\n\n\n\n\n09:30–10:00\nCoffee\n\n\n10:00–10:10\nWelcome!\n\n\n10:10–11:25\nIntroduction to R and RStudio\n\n\n11:25–11:40\nCoffee\n\n\n11:40–13:00\nData Types, Structures and Wrangling\n\n\n13:00–13:30\nLunch\n\n\n13:30–15:00\nGraphics\n\n\n15:00–15:15\nCoffee\n\n\n15:15–16:30\nQuarto"
   },
   {
     "objectID": "slides/04-graphics/index.html#overview",
@@ -606,7 +1005,7 @@
     "href": "slides/04-graphics/index.html#gtsummary-example-1-output",
     "title": "Graphics",
     "section": "gtsummary example 1: output",
-    "text": "gtsummary example 1: output\n\n\n\n\n\n\n\n\n\nVariable\nN\nDrug A, N = 981\nDrug B, N = 1021\np-value2\n\n\n\n\nAge\n189\n46 (37, 59)\n48 (39, 56)\n0.7\n\n\nGrade\n200\n\n\n0.9\n\n\n    I\n\n35 (36%)\n33 (32%)\n\n\n\n    II\n\n32 (33%)\n36 (35%)\n\n\n\n    III\n\n31 (32%)\n33 (32%)\n\n\n\nTumor Response\n193\n28 (29%)\n33 (34%)\n0.5\n\n\n\n1 Median (IQR); n (%)\n\n\n2 Wilcoxon rank sum test; Pearson’s Chi-squared test"
+    "text": "gtsummary example 1: output\n\n\n\n\n\n\n\n\nVariable\nN\nDrug A, N = 981\nDrug B, N = 1021\np-value2\n\n\n\n\nAge\n189\n46 (37, 59)\n48 (39, 56)\n0.7\n\n\nGrade\n200\n\n\n0.9\n\n\n    I\n\n35 (36%)\n33 (32%)\n\n\n\n    II\n\n32 (33%)\n36 (35%)\n\n\n\n    III\n\n31 (32%)\n33 (32%)\n\n\n\nTumor Response\n193\n28 (29%)\n33 (34%)\n0.5\n\n\n\n1 Median (IQR); n (%)\n\n\n2 Wilcoxon rank sum test; Pearson’s Chi-squared test"
   },
   {
     "objectID": "slides/04-graphics/index.html#gtsummary-example-2-code",
@@ -620,7 +1019,7 @@
     "href": "slides/04-graphics/index.html#gtsummary-example-2-output",
     "title": "Graphics",
     "section": "gtsummary example 2: output",
-    "text": "gtsummary example 2: output\n\n\n\n\n\n\n\n\n\nCharacteristic\nOR1\n95% CI1\np-value\n\n\n\n\nChemotherapy Treatment\n\n\n\n\n\n    Drug A\n—\n—\n\n\n\n    Drug B\n1.13\n0.60, 2.13\n0.7\n\n\nAge\n1.02\n1.00, 1.04\n0.10\n\n\nGrade\n\n\n\n\n\n    I\n—\n—\n\n\n\n    II\n0.85\n0.39, 1.85\n0.7\n\n\n    III\n1.01\n0.47, 2.15\n&gt;0.9\n\n\n\n1 OR = Odds Ratio, CI = Confidence Interval"
+    "text": "gtsummary example 2: output\n\n\n\n\n\n\n\n\nCharacteristic\nOR1\n95% CI1\np-value\n\n\n\n\nChemotherapy Treatment\n\n\n\n\n\n    Drug A\n—\n—\n\n\n\n    Drug B\n1.13\n0.60, 2.13\n0.7\n\n\nAge\n1.02\n1.00, 1.04\n0.10\n\n\nGrade\n\n\n\n\n\n    I\n—\n—\n\n\n\n    II\n0.85\n0.39, 1.85\n0.7\n\n\n    III\n1.01\n0.47, 2.15\n&gt;0.9\n\n\n\n1 OR = Odds Ratio, CI = Confidence Interval"
   },
   {
     "objectID": "slides/04-graphics/index.html#table-inspiration",
@@ -633,391 +1032,6 @@
     "objectID": "slides/04-graphics/index.html#license",
     "href": "slides/04-graphics/index.html#license",
     "title": "Graphics",
-    "section": "License",
-    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
-  },
-  {
-    "objectID": "join.html",
-    "href": "join.html",
-    "title": "Join the class",
-    "section": "",
-    "text": "This workshop is now full.\nPlease fill in the following form to register interest in future courses: https://warwick.ac.uk/research/rtp/sc/rse/training/register-interest/"
-  },
-  {
-    "objectID": "content/03-data-wrangling/index.html",
-    "href": "content/03-data-wrangling/index.html",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "",
-    "text": "Here’s a link to the slides in a new window.\nHere are the slides embedded:"
-  },
-  {
-    "objectID": "content/03-data-wrangling/index.html#slides",
-    "href": "content/03-data-wrangling/index.html#slides",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "",
-    "text": "Here’s a link to the slides in a new window.\nHere are the slides embedded:"
-  },
-  {
-    "objectID": "content/03-data-wrangling/index.html#resources",
-    "href": "content/03-data-wrangling/index.html#resources",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "Resources",
-    "text": "Resources\n\nR and RStudio\n\nRStudio cheatsheets\ndplyr cheatsheet\nR for data science book\n\n\n\nPackages\n\ndplyr\nhttps://dplyr.tidyverse.org\nforcats\nhttps://forcats.tidyverse.org\nferriswheels\nhttps://github.com/EmilHvitfeldt/ferriswheels\nhere\nhttps://here.r-lib.org"
-  },
-  {
-    "objectID": "content/05-quarto/index.html",
-    "href": "content/05-quarto/index.html",
-    "title": "Quarto",
-    "section": "",
-    "text": "Here’s a link to the slides in a new window.\nHere are the slides embedded:"
-  },
-  {
-    "objectID": "content/05-quarto/index.html#slides",
-    "href": "content/05-quarto/index.html#slides",
-    "title": "Quarto",
-    "section": "",
-    "text": "Here’s a link to the slides in a new window.\nHere are the slides embedded:"
-  },
-  {
-    "objectID": "content/05-quarto/index.html#resources",
-    "href": "content/05-quarto/index.html#resources",
-    "title": "Quarto",
-    "section": "Resources",
-    "text": "Resources\n\nReading\n\nhttps://quarto.org: The official documentation\nAwesome Quarto: A curated list of Quarto talks, tools, examples & articles\nBeautiful Reports and Persentations with Quarto\nGetting Started with Quarto workshop website\nQuarto for R and RStudio workshop"
-  },
-  {
-    "objectID": "content.html",
-    "href": "content.html",
-    "title": "Content",
-    "section": "",
-    "text": "Title\n\n\n\n\n\n\nWelcome and Introduction\n\n\n\n\nIntroduction to R and RStudio\n\n\n\n\nData Types, Structures and Wrangling\n\n\n\n\nGraphics\n\n\n\n\nQuarto\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "prerequisites.html",
-    "href": "prerequisites.html",
-    "title": "Getting set up",
-    "section": "",
-    "text": "Please ensure that you have the latest versions of R and RStudio installed prior to the first session. Currently, that’s R-4.3.3 and RStudio-2023.12.1.\nWe also strongly recommend you install the development tools to avoid potential issues installing packages.\n\nInstalling R\nDownload the pre-compiled binary for your OS from https://cloud.r-project.org/ and install. More specifically:\nFor Windows\nClick “Download R for Windows”, then “base”, then “Download R-4.3.3 for Windows”. This will download an .exe file; once downloaded, open to start the installation.\nFor Mac\nClick “Download R for macOS”, then “R-4.3.3-arm64.pkg” (the first option) to download the installer for Macs with Apple Silicon chips or “R-4.3.3-x86_64.pkg” (the second option) to download the installer for Macs with Intel chips. Run the installer to complete installation.\nFor Linux\nClick “Download R for Linux”. Instructions on installing are given for Debian, Fedora, Redhat, Suse and Ubuntu distributions. Where there is a choice, install both r-base and r-base-dev.\n\n\nInstalling R Studio Desktop (Open Source Edition)\nDownloads are available from https://posit.co/download/rstudio-desktop/\nDownload the relevant installer either under the “Install RStudio” header or, scrolling down the page, from the ‘All installers and Tarballs’ section. Run the installer to complete installation.\nFor Windows with no admin rights\nDownload the .zip source archive under “Zip/Tarballs”. Extract the files to a folder where you have write access, e.g. C:\\Users\\username\\RStudio. In this folder, open the bin directory and find the RStudio program: it is named rstudio.exe, but the file extension will typically be hidden, so look for rstudio. Right-click this executable to create a desktop shortcut. Double-click the executable or use the shortcut to open.\nFor all other operating systems\nDownload the relevant installer for your OS listed under “Installers for Supported Platforms”. Run the installer to complete installation.\n\n\nDevelopment Tools\nSome additional tools may be required to compile R packages from source.\nFor Windows with no admin rights\nDownload the latest (recommended) Rtools installer, Rtools.exe, from https://cran.r-project.org/bin/windows/Rtools/. Run the installer keeping the default settings.\nFor Windows with admin rights\nDownload the latest Rtools installer, Rtools.exe, from https://cran.r-project.org/bin/windows/Rtools/. Run the installer making the following selections: keep the default settings for the installation location and components to install; check the box to add rtools to the system PATH.\nFor Mac\nInstall XCode. Either:\n\nDownload and install XCode from the Mac AppStore: http://itunes.apple.com/us/app/xcode/id497799835?mt=12\nWithin XCode go to Preferences : Downloads and install the Command Line Tools\n\nOr for a smaller download size:\n\nRegister as an Apple Developer (free) here: https://developer.apple.com/programs/register/\nDownload the Command Line Tools for XCode appropriate for the version of OS X you are running from here: https://developer.apple.com/downloads/\n\nFor Linux\nIf you installed r-base-dev, when installing R, you should have all you need to build packages from source. Otherwise return to the instructions for installing R for your distribution and follow the instructions there to install the additional tools."
-  },
-  {
-    "objectID": "content/04-graphics/index.html",
-    "href": "content/04-graphics/index.html",
-    "title": "Graphics",
-    "section": "",
-    "text": "Here’s a link to the slides in a new window.\nHere are the slides embedded:"
-  },
-  {
-    "objectID": "content/04-graphics/index.html#slides",
-    "href": "content/04-graphics/index.html#slides",
-    "title": "Graphics",
-    "section": "",
-    "text": "Here’s a link to the slides in a new window.\nHere are the slides embedded:"
-  },
-  {
-    "objectID": "content/04-graphics/index.html#resources",
-    "href": "content/04-graphics/index.html#resources",
-    "title": "Graphics",
-    "section": "Resources",
-    "text": "Resources\n\nReading\n\nggplot2: Elegant Graphics for Data Analysis (for an in-depth understanding)\nR for Data Science book: Chapters 3: Data Visualisation and 28: Graphics for Communication, to get up and running quickly\nPlotting anything with ggplot2 webinar with Thomas Lin Pederson (one of the main ggplot2 authors)\nR graphics cookbook, a practical guide that provides more than 150 recipes to help you generate high-quality graphs quickly\nCedric Scherer’s tutorial\nCedric Scherer’s ‘Engaging and Beautiful Data Visualizations with ggplot2’ workshop\nggplot2 reference\n\n\n\nPackages\n\nggplot2\nhttps://ggplot2.tidyverse.org\ngt\nhttps://gt.rstudio.com\ngtsummary\nhttps://www.danieldsjoberg.com/gtsummary/"
-  },
-  {
-    "objectID": "content/01-welcome/index.html",
-    "href": "content/01-welcome/index.html",
-    "title": "Welcome and Introduction",
-    "section": "",
-    "text": "Here’s a link to the slides in a new window.\nHere are the slides embedded:"
-  },
-  {
-    "objectID": "content/01-welcome/index.html#slides",
-    "href": "content/01-welcome/index.html#slides",
-    "title": "Welcome and Introduction",
-    "section": "",
-    "text": "Here’s a link to the slides in a new window.\nHere are the slides embedded:"
-  },
-  {
-    "objectID": "content/02-intro/index.html",
-    "href": "content/02-intro/index.html",
-    "title": "Introduction to R and RStudio",
-    "section": "",
-    "text": "Here’s a link to the slides in a new window.\nHere are the slides embedded:"
-  },
-  {
-    "objectID": "content/02-intro/index.html#slides",
-    "href": "content/02-intro/index.html#slides",
-    "title": "Introduction to R and RStudio",
-    "section": "",
-    "text": "Here’s a link to the slides in a new window.\nHere are the slides embedded:"
-  },
-  {
-    "objectID": "content/02-intro/index.html#resources",
-    "href": "content/02-intro/index.html#resources",
-    "title": "Introduction to R and RStudio",
-    "section": "Resources",
-    "text": "Resources\n\nR and RStudio\n\nRStudio IDE cheatsheet\nhttps://rstudio.github.io/cheatsheets/html/rstudio-ide.html\nBeginner resources from the RStudio Education team\nhttps://education.rstudio.com/learn/beginner/\nIntroduction to R and RStudio from the Carpentries\nhttps://carpentries-incubator.github.io/r-tidyverse-4-datasets/01-project-introduction.html\n\n\n\nPackages\n\ntidyverse\nhttps://www.tidyverse.org\npalmerpenguins\nhttps://allisonhorst.github.io/palmerpenguins/index.html"
-  },
-  {
-    "objectID": "slides/00-template/index.html#overview",
-    "href": "slides/00-template/index.html#overview",
-    "title": "SESSION TITLE",
-    "section": "Overview",
-    "text": "Overview\n\nWhat we’re covering"
-  },
-  {
-    "objectID": "slides/00-template/index.html#resources",
-    "href": "slides/00-template/index.html#resources",
-    "title": "SESSION TITLE",
-    "section": "Resources",
-    "text": "Resources\nMaterial inspired by and remixed from:"
-  },
-  {
-    "objectID": "slides/00-template/index.html#license",
-    "href": "slides/00-template/index.html#license",
-    "title": "SESSION TITLE",
-    "section": "License",
-    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
-  },
-  {
-    "objectID": "slides/05-quarto/index.html#disclaimer",
-    "href": "slides/05-quarto/index.html#disclaimer",
-    "title": "Quarto",
-    "section": "Disclaimer",
-    "text": "Disclaimer\nThese slides are almost entirely copied from Tom Mock’s ‘Getting Started with Quarto’ workshop at rstudio::conf(2022).\n\nWorkshop website\nWorkshop repo\n\nShared under Creative Commons 4.0 License."
-  },
-  {
-    "objectID": "slides/05-quarto/index.html#hello-quarto",
-    "href": "slides/05-quarto/index.html#hello-quarto",
-    "title": "Quarto",
-    "section": "Hello Quarto",
-    "text": "Hello Quarto\n\nQuarto® is an open-source scientific and technical publishing system built on Pandoc\n\n\n\nYou can weave together narrative text and code to produce elegantly formatted output as documents, web pages, blog posts, books and more."
-  },
-  {
-    "objectID": "slides/05-quarto/index.html#what-about-rmarkdown",
-    "href": "slides/05-quarto/index.html#what-about-rmarkdown",
-    "title": "Quarto",
-    "section": "What about RMarkdown?",
-    "text": "What about RMarkdown?"
-  },
-  {
-    "objectID": "slides/05-quarto/index.html#so-what-is-quarto",
-    "href": "slides/05-quarto/index.html#so-what-is-quarto",
-    "title": "Quarto",
-    "section": "So what is Quarto?",
-    "text": "So what is Quarto?\n\nQuarto is the next generation of R Markdown. For everyone.\n\n\nQuarto is a command line interface (CLI) that renders plain text formats (.qmd, .rmd, .md) OR mixed formats (.ipynb/Jupyter notebook) into static PDF/Word/HTML reports, books, websites, presentations and more"
-  },
-  {
-    "objectID": "slides/05-quarto/index.html#quarto-more-than-just-knitr",
-    "href": "slides/05-quarto/index.html#quarto-more-than-just-knitr",
-    "title": "Quarto",
-    "section": "Quarto, more than just knitr",
-    "text": "Quarto, more than just knitr\nWe learned from 10 years of literate programming with knitr + rmarkdown"
-  },
-  {
-    "objectID": "slides/05-quarto/index.html#for-everyone",
-    "href": "slides/05-quarto/index.html#for-everyone",
-    "title": "Quarto",
-    "section": "For everyone",
-    "text": "For everyone\n\nWorks with R, Python, Julia, Observable JS\nknitr and jupyter engines\nWorks in RStudio, Jupyter Notebooks, VS Code\n\n\nFor the R Foundations course, we’ll focus on R and RStudio"
-  },
-  {
-    "objectID": "slides/05-quarto/index.html#so-what-is-quarto-1",
-    "href": "slides/05-quarto/index.html#so-what-is-quarto-1",
-    "title": "Quarto",
-    "section": "So what is Quarto?",
-    "text": "So what is Quarto?\n\nA Quarto document i.e. a .qmd is a plain text file, like a .rmd, that can be rendered to many different formats"
-  },
-  {
-    "objectID": "slides/05-quarto/index.html#one-install-batteries-included",
-    "href": "slides/05-quarto/index.html#one-install-batteries-included",
-    "title": "Quarto",
-    "section": "One install, “Batteries included”",
-    "text": "One install, “Batteries included”\n\nRMarkdown grew into a large ecosystem, with varying syntax.\n\n\nQuarto comes “batteries included” straight out of the box\n\nHTML reports and websites\nPDF reports\nMS Office (Word, Powerpoint)\nPresentations (Powerpoint, Beamer, revealjs)\nBooks\n\n\n\n\nAny language, exact same approach and syntax"
-  },
-  {
-    "objectID": "slides/05-quarto/index.html#quarto-for-rmarkdown-users",
-    "href": "slides/05-quarto/index.html#quarto-for-rmarkdown-users",
-    "title": "Quarto",
-    "section": "Quarto for RMarkdown users",
-    "text": "Quarto for RMarkdown users\nSee FAQs, including a conversion from RMarkdown formats to Quarto equivalents."
-  },
-  {
-    "objectID": "slides/05-quarto/index.html#anatomy-of-a-quarto-document",
-    "href": "slides/05-quarto/index.html#anatomy-of-a-quarto-document",
-    "title": "Quarto",
-    "section": "Anatomy of a Quarto document",
-    "text": "Anatomy of a Quarto document\n\nMetadata (YAML)\n\n---\nformat: html\n---"
-  },
-  {
-    "objectID": "slides/05-quarto/index.html#anatomy-of-a-quarto-document-1",
-    "href": "slides/05-quarto/index.html#anatomy-of-a-quarto-document-1",
-    "title": "Quarto",
-    "section": "Anatomy of a Quarto document",
-    "text": "Anatomy of a Quarto document\n\nCode\n\n\n```{r}\n#| eval: true\nlibrary(dplyr)\nmtcars %&gt;% \n  group_by(cyl) %&gt;%\n  summarize(mean = mean(mpg), .groups = \"drop\")\n```\n\n# A tibble: 3 × 2\n    cyl  mean\n  &lt;dbl&gt; &lt;dbl&gt;\n1     4  26.7\n2     6  19.7\n3     8  15.1"
-  },
-  {
-    "objectID": "slides/05-quarto/index.html#anatomy-of-a-quarto-document-2",
-    "href": "slides/05-quarto/index.html#anatomy-of-a-quarto-document-2",
-    "title": "Quarto",
-    "section": "Anatomy of a Quarto document",
-    "text": "Anatomy of a Quarto document\n\nText\n\n# Heading 1\nThis is a sentence with some **bold text** and some *italic text* \nThis is an [image](image.png)."
-  },
-  {
-    "objectID": "slides/05-quarto/index.html#metadata-yaml",
-    "href": "slides/05-quarto/index.html#metadata-yaml",
-    "title": "Quarto",
-    "section": "Metadata: YAML",
-    "text": "Metadata: YAML\nThe YAML metadata or header is:\n\nprocessed in many stages of the rendering process and can influence the final document in many different ways. It is placed at the very beginning of the document and is read by each of Pandoc, Quarto and knitr. Along the way, the information that it contains can affect the code, content, and the rendering process."
-  },
-  {
-    "objectID": "slides/05-quarto/index.html#yaml",
-    "href": "slides/05-quarto/index.html#yaml",
-    "title": "Quarto",
-    "section": "YAML",
-    "text": "YAML\n---\ntitle: \"My Document\"\nformat: \n  html:\n    toc: true\n    code-fold: true\n---"
-  },
-  {
-    "objectID": "slides/05-quarto/index.html#markdown",
-    "href": "slides/05-quarto/index.html#markdown",
-    "title": "Quarto",
-    "section": "Markdown",
-    "text": "Markdown\n\nQuarto is based on Pandoc and uses its variation of markdown as its underlying document syntax. Pandoc markdown is an extended and slightly revised version of John Gruber’s Markdown syntax.\n\n\n\nMarkdown is a plain text format that is designed to be easy to write, and, even more importantly, easy to read"
-  },
-  {
-    "objectID": "slides/05-quarto/index.html#text-formatting",
-    "href": "slides/05-quarto/index.html#text-formatting",
-    "title": "Quarto",
-    "section": "Text Formatting",
-    "text": "Text Formatting\n\n\n\n\n\n\n\nMarkdown Syntax\nOutput\n\n\n\n\n*italics* and **bold**\nitalics and bold\n\n\nsuperscript^2^ / subscript~2~\nsuperscript2 / subscript2\n\n\n~~strikethrough~~\nstrikethrough\n\n\n`verbatim code`\nverbatim code"
-  },
-  {
-    "objectID": "slides/05-quarto/index.html#headings",
-    "href": "slides/05-quarto/index.html#headings",
-    "title": "Quarto",
-    "section": "Headings",
-    "text": "Headings\n\n\n\n\n\n\n\nMarkdown Syntax\nOutput\n\n\n\n\n# Header 1\nHeader 1\n\n\n## Header 2\nHeader 2\n\n\n### Header 3\nHeader 3\n\n\n#### Header 4\nHeader 4\n\n\n##### Header 5\nHeader 5\n\n\n###### Header 6\nHeader 6"
-  },
-  {
-    "objectID": "slides/05-quarto/index.html#links",
-    "href": "slides/05-quarto/index.html#links",
-    "title": "Quarto",
-    "section": "Links",
-    "text": "Links\n\nThere are several types of “links” or hyperlinks.\n\n\nMarkdownOutput\n\n\nYou can embed [named hyperlinks](https://quarto.org/),\ndirect urls like &lt;https://quarto.org/&gt;, and links to \n[other places](#quarto-anatomy) in \nthe document. The syntax is similar for embedding an\ninline image: ![Penguins](images/lter_penguins.png).\n\n\nYou can embed named hyperlinks, direct urls like https://quarto.org/, and links to other places in the document. The syntax is similar for embedding an inline image:"
-  },
-  {
-    "objectID": "slides/05-quarto/index.html#code",
-    "href": "slides/05-quarto/index.html#code",
-    "title": "Quarto",
-    "section": "Code",
-    "text": "Code\n\n\n```{r}\n#| output-location: column\n#| label: fig-airquality\n#| fig-cap: Temperature and ozone level.\n#| warning: false\n\nlibrary(ggplot2)\n\nggplot(airquality, aes(Temp, Ozone)) + \n  geom_point() + \n  geom_smooth(method = \"loess\")\n```\n\n\n\n\n\n\n\n\nFigure 1: Temperature and ozone level."
-  },
-  {
-    "objectID": "slides/05-quarto/index.html#literate-programming",
-    "href": "slides/05-quarto/index.html#literate-programming",
-    "title": "Quarto",
-    "section": "Literate programming",
-    "text": "Literate programming\nLiterate programming is writing out the program logic in a human language with included (separated by a primitive markup) code snippets and macros. - Wikipedia\n---\ntitle: \"ggplot2 demo\"\ndate: \"5/22/2021\"\nformat: html\n---\n\n## Air Quality\n\nThere is a relationship between temperature and the ozone level.\n\n```{r}\n#| label: fig-airquality\nlibrary(ggplot2)\nggplot(airquality, aes(Temp, Ozone)) + \n  geom_point() + \n  geom_smooth(method = \"loess\")\n```"
-  },
-  {
-    "objectID": "slides/05-quarto/index.html#metadata-yaml-1",
-    "href": "slides/05-quarto/index.html#metadata-yaml-1",
-    "title": "Quarto",
-    "section": "Metadata: YAML",
-    "text": "Metadata: YAML\n“Yet Another Markup Language” or “YAML Ain’t Markup Language”\n---\nkey: value\n---"
-  },
-  {
-    "objectID": "slides/05-quarto/index.html#output-options",
-    "href": "slides/05-quarto/index.html#output-options",
-    "title": "Quarto",
-    "section": "Output Options",
-    "text": "Output Options\n---\nformat: something\n---\n\n---\nformat: html\n---\n---\nformat: pdf\n---\n---\nformat: revealjs\n---"
-  },
-  {
-    "objectID": "slides/05-quarto/index.html#options-on-options",
-    "href": "slides/05-quarto/index.html#options-on-options",
-    "title": "Quarto",
-    "section": "Options on options",
-    "text": "Options on options\nThen add option arguments!\n---\nformat: \n  html:\n    toc: true\n    code-fold: true\n---\n\nSub-options should be below the main format output and spacing matters!\n---\nformat: \n  html:\n    option1: text\n    option2: logical\n---"
-  },
-  {
-    "objectID": "slides/05-quarto/index.html#yaml-for-format-html",
-    "href": "slides/05-quarto/index.html#yaml-for-format-html",
-    "title": "Quarto",
-    "section": "YAML for format: html",
-    "text": "YAML for format: html"
-  },
-  {
-    "objectID": "slides/05-quarto/index.html#yaml-is-sensitive",
-    "href": "slides/05-quarto/index.html#yaml-is-sensitive",
-    "title": "Quarto",
-    "section": "YAML is sensitive",
-    "text": "YAML is sensitive\n---\nformat:html # invalid, no space between\n---\n\n---\nformat: # invalid, read as missing\nhtml\n---\n\n---\nformat: \n  html: # valid but needs next object\n---"
-  },
-  {
-    "objectID": "slides/05-quarto/index.html#anatomy-of-a-code-chunk",
-    "href": "slides/05-quarto/index.html#anatomy-of-a-code-chunk",
-    "title": "Quarto",
-    "section": "Anatomy of a code chunk",
-    "text": "Anatomy of a code chunk\n```{r}\n#| label: car-stuff\n#| echo: false\nmtcars %&gt;% \n  distinct(cyl)\n```\n\n\nHas 3x backticks on each end ```\n\nIndicate engine (r) between curly braces {r}\n\nPlace options underneath, behind the #| (hashpipe):\n\n#| option1: value"
-  },
-  {
-    "objectID": "slides/05-quarto/index.html#quarto-presentations",
-    "href": "slides/05-quarto/index.html#quarto-presentations",
-    "title": "Quarto",
-    "section": "Quarto presentations",
-    "text": "Quarto presentations\n---\nformat: revealjs\n---\n---\nformat: \n  revealjs:\n    slide-number: true\n---"
-  },
-  {
-    "objectID": "slides/05-quarto/index.html#this-quarto-presentation",
-    "href": "slides/05-quarto/index.html#this-quarto-presentation",
-    "title": "Quarto",
-    "section": "This Quarto presentation",
-    "text": "This Quarto presentation\n---\ntitle: Quarto\nsubtitle: R Foundations course\nauthor: Ella Kaye | Department of Statistics | University of Warwick\ntitle-slide-attributes:\n  data-background-color: \"#552D62\"\ndate: 2023-11-16\ndate-format: long\nformat: \n  revealjs:\n    theme: [default, ../../slides.scss]\n    slide-number: true\n    execute:\n      echo: true\n---"
-  },
-  {
-    "objectID": "slides/05-quarto/index.html#more-on-quarto-presentations",
-    "href": "slides/05-quarto/index.html#more-on-quarto-presentations",
-    "title": "Quarto",
-    "section": "More on Quarto presentations",
-    "text": "More on Quarto presentations\n\nOfficial guide\nSlidecraft 101 by Emil Hvitfeldt\n\nColours and Fonts\nCode and Output\nTheme variants\nAdvanced slide themes\n7 tips and tricks"
-  },
-  {
-    "objectID": "slides/05-quarto/index.html#web-publishing-venues",
-    "href": "slides/05-quarto/index.html#web-publishing-venues",
-    "title": "Quarto",
-    "section": "Web publishing venues",
-    "text": "Web publishing venues\n\n\n\nDestination\nDescription\n\n\n\n\nQuarto Pub\nPublishing service for Quarto documents, websites, and books.\n\n\nGitHub Pages\nPublish content based on source code managed within a GitHub repository.\n\n\nPosit Connect\nPublishing platform for secure sharing of data products within an organization.\n\n\nNetlify\nProfessional web publishing platform.\n\n\nConfluence\nPublishing platform for supporting team collaboration.\n\n\n\n… and more."
-  },
-  {
-    "objectID": "slides/05-quarto/index.html#quarto-pub",
-    "href": "slides/05-quarto/index.html#quarto-pub",
-    "title": "Quarto",
-    "section": "Quarto Pub",
-    "text": "Quarto Pub\nVisit https://quartopub.com/ and set up a free account."
-  },
-  {
-    "objectID": "slides/05-quarto/index.html#quarto-publish",
-    "href": "slides/05-quarto/index.html#quarto-publish",
-    "title": "Quarto",
-    "section": "quarto publish",
-    "text": "quarto publish\n\n\n\nAt the Terminal, run:\n\n\n\nquarto publish &lt;document&gt;"
-  },
-  {
-    "objectID": "slides/05-quarto/index.html#resources",
-    "href": "slides/05-quarto/index.html#resources",
-    "title": "Quarto",
-    "section": "Resources",
-    "text": "Resources\n\nhttps://quarto.org: The official documentation\nAwesome Quarto: A curated list of Quarto talks, tools, examples & articles\nBeautiful Reports and Persentations with Quarto\nGetting Started with Quarto workshop website\nQuarto for R and RStudio workshop"
-  },
-  {
-    "objectID": "slides/05-quarto/index.html#resources-1",
-    "href": "slides/05-quarto/index.html#resources-1",
-    "title": "Quarto",
-    "section": "Resources",
-    "text": "Resources\nThese slides are almost entirely copied from Tom Mock’s ‘Getting Started with Quarto’ workshop at rstudio::conf(2022).\n\nWorkshop website\nWorkshop repo\n\nShared under Creative Commons 4.0 License."
-  },
-  {
-    "objectID": "slides/05-quarto/index.html#license",
-    "href": "slides/05-quarto/index.html#license",
-    "title": "Quarto",
     "section": "License",
     "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
   },
@@ -1272,12 +1286,5 @@
     "title": "Data Types, Structures and Wrangling",
     "section": "License",
     "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
-  },
-  {
-    "objectID": "schedule.html",
-    "href": "schedule.html",
-    "title": "Schedule",
-    "section": "",
-    "text": "Time\nSession\n\n\n\n\n09:30–10:00\nCoffee\n\n\n10:00–10:10\nWelcome!\n\n\n10:10–11:25\nIntroduction to R and RStudio\n\n\n11:25–11:40\nCoffee\n\n\n11:40–13:00\nData Types, Structures and Wrangling\n\n\n13:00–13:30\nLunch\n\n\n13:30–15:00\nGraphics\n\n\n15:00–15:15\nCoffee\n\n\n15:15–16:30\nQuarto"
   }
 ]
