@@ -9,7 +9,7 @@
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.549">
+  <meta name="generator" content="quarto-1.4.551">
 
   <meta name="author" content="Heather Turner | Department of Statistics | University of Warwick">
   <meta name="dcterms.date" content="2024-03-21">
@@ -944,11 +944,11 @@ see '?methods' for accessing help and source code</code></pre>
 <section id="parts-of-a-gt-table" class="slide level2">
 <h2>Parts of a gt table</h2>
 
-<img data-src="images/gt_parts_of_a_table.svg" class="quarto-figure quarto-figure-center r-stretch"><p class="caption">From <a href="https://gt.rstudio.com" class="uri">https://gt.rstudio.com</a></p></section>
+<img data-src="images/gt_parts_of_a_table.svg" class="r-stretch quarto-figure-center"><p class="caption">From <a href="https://gt.rstudio.com" class="uri">https://gt.rstudio.com</a></p></section>
 <section id="an-example" class="slide level2">
 <h2>An example</h2>
 
-<img data-src="images/gt-penguins.png" class="quarto-figure quarto-figure-center r-stretch" width="123"><p class="caption">From Albert Rapp’s <a href="https://gt.albert-rapp.de">gt book</a></p></section>
+<img data-src="images/gt-penguins.png" width="123" class="r-stretch quarto-figure-center"><p class="caption">From Albert Rapp’s <a href="https://gt.albert-rapp.de">gt book</a></p></section>
 <section id="resources" class="slide level2">
 <h2>Resources</h2>
 <p>See the article <a href="https://gt.rstudio.com/articles/case-study-gtcars.html">Case Study: gtcars</a> for a thorough example of <strong>gt</strong>’s capabilities.</p>
@@ -1004,6 +1004,7 @@ see '?methods' for accessing help and source code</code></pre>
 <h2>gtsummary example 1: output</h2>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
+<div>
 <div id="cldfftrfso" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#cldfftrfso table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -1512,6 +1513,7 @@ see '?methods' for accessing help and source code</code></pre>
 </div>
 </div>
 </div>
+</div>
 </section>
 <section id="gtsummary-example-2-code" class="slide level2">
 <h2>gtsummary example 2: code</h2>
@@ -1525,6 +1527,7 @@ see '?methods' for accessing help and source code</code></pre>
 <h2>gtsummary example 2: output</h2>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
+<div>
 <div id="vqrgirxorb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#vqrgirxorb table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -2035,6 +2038,7 @@ see '?methods' for accessing help and source code</code></pre>
 </div>
 </div>
 </div>
+</div>
 </section>
 <section id="table-inspiration" class="slide level2">
 <h2>Table inspiration</h2>
@@ -2441,6 +2445,11 @@ div.callout-warning.callout-style-default .callout-title {
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
               // target, if specified
               link.setAttribute("target", "_blank");
               if (link.getAttribute("rel") === null) {
@@ -2484,7 +2493,11 @@ div.callout-warning.callout-style-default .callout-title {
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {

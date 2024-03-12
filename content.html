@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -220,27 +220,27 @@ Title
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-listing-date-sort="1711015200000" data-listing-file-modified-sort="1710157463832" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="20" data-listing-title-sort="Welcome and Introduction" data-listing-filename-sort="index.qmd">
+<tr data-index="0" data-listing-date-sort="1711015200000" data-listing-file-modified-sort="1710239129743" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="20" data-listing-title-sort="Welcome and Introduction" data-listing-filename-sort="index.qmd">
 <td>
 <a href="./content/01-welcome/index.html" class="title listing-title">Welcome and Introduction</a>
 </td>
 </tr>
-<tr data-index="1" data-listing-date-sort="1711015800000" data-listing-file-modified-sort="1710157216658" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="61" data-listing-title-sort="Introduction to R and RStudio" data-listing-filename-sort="index.qmd">
+<tr data-index="1" data-listing-date-sort="1711015800000" data-listing-file-modified-sort="1710239129743" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="61" data-listing-title-sort="Introduction to R and RStudio" data-listing-filename-sort="index.qmd">
 <td>
 <a href="./content/02-intro/index.html" class="title listing-title">Introduction to R and RStudio</a>
 </td>
 </tr>
-<tr data-index="2" data-listing-date-sort="1711021200000" data-listing-file-modified-sort="1710157243509" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="50" data-listing-title-sort="Data Types, Structures and Wrangling" data-listing-filename-sort="index.qmd">
+<tr data-index="2" data-listing-date-sort="1711021200000" data-listing-file-modified-sort="1710239129743" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="50" data-listing-title-sort="Data Types, Structures and Wrangling" data-listing-filename-sort="index.qmd">
 <td>
 <a href="./content/03-data-wrangling/index.html" class="title listing-title">Data Types, Structures and Wrangling</a>
 </td>
 </tr>
-<tr data-index="3" data-listing-date-sort="1711027800000" data-listing-file-modified-sort="1710157270370" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="129" data-listing-title-sort="Graphics" data-listing-filename-sort="index.qmd">
+<tr data-index="3" data-listing-date-sort="1711027800000" data-listing-file-modified-sort="1710239129743" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="129" data-listing-title-sort="Graphics" data-listing-filename-sort="index.qmd">
 <td>
 <a href="./content/04-graphics/index.html" class="title listing-title">Graphics</a>
 </td>
 </tr>
-<tr data-index="4" data-listing-date-sort="1711034100000" data-listing-file-modified-sort="1710157290441" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="56" data-listing-title-sort="Quarto" data-listing-filename-sort="index.qmd">
+<tr data-index="4" data-listing-date-sort="1711034100000" data-listing-file-modified-sort="1710239129743" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="56" data-listing-title-sort="Quarto" data-listing-filename-sort="index.qmd">
 <td>
 <a href="./content/05-quarto/index.html" class="title listing-title">Quarto</a>
 </td>
@@ -341,6 +341,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
           // target, if specified
           link.setAttribute("target", "_blank");
           if (link.getAttribute("rel") === null) {
@@ -382,7 +387,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
