@@ -58,4 +58,10 @@ University of Warwick
 | 15:15--16:30 | [Quarto](content/05-quarto/index.qmd) | 
 :::
 
+## SkillsForge
+
+Sign up by clicking [here](https://skillsforge.warwick.ac.uk/warwick/#he/dev/eventDetails,;em,providerCode=ST,providerOrgAlias=warwick,number=3,) or by going to <https://skillsforge.warwick.ac.uk> and searching for "R for Data Science".
+
+After the course, e-mail [ella.m.kaye@warwick.ac.uk](mailto:ella.m.kaye@warwick.ac.uk) with the password and she'll register you as having attended.
+
 # Let's begin... {.inverse .center-h}
