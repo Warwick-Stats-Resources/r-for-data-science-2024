@@ -35,12 +35,15 @@ University of Warwick
 
 - Website and slides 
   
-  <https://Warwick-Stats-Resources.github.io/r-for-data-science>
+  <https://Warwick-Stats-Resources.github.io/r-for-data-science-2024>
   
 - Website and slides repo
 
-  <https://github.com/Warwick-Stats-Resources/r-for-data-science>
+  <https://github.com/Warwick-Stats-Resources/r-for-data-science-2024>
 
+- Demo repo
+
+  <https://github.com/Warwick-Stats-Resources/r-for-data-science-2024-demo>
   
 ## Schedule
 
