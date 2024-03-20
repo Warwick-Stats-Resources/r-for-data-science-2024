@@ -35,6 +35,258 @@
     "text": "Prerequistes\nPlease see the prerequisites page for details on getting set up in advance of the workshop."
   },
   {
+    "objectID": "slides/03-data-wrangling/index.html#overview",
+    "href": "slides/03-data-wrangling/index.html#overview",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "Overview",
+    "text": "Overview\n\nData types\nData structures\nData import and wrangling"
+  },
+  {
+    "objectID": "slides/03-data-wrangling/index.html#assigning-in-r",
+    "href": "slides/03-data-wrangling/index.html#assigning-in-r",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "Assigning in R",
+    "text": "Assigning in R\nThe assignment operator in R is &lt;-\nWe can create objects in R and assign them names:\n\nx &lt;- 1 + 3\n\nThen we can inspect the objects we have created:\n\nx\n\n[1] 4\n\n\nAnd use them further:\n\nx + 5\n\n[1] 9"
+  },
+  {
+    "objectID": "slides/03-data-wrangling/index.html#naming-objects",
+    "href": "slides/03-data-wrangling/index.html#naming-objects",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "Naming objects",
+    "text": "Naming objects\n\nforbiddengoodbad\n\n\nObject names cannot:\n\nstart with a number\ncontain certain characters like , - ?\ncontain a space (unless in ``, but that is not best practice)\n\n\n\n\nmeaningful yet concise\n\n\nday_one\nday_1\n\nconsistent\n\n\ni_use_snake_case\nother.people.use.periods\nevenOthersUseCamelCase\nThe tidyverse has popularised the use of snake_case. Camel case is a better option for screen readers. The use of periods is discouraged because periods have other uses in R.\n\n\n\nnot meaningful\n\n\nfoo\nbar\n\nunnecessarily long or difficult to read\n\n\nfirst_day_of_month\ndayone\n\ninconsistent"
+  },
+  {
+    "objectID": "slides/03-data-wrangling/index.html#rstudio-demo",
+    "href": "slides/03-data-wrangling/index.html#rstudio-demo",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "RStudio demo",
+    "text": "RStudio demo\nAssigning and environment pane.\nThere is an RStudio shortcut for &lt;- which also puts spaces around it:\nAlt/⌥ + -"
+  },
+  {
+    "objectID": "slides/03-data-wrangling/index.html#basic-data-types-in-r",
+    "href": "slides/03-data-wrangling/index.html#basic-data-types-in-r",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "Basic data types in R",
+    "text": "Basic data types in R\n\ncharacter: \"a\", \"hello, world!\"\ndouble: 3, 3.14, pi\ninteger: 3L (the L tells R to store this as an interger)\nlogical: TRUE and FALSE\ncomplex: 3+2i. N.B. need to write 1i for \\(\\sqrt(-1)\\).\nraw: holds raw bytes (rarely used)\n\nN.B. double and integer types are both numeric"
+  },
+  {
+    "objectID": "slides/03-data-wrangling/index.html#special-values",
+    "href": "slides/03-data-wrangling/index.html#special-values",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "Special values",
+    "text": "Special values\n\nNA: The value NA is given to any data which R knows to be missing. It is not a character string, i.e. it is different to \"NA\"\nInf: Positive infinity, e.g. the result of dividing a non-zero number by zero\nNaN: Not a number, e.g. attempting to find the logarithm of a negative number\nNULL: The null object. Often returned by expressions and functions whose value is undefined"
+  },
+  {
+    "objectID": "slides/03-data-wrangling/index.html#data-structures",
+    "href": "slides/03-data-wrangling/index.html#data-structures",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "Data structures",
+    "text": "Data structures\nData structures are the building blocks of R code.\nIn R, the main types of structures are\n\nvectors\nfactors\nmatrices and arrays\nlists\ndata frames\n\nFocus today on vectors, factors and data frames."
+  },
+  {
+    "objectID": "slides/03-data-wrangling/index.html#vectors",
+    "href": "slides/03-data-wrangling/index.html#vectors",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "Vectors",
+    "text": "Vectors\nA single number is a special case of a numeric vector. Vectors of length greater than one can be created using the concatenate function, c.\n\nx &lt;- c(1, 3, 6)\nfruits &lt;- c(\"apple\", \"pear\")\n\nThe elements of the vector must be of the same type: common types are numeric, character and logical.\nThere are built-in functions for getting information about vectors, e.g.\n\nlength(fruits)\n\n[1] 2"
+  },
+  {
+    "objectID": "slides/03-data-wrangling/index.html#creating-vectors",
+    "href": "slides/03-data-wrangling/index.html#creating-vectors",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "Creating vectors",
+    "text": "Creating vectors\nThere are some useful shortcuts for certain types of vector:\n\n1:5\n\n[1] 1 2 3 4 5\n\nseq(from = 3, to = 5, by = 0.5)\n\n[1] 3.0 3.5 4.0 4.5 5.0\n\nLETTERS\n\n [1] \"A\" \"B\" \"C\" \"D\" \"E\" \"F\" \"G\" \"H\" \"I\" \"J\" \"K\" \"L\" \"M\" \"N\" \"O\" \"P\" \"Q\" \"R\" \"S\"\n[20] \"T\" \"U\" \"V\" \"W\" \"X\" \"Y\" \"Z\"\n\n\nWhat do you think letters returns?"
+  },
+  {
+    "objectID": "slides/03-data-wrangling/index.html#subsetting-vectors",
+    "href": "slides/03-data-wrangling/index.html#subsetting-vectors",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "Subsetting vectors",
+    "text": "Subsetting vectors\nWe subset vectors using []:\n\nBy position, starting at 1\n\n\nletters[c(1, 5, 9, 15, 21)]\n\n[1] \"a\" \"e\" \"i\" \"o\" \"u\"\n\n\n\nBy logical vector\n\n\nx &lt;- c(5, 3, 6, 1)\nx[c(TRUE, FALSE, TRUE, FALSE)]\n\n[1] 5 6\n\n\n\nx[x &gt; 4]\n\n[1] 5 6"
+  },
+  {
+    "objectID": "slides/03-data-wrangling/index.html#your-turn",
+    "href": "slides/03-data-wrangling/index.html#your-turn",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "Your turn!",
+    "text": "Your turn!\n\nIn your R-Foundations project from last week, create and save a new script called data-types.R\nLook at the help page for the rep() function: ?rep\nStarting with the vector x &lt;- c(1,3,6), can you make the following patterns:\n\n1, 3, 6, 1, 3, 6\n1, 1, 3, 3, 6, 6\n1, 1, 3, 3, 6, 6, 1, 1, 3, 3, 6, 6\n\nWhat does rep(x, 2, 2) give? Is it what you expected? Can you explain the output?\n\n\nrep(x, 2) or rep(x, times = 2) rep(x, each = 2) rep(x, 2, each = 2) rep(x, 2, 2) is rep(x, times = 2, length.out = 2)"
+  },
+  {
+    "objectID": "slides/03-data-wrangling/index.html#factors",
+    "href": "slides/03-data-wrangling/index.html#factors",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "Factors",
+    "text": "Factors\nFactors are used to represent categorical data. They can be ordered or unordered.\nFactors are stored as integers, and have labels associated with these unique integers. While factors usually look (and often behave) like character vectors, they are actually integers under the hood, and you need to be careful when treating them like strings."
+  },
+  {
+    "objectID": "slides/03-data-wrangling/index.html#factors-1",
+    "href": "slides/03-data-wrangling/index.html#factors-1",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "Factors",
+    "text": "Factors\nOnce created, factors can only contain a pre-defined set values, known as levels. By default, R always sorts levels in alphabetical order. For instance, if you have a factor with 2 levels:\n\nfruits &lt;- factor(c(\"apple\", \"apple\", \"pear\"))\nfruits\n\n[1] apple apple pear \nLevels: apple pear\n\nstr(fruits)\n\n Factor w/ 2 levels \"apple\",\"pear\": 1 1 2\n\n\nThe forcats package from the tidyverse has many functions for dealing with factors."
+  },
+  {
+    "objectID": "slides/03-data-wrangling/index.html#data-frames",
+    "href": "slides/03-data-wrangling/index.html#data-frames",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "Data frames",
+    "text": "Data frames\nData sets are stored in R as data frames\nThese are structured as a list of objects, typically vectors, of the same length.\n\n\nlibrary(tidyverse)\nlibrary(palmerpenguins)\nstr(penguins)\n\ntibble [344 × 8] (S3: tbl_df/tbl/data.frame)\n $ species          : Factor w/ 3 levels \"Adelie\",\"Chinstrap\",..: 1 1 1 1 1 1 1 1 1 1 ...\n $ island           : Factor w/ 3 levels \"Biscoe\",\"Dream\",..: 3 3 3 3 3 3 3 3 3 3 ...\n $ bill_length_mm   : num [1:344] 39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...\n $ bill_depth_mm    : num [1:344] 18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...\n $ flipper_length_mm: int [1:344] 181 186 195 NA 193 190 181 195 193 190 ...\n $ body_mass_g      : int [1:344] 3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...\n $ sex              : Factor w/ 2 levels \"female\",\"male\": 2 1 1 NA 1 2 1 2 NA NA ...\n $ year             : int [1:344] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ..."
+  },
+  {
+    "objectID": "slides/03-data-wrangling/index.html#tibbles",
+    "href": "slides/03-data-wrangling/index.html#tibbles",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "tibbles",
+    "text": "tibbles\nFrom the tibble page:\n\nA tibble, or tbl_df, is a modern reimagining of the data.frame, keeping what time has proven to be effective, and throwing out what is not. Tibbles are data.frames that are lazy and surly: they do less (i.e. they don’t change variable names or types, and don’t do partial matching) and complain more (e.g. when a variable does not exist). This forces you to confront problems earlier, typically leading to cleaner, more expressive code. Tibbles also have an enhanced print() method which makes them easier to use with large datasets containing complex objects."
+  },
+  {
+    "objectID": "slides/03-data-wrangling/index.html#creating-data-frames",
+    "href": "slides/03-data-wrangling/index.html#creating-data-frames",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "Creating data frames",
+    "text": "Creating data frames\n\n`my numbers` &lt;- 1:9\nfruits &lt;- rep(c(\"apple\", \"pear\", \"orange\"), 3)\n\n\n\n\ndata.frame(`my numbers`, \n           fruits)\n\n  my.numbers fruits\n1          1  apple\n2          2   pear\n3          3 orange\n4          4  apple\n5          5   pear\n6          6 orange\n7          7  apple\n8          8   pear\n9          9 orange\n\n\n\n\ntibble(`my numbers`, \n       fruits)\n\n# A tibble: 9 × 2\n  `my numbers` fruits\n         &lt;int&gt; &lt;chr&gt; \n1            1 apple \n2            2 pear  \n3            3 orange\n4            4 apple \n5            5 pear  \n6            6 orange\n7            7 apple \n8            8 pear  \n9            9 orange\n\n\n\n\nSpot the differences!"
+  },
+  {
+    "objectID": "slides/03-data-wrangling/index.html#import-dataset-button",
+    "href": "slides/03-data-wrangling/index.html#import-dataset-button",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "Import dataset (button)",
+    "text": "Import dataset (button)\nUsing the Import Dataset dialog in RStudio\n\nwe can import files stored locally or online in the following formats:\n\n.txt/.csv via read_delim/read_csv from readr.\n.xlsx via read_excel from readxl.\n.sav/.por , .sas7bdat and .dta via read_spss, read_sas and read_stata respectively from haven.\n\nMost of these functions also allow files to be compressed, e.g. as .zip."
+  },
+  {
+    "objectID": "slides/03-data-wrangling/index.html#file-names-and-paths-and-project-structure",
+    "href": "slides/03-data-wrangling/index.html#file-names-and-paths-and-project-structure",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "File names and paths and project structure",
+    "text": "File names and paths and project structure\nIt’s REALLY important to have good file names and paths, and a good project structure.\nI leave you in the extremely capable hand of Danielle Navarro to take you thoroughly through best practices:\nhttps://djnavarro.net/slides-project-structure/#1\nI also HIGHLY recommend you check out the here package, which enables easy file referencing in project-oriented workflows."
+  },
+  {
+    "objectID": "slides/03-data-wrangling/index.html#import-data-code",
+    "href": "slides/03-data-wrangling/index.html#import-data-code",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "Import data (code)",
+    "text": "Import data (code)\nThe rio package provides a common interface to the functions used by Import Dataset as well as many others.\nThe data format is automatically recognised from the file extension. To read the data in as a tibble, we use the setclass argument.\n\nlibrary(rio)\npenguins_lter &lt;- import(\"data/penguins_lter.csv\")\npenguins_lter_tbl &lt;- import(\"data/penguins_lter.csv\", setclass = \"tibble\")\n\nSee ?rio for the underlying functions used for each format and the corresponding optional arguments, e.g. the skip argument to read_excel to skip a certain number of rows."
+  },
+  {
+    "objectID": "slides/03-data-wrangling/index.html#import-data-demo",
+    "href": "slides/03-data-wrangling/index.html#import-data-demo",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "Import data demo",
+    "text": "Import data demo\nShow both button (in Environment and from the file itself) and code\n\nFrom file\n\ndata/penguins_lter.csv\n\nFrom URL\n\nhttps://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-08-09/wheels.csv\n\nYour turn!"
+  },
+  {
+    "objectID": "slides/03-data-wrangling/index.html#dplyr",
+    "href": "slides/03-data-wrangling/index.html#dplyr",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "dplyr",
+    "text": "dplyr\nThe dplyr package (part of the tidyverse) provides the following key functions to operate on data frames:\n\nfilter()\narrange()\nselect()\nmutate()\nsummarise()\n\nThey all take a data frame as their first argument. The subsequent arguments describe what to do with the data frame. The result is a new data frame."
+  },
+  {
+    "objectID": "slides/03-data-wrangling/index.html#load-packages",
+    "href": "slides/03-data-wrangling/index.html#load-packages",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "Load packages",
+    "text": "Load packages\n\nlibrary(dplyr)\nlibrary(palmerpenguins)"
+  },
+  {
+    "objectID": "slides/03-data-wrangling/index.html#filter-pick-rows-based-on-values-of-observations.",
+    "href": "slides/03-data-wrangling/index.html#filter-pick-rows-based-on-values-of-observations.",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "filter(): pick rows based on values of observations.",
+    "text": "filter(): pick rows based on values of observations.\n\nExampleNotes\n\n\n\n\nfilter(penguins, \n       species == \"Gentoo\", \n       bill_length_mm &gt; 48 & bill_depth_mm &gt; 15, \n       !is.na(sex))\n\n# A tibble: 39 × 8\n   species island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n 1 Gentoo  Biscoe           50            16.3               230        5700\n 2 Gentoo  Biscoe           50            15.2               218        5700\n 3 Gentoo  Biscoe           49            16.1               216        5550\n 4 Gentoo  Biscoe           49.3          15.7               217        5850\n 5 Gentoo  Biscoe           49.2          15.2               221        6300\n 6 Gentoo  Biscoe           48.7          15.1               222        5350\n 7 Gentoo  Biscoe           50            15.3               220        5550\n 8 Gentoo  Biscoe           59.6          17                 230        6050\n 9 Gentoo  Biscoe           48.4          16.3               220        5400\n10 Gentoo  Biscoe           48.7          15.7               208        5350\n# ℹ 29 more rows\n# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;\n\n\n\n\n\n\nvariable names are unquoted\nbuilding blocks of conditions:\n\n\n\n\nBuilding block\nR code\n\n\n\n\nBinary comparisons\n&gt;, &lt;, ==, &lt;=, &gt;=, !=\n\n\nLogical operators\nor |, and &, not !\n\n\nValue matching\ne.g. x %in% 6:9\n\n\nMissing indicator\ne.g. is.na(x)"
+  },
+  {
+    "objectID": "slides/03-data-wrangling/index.html#select-select-variables-columns-in-a-dataset",
+    "href": "slides/03-data-wrangling/index.html#select-select-variables-columns-in-a-dataset",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "select(): select variables (columns) in a dataset",
+    "text": "select(): select variables (columns) in a dataset\n\nExample 1Example 2Example 3Example 4Note\n\n\n\nselect(penguins, bill_length_mm, bill_depth_mm)\n\n# A tibble: 344 × 2\n   bill_length_mm bill_depth_mm\n            &lt;dbl&gt;         &lt;dbl&gt;\n 1           39.1          18.7\n 2           39.5          17.4\n 3           40.3          18  \n 4           NA            NA  \n 5           36.7          19.3\n 6           39.3          20.6\n 7           38.9          17.8\n 8           39.2          19.6\n 9           34.1          18.1\n10           42            20.2\n# ℹ 334 more rows\n\n\n\n\n\nselect(penguins, bill_length_mm:body_mass_g)\n\n# A tibble: 344 × 4\n   bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n            &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n 1           39.1          18.7               181        3750\n 2           39.5          17.4               186        3800\n 3           40.3          18                 195        3250\n 4           NA            NA                  NA          NA\n 5           36.7          19.3               193        3450\n 6           39.3          20.6               190        3650\n 7           38.9          17.8               181        3625\n 8           39.2          19.6               195        4675\n 9           34.1          18.1               193        3475\n10           42            20.2               190        4250\n# ℹ 334 more rows\n\n\n\n\n\nselect(penguins, starts_with(\"bill\"))\n\n# A tibble: 344 × 2\n   bill_length_mm bill_depth_mm\n            &lt;dbl&gt;         &lt;dbl&gt;\n 1           39.1          18.7\n 2           39.5          17.4\n 3           40.3          18  \n 4           NA            NA  \n 5           36.7          19.3\n 6           39.3          20.6\n 7           38.9          17.8\n 8           39.2          19.6\n 9           34.1          18.1\n10           42            20.2\n# ℹ 334 more rows\n\n\n\n\n\nselect(penguins, where(is.numeric))\n\n# A tibble: 344 × 5\n   bill_length_mm bill_depth_mm flipper_length_mm body_mass_g  year\n            &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt; &lt;int&gt;\n 1           39.1          18.7               181        3750  2007\n 2           39.5          17.4               186        3800  2007\n 3           40.3          18                 195        3250  2007\n 4           NA            NA                  NA          NA  2007\n 5           36.7          19.3               193        3450  2007\n 6           39.3          20.6               190        3650  2007\n 7           38.9          17.8               181        3625  2007\n 8           39.2          19.6               195        4675  2007\n 9           34.1          18.1               193        3475  2007\n10           42            20.2               190        4250  2007\n# ℹ 334 more rows\n\n\n\n\nThere are several other selectors. See ?dplyr::select or online for further details."
+  },
+  {
+    "objectID": "slides/03-data-wrangling/index.html#a-note-about-pipes-vs",
+    "href": "slides/03-data-wrangling/index.html#a-note-about-pipes-vs",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "A note about pipes: |> vs %>%",
+    "text": "A note about pipes: |&gt; vs %&gt;%\nPipes pass what comes before into an argument (by default the first) of what comes after.\nPipes are a powerful tool for clearly expressing a sequence of multiple operations.\n\n\n|&gt;\n\nThe ‘native’ pipe, built into base R since v4.1 (May 2021)\nImproved in v4.2 (April 2022)\n\n\n%&gt;%\n\nHas been around in the magrittr package since 2014\nUsed throughout the tidyverse (though that is changing)"
+  },
+  {
+    "objectID": "slides/03-data-wrangling/index.html#pipes-similarity",
+    "href": "slides/03-data-wrangling/index.html#pipes-similarity",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "Pipes: similarity",
+    "text": "Pipes: similarity\nBy default, a pipe takes what comes before and pass it to first argument of what comes after.\n\nExample 1Example 2\n\n\n\nlog(2, base = 10)\n\n[1] 0.30103\n\n2 %&gt;% log(base = 10)\n\n[1] 0.30103\n\n2 |&gt; log(base = 10)\n\n[1] 0.30103\n\n\n\n\n\npaste(\"a\", \"b\", \"c\")\n\n[1] \"a b c\"\n\n\"a\" %&gt;% paste(\"b\", \"c\")\n\n[1] \"a b c\"\n\n\"a\" |&gt; paste(\"b\", \"c\")\n\n[1] \"a b c\""
+  },
+  {
+    "objectID": "slides/03-data-wrangling/index.html#pipes-key-difference",
+    "href": "slides/03-data-wrangling/index.html#pipes-key-difference",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "Pipes: key difference",
+    "text": "Pipes: key difference\nSo far, so good, but what if we want to pipe into a subsequent argument?\n\nExample 1Example 2\n\n\n\nlog(2, 10) ## don't need to name the argument\n\n[1] 0.30103\n\n10 %&gt;% log(2, .)\n\n[1] 0.30103\n\n10 |&gt; log(2, base = _)\n\n[1] 0.30103\n\n\n\n\n\npaste(\"a\", \"b\", \"c\")\n\n[1] \"a b c\"\n\n\"b\" %&gt;% paste(\"a\", ., \"c\")\n\n[1] \"a b c\"\n\n\"b\" |&gt; paste(\"a\", ..2 = _, \"c\")\n\n[1] \"a b c\"\n\n\n\n\n\nDifferent placeholder (. vs _) and with native pipe need a named argument"
+  },
+  {
+    "objectID": "slides/03-data-wrangling/index.html#pipe-keyboard-shortcut",
+    "href": "slides/03-data-wrangling/index.html#pipe-keyboard-shortcut",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "Pipe keyboard shortcut",
+    "text": "Pipe keyboard shortcut\nThere is an RStudio shortcut for the pipe which also puts spaces around it:\nCtrl/⌘ + ⇧ + M.\nThis can be set to either %&gt;% or |&gt; in the RStudio preferences.\nGo to Tools -&gt; Global Options -&gt; Code and check/uncheck box for “Use native pipe operator”."
+  },
+  {
+    "objectID": "slides/03-data-wrangling/index.html#arrange-change-the-ordering-of-rows",
+    "href": "slides/03-data-wrangling/index.html#arrange-change-the-ordering-of-rows",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "arrange(): change the ordering of rows",
+    "text": "arrange(): change the ordering of rows\n\nExample 1Example 2Example 3\n\n\n\npenguins |&gt;\n  select(species, sex, flipper_length_mm) |&gt;\n  arrange(flipper_length_mm)\n\n# A tibble: 344 × 3\n   species   sex    flipper_length_mm\n   &lt;fct&gt;     &lt;fct&gt;              &lt;int&gt;\n 1 Adelie    female               172\n 2 Adelie    female               174\n 3 Adelie    female               176\n 4 Adelie    female               178\n 5 Adelie    male                 178\n 6 Adelie    female               178\n 7 Chinstrap female               178\n 8 Adelie    &lt;NA&gt;                 179\n 9 Adelie    &lt;NA&gt;                 180\n10 Adelie    male                 180\n# ℹ 334 more rows\n\n\n\n\n\npenguins |&gt;\n  select(species, sex, flipper_length_mm) |&gt;\n  arrange(species, flipper_length_mm)\n\n# A tibble: 344 × 3\n   species sex    flipper_length_mm\n   &lt;fct&gt;   &lt;fct&gt;              &lt;int&gt;\n 1 Adelie  female               172\n 2 Adelie  female               174\n 3 Adelie  female               176\n 4 Adelie  female               178\n 5 Adelie  male                 178\n 6 Adelie  female               178\n 7 Adelie  &lt;NA&gt;                 179\n 8 Adelie  &lt;NA&gt;                 180\n 9 Adelie  male                 180\n10 Adelie  male                 180\n# ℹ 334 more rows\n\n\n\n\n\npenguins |&gt;\n  select(species, sex, flipper_length_mm) |&gt;\n  arrange(desc(flipper_length_mm))\n\n# A tibble: 344 × 3\n   species sex   flipper_length_mm\n   &lt;fct&gt;   &lt;fct&gt;             &lt;int&gt;\n 1 Gentoo  male                231\n 2 Gentoo  male                230\n 3 Gentoo  male                230\n 4 Gentoo  male                230\n 5 Gentoo  male                230\n 6 Gentoo  male                230\n 7 Gentoo  male                230\n 8 Gentoo  male                230\n 9 Gentoo  male                229\n10 Gentoo  male                229\n# ℹ 334 more rows"
+  },
+  {
+    "objectID": "slides/03-data-wrangling/index.html#mutate-create-and-modify-columns",
+    "href": "slides/03-data-wrangling/index.html#mutate-create-and-modify-columns",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "mutate(): create and modify columns",
+    "text": "mutate(): create and modify columns\n\nExample 1Example 2Example 3\n\n\n\npenguins |&gt;\n  select(bill_length_mm) |&gt;\n  mutate(bill_length_mm_sq = bill_length_mm^2)\n\n# A tibble: 344 × 2\n   bill_length_mm bill_length_mm_sq\n            &lt;dbl&gt;             &lt;dbl&gt;\n 1           39.1             1529.\n 2           39.5             1560.\n 3           40.3             1624.\n 4           NA                 NA \n 5           36.7             1347.\n 6           39.3             1544.\n 7           38.9             1513.\n 8           39.2             1537.\n 9           34.1             1163.\n10           42               1764 \n# ℹ 334 more rows\n\n\n\n\n\npenguins |&gt;\n  filter(species == \"Gentoo\") |&gt;\n  select(sex, flipper_length_mm) |&gt;\n  mutate(size = if_else(flipper_length_mm &gt; 217, \"big\", \"small\"))\n\n# A tibble: 124 × 3\n   sex    flipper_length_mm size \n   &lt;fct&gt;              &lt;int&gt; &lt;chr&gt;\n 1 female               211 small\n 2 male                 230 big  \n 3 female               210 small\n 4 male                 218 big  \n 5 male                 215 small\n 6 female               210 small\n 7 female               211 small\n 8 male                 219 big  \n 9 female               209 small\n10 male                 215 small\n# ℹ 114 more rows\n\n\n\n\n\npenguins |&gt;\n  select(bill_length_mm) |&gt;\n  filter(!is.na(bill_length_mm)) |&gt;\n  mutate(bill_length_mm_cumsum = cumsum(bill_length_mm))\n\n# A tibble: 342 × 2\n   bill_length_mm bill_length_mm_cumsum\n            &lt;dbl&gt;                 &lt;dbl&gt;\n 1           39.1                  39.1\n 2           39.5                  78.6\n 3           40.3                 119. \n 4           36.7                 156. \n 5           39.3                 195. \n 6           38.9                 234. \n 7           39.2                 273  \n 8           34.1                 307. \n 9           42                   349. \n10           37.8                 387. \n# ℹ 332 more rows"
+  },
+  {
+    "objectID": "slides/03-data-wrangling/index.html#summarise-reduces-multiple-values-down-to-a-single-summary",
+    "href": "slides/03-data-wrangling/index.html#summarise-reduces-multiple-values-down-to-a-single-summary",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "summarise(): reduces multiple values down to a single summary",
+    "text": "summarise(): reduces multiple values down to a single summary\n\nExample 1Example 2Example 3Example 4: count\n\n\n\npenguins |&gt;\n  summarise(mean(body_mass_g, na.rm = TRUE))  \n\n# A tibble: 1 × 1\n  `mean(body_mass_g, na.rm = TRUE)`\n                              &lt;dbl&gt;\n1                             4202.\n\n\n\n\n\npenguins |&gt;\n  group_by(species, sex) |&gt;\n  filter(!is.na(sex)) |&gt;\n  summarise(mean = mean(body_mass_g, na.rm = TRUE)) |&gt;  # give column a name\n  ungroup() # best practice after group_by()\n\n# A tibble: 6 × 3\n  species   sex     mean\n  &lt;fct&gt;     &lt;fct&gt;  &lt;dbl&gt;\n1 Adelie    female 3369.\n2 Adelie    male   4043.\n3 Chinstrap female 3527.\n4 Chinstrap male   3939.\n5 Gentoo    female 4680.\n6 Gentoo    male   5485.\n\n\n\n\n\npenguins |&gt;\n  filter(!is.na(sex)) |&gt;\n  summarise(mean = mean(body_mass_g, na.rm = TRUE),\n            .by = c(species, sex)) # new in dplyr 1.1.0, note the `.`\n\n# A tibble: 6 × 3\n  species   sex     mean\n  &lt;fct&gt;     &lt;fct&gt;  &lt;dbl&gt;\n1 Adelie    male   4043.\n2 Adelie    female 3369.\n3 Gentoo    female 4680.\n4 Gentoo    male   5485.\n5 Chinstrap female 3527.\n6 Chinstrap male   3939.\n\n\n\n\n\npenguins |&gt;\n  count(species, island)\n\n# A tibble: 5 × 3\n  species   island        n\n  &lt;fct&gt;     &lt;fct&gt;     &lt;int&gt;\n1 Adelie    Biscoe       44\n2 Adelie    Dream        56\n3 Adelie    Torgersen    52\n4 Chinstrap Dream        68\n5 Gentoo    Biscoe      124\n\n\nShortcut for\n\npenguins |&gt;\n  summarise(n = n(), .by = c(species, island))\n\n\n\n\n\ncount() and summarise(n = n()) give different orderings"
+  },
+  {
+    "objectID": "slides/03-data-wrangling/index.html#your-turn-1",
+    "href": "slides/03-data-wrangling/index.html#your-turn-1",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "Your turn!",
+    "text": "Your turn!\n\nExplore the wheels data!\nBe ready to share some of your code in the chat"
+  },
+  {
+    "objectID": "slides/03-data-wrangling/index.html#tidydatatutor.com",
+    "href": "slides/03-data-wrangling/index.html#tidydatatutor.com",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "tidydatatutor.com",
+    "text": "tidydatatutor.com\nTidy Data Tutor lets you write R and Tidyverse code in your browser and see how your data frame changes at each step of a data analysis pipeline.\nDEMO"
+  },
+  {
+    "objectID": "slides/03-data-wrangling/index.html#additional-resources",
+    "href": "slides/03-data-wrangling/index.html#additional-resources",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "Additional resources",
+    "text": "Additional resources\n\nRStudio cheatsheets\nR for data science book\nferriswheels"
+  },
+  {
+    "objectID": "slides/03-data-wrangling/index.html#sources",
+    "href": "slides/03-data-wrangling/index.html#sources",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "Sources",
+    "text": "Sources\nMaterial inspired by and remixed from:\n\nhttps://stat545.com/r-basics.html\nhttps://swcarpentry.github.io/r-novice-inflammation/13-supp-data-structures/\nhttps://slides.silviacanelon.com/tour-of-the-tidyverse-v2/\nhttps://www.heatherturner.net/teaching/zero-to-hero/\nhttp://adv-r.had.co.nz/Style.html"
+  },
+  {
+    "objectID": "slides/03-data-wrangling/index.html#license",
+    "href": "slides/03-data-wrangling/index.html#license",
+    "title": "Data Types, Structures and Wrangling",
+    "section": "License",
+    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
+  },
+  {
     "objectID": "slides/02-intro/index.html#overview",
     "href": "slides/02-intro/index.html#overview",
     "title": "Introduction to R and RStudio",
@@ -60,7 +312,7 @@
     "href": "slides/02-intro/index.html#the-r-ecosystem-1",
     "title": "Introduction to R and RStudio",
     "section": "The R Ecosystem",
-    "text": "The R Ecosystem\nContributed packages\n\n\nCRAN\n\nOfficial R repository\nhttps://cran.r-project.org\nnearly 20000 packages\n\n\nBioconductor\n\nBioinformatics packages\nhttps://www.bioconductor.org\n~2100 packages\n\n\n\nGitHub\n\nPackages in development\nGitHub-only packages"
+    "text": "The R Ecosystem\nContributed packages\n\n\nCRAN\n\nOfficial R repository\nhttps://cran.r-project.org\nover 20000 packages\n\n\nBioconductor\n\nBioinformatics packages\nhttps://www.bioconductor.org\nover 2000 packages\n\n\n\nGitHub\n\nPackages in development\nGitHub-only packages"
   },
   {
     "objectID": "slides/02-intro/index.html#the-tidyverse",
@@ -116,7 +368,7 @@
     "href": "slides/02-intro/index.html#rstudio-project-demo",
     "title": "Introduction to R and RStudio",
     "section": "RStudio project demo",
-    "text": "RStudio project demo\n\nCreate R-Foundations project\nCreate first script"
+    "text": "RStudio project demo\n\nCreate R-Foundations project\nCreate first script\n\n\n\nShow how to create a new project\n\nShow .Rproj file, name of project in top-right corner\n\nShow menu/buttons to open up a new R script (empty!)"
   },
   {
     "objectID": "slides/02-intro/index.html#using-the-console",
@@ -137,7 +389,7 @@
     "href": "slides/02-intro/index.html#using-the-console-demo",
     "title": "Introduction to R and RStudio",
     "section": "Using the console: demo",
-    "text": "Using the console: demo\n1 + 1\n?log\nlog(10)\nexp(-4 * 4 / 2) / sqrt(2 * pi)\ninstall.packages(\"tidyverse\")\ninstall.packages(\"palmerpenguins\")"
+    "text": "Using the console: demo\n1 + 1\n?log\nlog(10)\nexp(-4 * 4 / 2) / sqrt(2 * pi)\ninstall.packages(\"tidyverse\")\ninstall.packages(\"palmerpenguins\")\n\nType above code into the console! - explain [1] that shows in print out - only need to install packages once per version of R"
   },
   {
     "objectID": "slides/02-intro/index.html#using-scripts",
@@ -158,7 +410,7 @@
     "href": "slides/02-intro/index.html#good-practice-for-r-scripts",
     "title": "Introduction to R and RStudio",
     "section": "Good practice for R Scripts",
-    "text": "Good practice for R Scripts\nOrganising your R script well will help you and others understand and use it.\n\nAdd comment or two at start to describe purpose of script\n\nUse one or more # to start a comment\n\nLoad required data and packages at the start\nAvoid hard-coding: define variables such as file paths early on\nGive functions and variable meaningful names\nuse ### or #--- to separate sections (in RStudio Code &gt; Insert Section)"
+    "text": "Good practice for R Scripts\nOrganising your R script well will help you and others understand and use it.\n\nAdd comment or two at start to describe purpose of script\n\nUse one or more # to start a comment\n\nLoad required data and packages at the start\nAvoid hard-coding: define variables such as file paths early on\nGive functions and variable meaningful names\nAdd ---- to comment to separate sections (in RStudio Code &gt; Insert Section)"
   },
   {
     "objectID": "slides/02-intro/index.html#installing-packages",
@@ -200,7 +452,7 @@
     "href": "slides/02-intro/index.html#within-r-help-with-package",
     "title": "Introduction to R and RStudio",
     "section": "Within R: Help with package",
-    "text": "Within R: Help with package\n\n# `help`\nhelp(package = \"package_name\")\n# Help panel in RStudio will give links to all documentation\n# and help pages for that package\n\n# find/browse vignettes for installed (or specific) packages\nbrowseVignettes()\nbrowseVignettes(\"package_name\")\n\n# use auto-completion in RStudio to see what functions \n# are in a package\n?package::\n\ndplyr demo\nRStudio Help home demo"
+    "text": "Within R: Help with package\n\n# `help`\nhelp(package = \"package_name\")\n# Help panel in RStudio will give links to all documentation\n# and help pages for that package\n\n# find/browse vignettes for installed (or specific) packages\nbrowseVignettes()\nbrowseVignettes(\"package_name\")\n\n# use auto-completion in RStudio to see what functions \n# are in a package\n?package::\n\ndplyr demo\nRStudio Help home demo\n\nhelp(package = “dplyr”) # look at various pages ?dplyr::"
   },
   {
     "objectID": "slides/02-intro/index.html#your-turn",
@@ -214,7 +466,7 @@
     "href": "slides/02-intro/index.html#getting-help-at-warwick",
     "title": "Introduction to R and RStudio",
     "section": "Getting help at Warwick",
-    "text": "Getting help at Warwick\nDuring the course\n\nClinic hours: Thursday 10-11 in weeks 3, 5 and 9.\n\nIn general\n\nThe Warwick R Users Viva Engage"
+    "text": "Getting help at Warwick\nAny time\n\nThe Warwick R Users Viva Engage\n\nBy appointment\n\nResearch computing drop-in: https://warwick.ac.uk/research/rtp/sc/user_support/research-computing-drop-in/\n\nContact Heather at h.turner.1@warwick.ac.uk to arrange a meeting."
   },
   {
     "objectID": "slides/02-intro/index.html#the-data",
@@ -235,7 +487,7 @@
     "href": "slides/02-intro/index.html#how-many-of-each-species-on-each-island",
     "title": "Introduction to R and RStudio",
     "section": "How many of each species on each island?",
-    "text": "How many of each species on each island?\n\ncount(penguins, species, island, .drop = FALSE)\n\n# A tibble: 9 × 3\n  species   island        n\n  &lt;fct&gt;     &lt;fct&gt;     &lt;int&gt;\n1 Adelie    Biscoe       44\n2 Adelie    Dream        56\n3 Adelie    Torgersen    52\n4 Chinstrap Biscoe        0\n5 Chinstrap Dream        68\n6 Chinstrap Torgersen     0\n7 Gentoo    Biscoe      124\n8 Gentoo    Dream         0\n9 Gentoo    Torgersen     0"
+    "text": "How many of each species on each island?\n\ncount(penguins, species, island, .drop = FALSE)\n\n# A tibble: 9 × 3\n  species   island        n\n  &lt;fct&gt;     &lt;fct&gt;     &lt;int&gt;\n1 Adelie    Biscoe       44\n2 Adelie    Dream        56\n3 Adelie    Torgersen    52\n4 Chinstrap Biscoe        0\n5 Chinstrap Dream        68\n6 Chinstrap Torgersen     0\n7 Gentoo    Biscoe      124\n8 Gentoo    Dream         0\n9 Gentoo    Torgersen     0\n\n\n\n.drop = FALSE to show count even if zero"
   },
   {
     "objectID": "slides/02-intro/index.html#show-me-the-bill-dimensions-of-the-5-heaviest-female-gentoo-penguins",
@@ -270,7 +522,7 @@
     "href": "slides/02-intro/index.html#resources",
     "title": "Introduction to R and RStudio",
     "section": "Resources",
-    "text": "Resources\nMaterial inspired by and remixed from:\n\nhttps://www.heatherturner.net/teaching/zero-to-hero/#1\nhttps://ellakaye.github.io/Rladies-Coventry-getting-help-in-R/getting_help_in_R.html#1\nhttps://portal.stats.ox.ac.uk/userdata/ruth/APTS2013/Rcourse1.pdf\nhttps://carpentries-incubator.github.io/r-tidyverse-4-datasets/"
+    "text": "Resources\nMaterial inspired by and remixed from:\n\nhttps://www.heatherturner.net/teaching/zero-to-hero/#1\nhttps://ellakaye.github.io/Rladies-Coventry-getting-help-in-R/getting_help_in_R.html#1\nhttps://portal.stats.ox.ac.uk/userdata/ruth/APTS2013/Rcourse1.pdf\nhttps://carpentries-incubator.github.io/r-tidyverse-4-datasets/\n\n\nSee also resources on session webpage (under slide embed) - example webpages for specific tidyverse packages. - usethis::browse_package() to open e.g. open dplyr package website - customise appearance of RStudio"
   },
   {
     "objectID": "slides/02-intro/index.html#license",
@@ -278,34 +530,6 @@
     "title": "Introduction to R and RStudio",
     "section": "License",
     "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
-  },
-  {
-    "objectID": "slides/01-welcome/index.html#your-instructor",
-    "href": "slides/01-welcome/index.html#your-instructor",
-    "title": "Welcome and Introduction",
-    "section": "Your instructor",
-    "text": "Your instructor\n\n\nHeather Turner\nRSE Fellow, Department of Statistics\nUniversity of Warwick\nhttps://warwick.ac.uk/heatherturner"
-  },
-  {
-    "objectID": "slides/01-welcome/index.html#course-material",
-    "href": "slides/01-welcome/index.html#course-material",
-    "title": "Welcome and Introduction",
-    "section": "Course material",
-    "text": "Course material\n\nWebsite and slides\nhttps://Warwick-Stats-Resources.github.io/r-for-data-science-2024\nWebsite and slides repo\nhttps://github.com/Warwick-Stats-Resources/r-for-data-science-2024\nDemo repo\nhttps://github.com/Warwick-Stats-Resources/r-for-data-science-2024-demo"
-  },
-  {
-    "objectID": "slides/01-welcome/index.html#schedule",
-    "href": "slides/01-welcome/index.html#schedule",
-    "title": "Welcome and Introduction",
-    "section": "Schedule",
-    "text": "Schedule\n\n\n\n\nTime\nSession\n\n\n\n\n09:30–10:00\nCoffee\n\n\n10:00–10:10\nWelcome!\n\n\n10:10–11:25\nIntroduction to R and RStudio\n\n\n11:25–11:40\nCoffee\n\n\n11:40–13:00\nData Types, Structures and Wrangling\n\n\n13:00–13:30\nLunch\n\n\n13:30–15:00\nGraphics\n\n\n15:00–15:15\nCoffee\n\n\n15:15–16:30\nQuarto"
-  },
-  {
-    "objectID": "slides/01-welcome/index.html#skillsforge",
-    "href": "slides/01-welcome/index.html#skillsforge",
-    "title": "Welcome and Introduction",
-    "section": "SkillsForge",
-    "text": "SkillsForge\nSign up by clicking here or by going to https://skillsforge.warwick.ac.uk and searching for “R for Data Science”.\nAfter the course, e-mail ella.m.kaye@warwick.ac.uk with the password and she’ll register you as having attended.\nYou will be given the password at the end of the course."
   },
   {
     "objectID": "slides/04-graphics/index.html#overview",
@@ -644,13 +868,6 @@
     "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
   },
   {
-    "objectID": "join.html",
-    "href": "join.html",
-    "title": "Join the class",
-    "section": "",
-    "text": "This workshop is now full.\nPlease fill in the following form to register interest in future courses: https://warwick.ac.uk/research/rtp/sc/rse/training/register-interest/"
-  },
-  {
     "objectID": "content/03-data-wrangling/index.html",
     "href": "content/03-data-wrangling/index.html",
     "title": "Data Types, Structures and Wrangling",
@@ -672,39 +889,25 @@
     "text": "Resources\n\nR and RStudio\n\nRStudio cheatsheets\ndplyr cheatsheet\nR for data science book\n\n\n\nPackages\n\ndplyr\nhttps://dplyr.tidyverse.org\nforcats\nhttps://forcats.tidyverse.org\nferriswheels\nhttps://github.com/EmilHvitfeldt/ferriswheels\nhere\nhttps://here.r-lib.org"
   },
   {
-    "objectID": "content/05-quarto/index.html",
-    "href": "content/05-quarto/index.html",
-    "title": "Quarto",
+    "objectID": "content/02-intro/index.html",
+    "href": "content/02-intro/index.html",
+    "title": "Introduction to R and RStudio",
     "section": "",
     "text": "Here’s a link to the slides in a new window.\nHere are the slides embedded:"
   },
   {
-    "objectID": "content/05-quarto/index.html#slides",
-    "href": "content/05-quarto/index.html#slides",
-    "title": "Quarto",
+    "objectID": "content/02-intro/index.html#slides",
+    "href": "content/02-intro/index.html#slides",
+    "title": "Introduction to R and RStudio",
     "section": "",
     "text": "Here’s a link to the slides in a new window.\nHere are the slides embedded:"
   },
   {
-    "objectID": "content/05-quarto/index.html#resources",
-    "href": "content/05-quarto/index.html#resources",
-    "title": "Quarto",
+    "objectID": "content/02-intro/index.html#resources",
+    "href": "content/02-intro/index.html#resources",
+    "title": "Introduction to R and RStudio",
     "section": "Resources",
-    "text": "Resources\n\nReading\n\nhttps://quarto.org: The official documentation\nAwesome Quarto: A curated list of Quarto talks, tools, examples & articles\nBeautiful Reports and Persentations with Quarto\nGetting Started with Quarto workshop website\nQuarto for R and RStudio workshop"
-  },
-  {
-    "objectID": "content.html",
-    "href": "content.html",
-    "title": "Content",
-    "section": "",
-    "text": "Title\n\n\n\n\n\n\nWelcome and Introduction\n\n\n\n\nIntroduction to R and RStudio\n\n\n\n\nData Types, Structures and Wrangling\n\n\n\n\nGraphics\n\n\n\n\nQuarto\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "prerequisites.html",
-    "href": "prerequisites.html",
-    "title": "Getting set up",
-    "section": "",
-    "text": "Please ensure that you have the latest versions of R and RStudio installed prior to the first session. Currently, that’s R-4.3.3 and RStudio-2023.12.1.\nWe also strongly recommend you install the development tools to avoid potential issues installing packages.\n\nInstalling R\nDownload the pre-compiled binary for your OS from https://cloud.r-project.org/ and install. More specifically:\nFor Windows\nClick “Download R for Windows”, then “base”, then “Download R-4.3.3 for Windows”. This will download an .exe file; once downloaded, open to start the installation.\nFor Mac\nClick “Download R for macOS”, then “R-4.3.3-arm64.pkg” (the first option) to download the installer for Macs with Apple Silicon chips or “R-4.3.3-x86_64.pkg” (the second option) to download the installer for Macs with Intel chips. Run the installer to complete installation.\nFor Linux\nClick “Download R for Linux”. Instructions on installing are given for Debian, Fedora, Redhat, Suse and Ubuntu distributions. Where there is a choice, install both r-base and r-base-dev.\n\n\nInstalling R Studio Desktop (Open Source Edition)\nDownloads are available from https://posit.co/download/rstudio-desktop/\nDownload the relevant installer either under the “Install RStudio” header or, scrolling down the page, from the ‘All installers and Tarballs’ section. Run the installer to complete installation.\nFor Windows with no admin rights\nDownload the .zip source archive under “Zip/Tarballs”. Extract the files to a folder where you have write access, e.g. C:\\Users\\username\\RStudio. In this folder, open the bin directory and find the RStudio program: it is named rstudio.exe, but the file extension will typically be hidden, so look for rstudio. Right-click this executable to create a desktop shortcut. Double-click the executable or use the shortcut to open.\nFor all other operating systems\nDownload the relevant installer for your OS listed under “Installers for Supported Platforms”. Run the installer to complete installation.\n\n\nDevelopment Tools\nSome additional tools may be required to compile R packages from source.\nFor Windows with no admin rights\nDownload the latest (recommended) Rtools installer, Rtools.exe, from https://cran.r-project.org/bin/windows/Rtools/. Run the installer keeping the default settings.\nFor Windows with admin rights\nDownload the latest Rtools installer, Rtools.exe, from https://cran.r-project.org/bin/windows/Rtools/. Run the installer making the following selections: keep the default settings for the installation location and components to install; check the box to add rtools to the system PATH.\nFor Mac\nInstall XCode. Either:\n\nDownload and install XCode from the Mac AppStore: http://itunes.apple.com/us/app/xcode/id497799835?mt=12\nWithin XCode go to Preferences : Downloads and install the Command Line Tools\n\nOr for a smaller download size:\n\nRegister as an Apple Developer (free) here: https://developer.apple.com/programs/register/\nDownload the Command Line Tools for XCode appropriate for the version of OS X you are running from here: https://developer.apple.com/downloads/\n\nFor Linux\nIf you installed r-base-dev, when installing R, you should have all you need to build packages from source. Otherwise return to the instructions for installing R for your distribution and follow the instructions there to install the additional tools."
+    "text": "Resources\n\nR and RStudio\n\nRStudio IDE cheatsheet\nhttps://rstudio.github.io/cheatsheets/html/rstudio-ide.html\nBeginner resources from the RStudio Education team\nhttps://education.rstudio.com/learn/beginner/\nIntroduction to R and RStudio from the Carpentries\nhttps://carpentries-incubator.github.io/r-tidyverse-4-datasets/01-project-introduction.html\n\n\n\nPackages\n\ntidyverse\nhttps://www.tidyverse.org\npalmerpenguins\nhttps://allisonhorst.github.io/palmerpenguins/index.html"
   },
   {
     "objectID": "content/04-graphics/index.html",
@@ -728,6 +931,48 @@
     "text": "Resources\n\nReading\n\nggplot2: Elegant Graphics for Data Analysis (for an in-depth understanding)\nR for Data Science book: Chapters 3: Data Visualisation and 28: Graphics for Communication, to get up and running quickly\nPlotting anything with ggplot2 webinar with Thomas Lin Pederson (one of the main ggplot2 authors)\nR graphics cookbook, a practical guide that provides more than 150 recipes to help you generate high-quality graphs quickly\nCedric Scherer’s tutorial\nCedric Scherer’s ‘Engaging and Beautiful Data Visualizations with ggplot2’ workshop\nggplot2 reference\n\n\n\nPackages\n\nggplot2\nhttps://ggplot2.tidyverse.org\ngt\nhttps://gt.rstudio.com\ngtsummary\nhttps://www.danieldsjoberg.com/gtsummary/"
   },
   {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "Schedule",
+    "section": "",
+    "text": "Time\nSession\n\n\n\n\n09:30–10:00\nCoffee\n\n\n10:00–10:10\nWelcome!\n\n\n10:10–11:25\nIntroduction to R and RStudio\n\n\n11:25–11:40\nCoffee\n\n\n11:40–13:00\nData Types, Structures and Wrangling\n\n\n13:00–13:30\nLunch\n\n\n13:30–15:00\nGraphics\n\n\n15:00–15:15\nCoffee\n\n\n15:15–16:30\nQuarto"
+  },
+  {
+    "objectID": "content.html",
+    "href": "content.html",
+    "title": "Content",
+    "section": "",
+    "text": "Title\n\n\n\n\n\n\nWelcome and Introduction\n\n\n\n\nIntroduction to R and RStudio\n\n\n\n\nData Types, Structures and Wrangling\n\n\n\n\nGraphics\n\n\n\n\nQuarto\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "join.html",
+    "href": "join.html",
+    "title": "Join the class",
+    "section": "",
+    "text": "This workshop is now full.\nPlease fill in the following form to register interest in future courses: https://warwick.ac.uk/research/rtp/sc/rse/training/register-interest/"
+  },
+  {
+    "objectID": "content/05-quarto/index.html",
+    "href": "content/05-quarto/index.html",
+    "title": "Quarto",
+    "section": "",
+    "text": "Here’s a link to the slides in a new window.\nHere are the slides embedded:"
+  },
+  {
+    "objectID": "content/05-quarto/index.html#slides",
+    "href": "content/05-quarto/index.html#slides",
+    "title": "Quarto",
+    "section": "",
+    "text": "Here’s a link to the slides in a new window.\nHere are the slides embedded:"
+  },
+  {
+    "objectID": "content/05-quarto/index.html#resources",
+    "href": "content/05-quarto/index.html#resources",
+    "title": "Quarto",
+    "section": "Resources",
+    "text": "Resources\n\nReading\n\nhttps://quarto.org: The official documentation\nAwesome Quarto: A curated list of Quarto talks, tools, examples & articles\nBeautiful Reports and Persentations with Quarto\nGetting Started with Quarto workshop website\nQuarto for R and RStudio workshop"
+  },
+  {
     "objectID": "content/01-welcome/index.html",
     "href": "content/01-welcome/index.html",
     "title": "Welcome and Introduction",
@@ -740,27 +985,6 @@
     "title": "Welcome and Introduction",
     "section": "",
     "text": "Here’s a link to the slides in a new window.\nHere are the slides embedded:"
-  },
-  {
-    "objectID": "content/02-intro/index.html",
-    "href": "content/02-intro/index.html",
-    "title": "Introduction to R and RStudio",
-    "section": "",
-    "text": "Here’s a link to the slides in a new window.\nHere are the slides embedded:"
-  },
-  {
-    "objectID": "content/02-intro/index.html#slides",
-    "href": "content/02-intro/index.html#slides",
-    "title": "Introduction to R and RStudio",
-    "section": "",
-    "text": "Here’s a link to the slides in a new window.\nHere are the slides embedded:"
-  },
-  {
-    "objectID": "content/02-intro/index.html#resources",
-    "href": "content/02-intro/index.html#resources",
-    "title": "Introduction to R and RStudio",
-    "section": "Resources",
-    "text": "Resources\n\nR and RStudio\n\nRStudio IDE cheatsheet\nhttps://rstudio.github.io/cheatsheets/html/rstudio-ide.html\nBeginner resources from the RStudio Education team\nhttps://education.rstudio.com/learn/beginner/\nIntroduction to R and RStudio from the Carpentries\nhttps://carpentries-incubator.github.io/r-tidyverse-4-datasets/01-project-introduction.html\n\n\n\nPackages\n\ntidyverse\nhttps://www.tidyverse.org\npalmerpenguins\nhttps://allisonhorst.github.io/palmerpenguins/index.html"
   },
   {
     "objectID": "slides/00-template/index.html#overview",
@@ -1029,262 +1253,38 @@
     "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
   },
   {
-    "objectID": "slides/03-data-wrangling/index.html#overview",
-    "href": "slides/03-data-wrangling/index.html#overview",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "Overview",
-    "text": "Overview\n\nData types\nData structures\nData import and wrangling"
+    "objectID": "slides/01-welcome/index.html#your-instructor",
+    "href": "slides/01-welcome/index.html#your-instructor",
+    "title": "Welcome and Introduction",
+    "section": "Your instructor",
+    "text": "Your instructor\n\n\nHeather Turner\nRSE Fellow, Department of Statistics\nUniversity of Warwick\nhttps://warwick.ac.uk/heatherturner"
   },
   {
-    "objectID": "slides/03-data-wrangling/index.html#assigning-in-r",
-    "href": "slides/03-data-wrangling/index.html#assigning-in-r",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "Assigning in R",
-    "text": "Assigning in R\nThe assignment operator in R is &lt;-\nWe can create objects in R and assign them names:\n\nx &lt;- 1 + 3\n\nThen we can inspect the objects we have created:\n\nx\n\n[1] 4\n\n\nAnd use them further:\n\nx + 5\n\n[1] 9"
+    "objectID": "slides/01-welcome/index.html#course-material",
+    "href": "slides/01-welcome/index.html#course-material",
+    "title": "Welcome and Introduction",
+    "section": "Course material",
+    "text": "Course material\n\nWebsite and slides\nhttps://Warwick-Stats-Resources.github.io/r-for-data-science-2024\nWebsite and slides repo\nhttps://github.com/Warwick-Stats-Resources/r-for-data-science-2024\nDemo repo\nhttps://github.com/Warwick-Stats-Resources/r-for-data-science-2024-demo"
   },
   {
-    "objectID": "slides/03-data-wrangling/index.html#naming-objects",
-    "href": "slides/03-data-wrangling/index.html#naming-objects",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "Naming objects",
-    "text": "Naming objects\n\nforbiddengoodbad\n\n\nObject names cannot:\n\nstart with a number\ncontain certain characters like , - ?\ncontain a space (unless in ``, but that is not best practice)\n\n\n\n\nmeaningful yet concise\n\n\nday_one\nday_1\n\nconsistent\n\n\ni_use_snake_case\nother.people.use.periods\nevenOthersUseCamelCase\nThe tidyverse has popularised the use of snake_case. Camel case is a better option for screen readers. The use of periods is discouraged because periods have other uses in R.\n\n\n\nnot meaningful\n\n\nfoo\nbar\n\nunnecessarily long or difficult to read\n\n\nfirst_day_of_month\ndayone\n\ninconsistent"
+    "objectID": "slides/01-welcome/index.html#schedule",
+    "href": "slides/01-welcome/index.html#schedule",
+    "title": "Welcome and Introduction",
+    "section": "Schedule",
+    "text": "Schedule\n\n\n\n\nTime\nSession\n\n\n\n\n09:30–10:00\nCoffee\n\n\n10:00–10:10\nWelcome!\n\n\n10:10–11:25\nIntroduction to R and RStudio\n\n\n11:25–11:40\nCoffee\n\n\n11:40–13:00\nData Types, Structures and Wrangling\n\n\n13:00–13:30\nLunch\n\n\n13:30–15:00\nGraphics\n\n\n15:00–15:15\nCoffee\n\n\n15:15–16:30\nQuarto"
   },
   {
-    "objectID": "slides/03-data-wrangling/index.html#rstudio-demo",
-    "href": "slides/03-data-wrangling/index.html#rstudio-demo",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "RStudio demo",
-    "text": "RStudio demo\nAssigning and environment pane.\nThere is an RStudio shortcut for &lt;- which also puts spaces around it:\nAlt/⌥ + -"
+    "objectID": "slides/01-welcome/index.html#skillsforge",
+    "href": "slides/01-welcome/index.html#skillsforge",
+    "title": "Welcome and Introduction",
+    "section": "SkillsForge",
+    "text": "SkillsForge\nSign up by clicking here or by going to https://skillsforge.warwick.ac.uk and searching for “R for Data Science”.\nAfter the course, e-mail ella.m.kaye@warwick.ac.uk with the password and she’ll register you as having attended.\nYou will be given the password at the end of the course."
   },
   {
-    "objectID": "slides/03-data-wrangling/index.html#basic-data-types-in-r",
-    "href": "slides/03-data-wrangling/index.html#basic-data-types-in-r",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "Basic data types in R",
-    "text": "Basic data types in R\n\ncharacter: \"a\", \"hello, world!\"\ndouble: 3, 3.14, pi\ninteger: 3L (the L tells R to store this as an interger)\nlogical: TRUE and FALSE\ncomplex: 3+2i. N.B. need to write 1i for \\(\\sqrt(-1)\\).\nraw: holds raw bytes (rarely used)\n\nN.B. double and integer types are both numeric"
-  },
-  {
-    "objectID": "slides/03-data-wrangling/index.html#special-values",
-    "href": "slides/03-data-wrangling/index.html#special-values",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "Special values",
-    "text": "Special values\n\nNA: The value NA is given to any data which R knows to be missing. It is not a character string, i.e. it is different to \"NA\"\nInf: Positive infinity, e.g. the result of dividing a non-zero number by zero\nNaN: Not a number, e.g. attempting to find the logarithm of a negative number\nNULL: The null object. Often returned by expressions and functions whose value is undefined"
-  },
-  {
-    "objectID": "slides/03-data-wrangling/index.html#data-structures",
-    "href": "slides/03-data-wrangling/index.html#data-structures",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "Data structures",
-    "text": "Data structures\nData structures are the building blocks of R code.\nIn R, the main types of structures are\n\nvectors\nfactors\nmatrices and arrays\nlists\ndata frames\n\nFocus today on vectors, factors and data frames."
-  },
-  {
-    "objectID": "slides/03-data-wrangling/index.html#vectors",
-    "href": "slides/03-data-wrangling/index.html#vectors",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "Vectors",
-    "text": "Vectors\nA single number is a special case of a numeric vector. Vectors of length greater than one can be created using the concatenate function, c.\n\nx &lt;- c(1, 3, 6)\nfruits &lt;- c(\"apple\", \"pear\")\n\nThe elements of the vector must be of the same type: common types are numeric, character and logical.\nThere are built-in functions for getting information about vectors, e.g.\n\nlength(fruits)\n\n[1] 2"
-  },
-  {
-    "objectID": "slides/03-data-wrangling/index.html#creating-vectors",
-    "href": "slides/03-data-wrangling/index.html#creating-vectors",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "Creating vectors",
-    "text": "Creating vectors\nThere are some useful shortcuts for certain types of vector:\n\n1:5\n\n[1] 1 2 3 4 5\n\nseq(from = 3, to = 5, by = 0.5)\n\n[1] 3.0 3.5 4.0 4.5 5.0\n\nLETTERS\n\n [1] \"A\" \"B\" \"C\" \"D\" \"E\" \"F\" \"G\" \"H\" \"I\" \"J\" \"K\" \"L\" \"M\" \"N\" \"O\" \"P\" \"Q\" \"R\" \"S\"\n[20] \"T\" \"U\" \"V\" \"W\" \"X\" \"Y\" \"Z\"\n\n\nWhat do you think letters returns?"
-  },
-  {
-    "objectID": "slides/03-data-wrangling/index.html#subsetting-vectors",
-    "href": "slides/03-data-wrangling/index.html#subsetting-vectors",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "Subsetting vectors",
-    "text": "Subsetting vectors\nWe subset vectors using []:\n\nBy position, starting at 1\n\n\nletters[c(1, 5, 9, 15, 21)]\n\n[1] \"a\" \"e\" \"i\" \"o\" \"u\"\n\n\n\nBy logical vector\n\n\nx &lt;- c(5, 3, 6, 1)\nx[c(TRUE, FALSE, TRUE, FALSE)]\n\n[1] 5 6\n\n\n\nx[x &gt; 4]\n\n[1] 5 6"
-  },
-  {
-    "objectID": "slides/03-data-wrangling/index.html#your-turn",
-    "href": "slides/03-data-wrangling/index.html#your-turn",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "Your turn!",
-    "text": "Your turn!\n\nIn your R-Foundations project from last week, create and save a new script called data-types.R\nLook at the help page for the rep() function: ?rep\nStarting with the vector x &lt;- c(1,3,6), can you make the following patterns:\n\n1, 3, 6, 1, 3, 6\n1, 1, 3, 3, 6, 6\n1, 1, 3, 3, 6, 6, 1, 1, 3, 3, 6, 6\n\nWhat does rep(x, 2, 2) give? Is it what you expected? Can you explain the output?\n\n\nrep(x, 2) or rep(x, times = 2) rep(x, each = 2) rep(x, 2, each = 2) rep(x, 2, 2) is rep(x, times = 2, length.out = 2)"
-  },
-  {
-    "objectID": "slides/03-data-wrangling/index.html#factors",
-    "href": "slides/03-data-wrangling/index.html#factors",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "Factors",
-    "text": "Factors\nFactors are used to represent categorical data. They can be ordered or unordered.\nFactors are stored as integers, and have labels associated with these unique integers. While factors usually look (and often behave) like character vectors, they are actually integers under the hood, and you need to be careful when treating them like strings."
-  },
-  {
-    "objectID": "slides/03-data-wrangling/index.html#factors-1",
-    "href": "slides/03-data-wrangling/index.html#factors-1",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "Factors",
-    "text": "Factors\nOnce created, factors can only contain a pre-defined set values, known as levels. By default, R always sorts levels in alphabetical order. For instance, if you have a factor with 2 levels:\n\nfruits &lt;- factor(c(\"apple\", \"apple\", \"pear\"))\nfruits\n\n[1] apple apple pear \nLevels: apple pear\n\nstr(fruits)\n\n Factor w/ 2 levels \"apple\",\"pear\": 1 1 2\n\n\nThe forcats package from the tidyverse has many functions for dealing with factors."
-  },
-  {
-    "objectID": "slides/03-data-wrangling/index.html#data-frames",
-    "href": "slides/03-data-wrangling/index.html#data-frames",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "Data frames",
-    "text": "Data frames\nData sets are stored in R as data frames\nThese are structured as a list of objects, typically vectors, of the same length.\n\n\nlibrary(tidyverse)\nlibrary(palmerpenguins)\nstr(penguins)\n\ntibble [344 × 8] (S3: tbl_df/tbl/data.frame)\n $ species          : Factor w/ 3 levels \"Adelie\",\"Chinstrap\",..: 1 1 1 1 1 1 1 1 1 1 ...\n $ island           : Factor w/ 3 levels \"Biscoe\",\"Dream\",..: 3 3 3 3 3 3 3 3 3 3 ...\n $ bill_length_mm   : num [1:344] 39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...\n $ bill_depth_mm    : num [1:344] 18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...\n $ flipper_length_mm: int [1:344] 181 186 195 NA 193 190 181 195 193 190 ...\n $ body_mass_g      : int [1:344] 3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...\n $ sex              : Factor w/ 2 levels \"female\",\"male\": 2 1 1 NA 1 2 1 2 NA NA ...\n $ year             : int [1:344] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ..."
-  },
-  {
-    "objectID": "slides/03-data-wrangling/index.html#tibbles",
-    "href": "slides/03-data-wrangling/index.html#tibbles",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "tibbles",
-    "text": "tibbles\nFrom the tibble page:\n\nA tibble, or tbl_df, is a modern reimagining of the data.frame, keeping what time has proven to be effective, and throwing out what is not. Tibbles are data.frames that are lazy and surly: they do less (i.e. they don’t change variable names or types, and don’t do partial matching) and complain more (e.g. when a variable does not exist). This forces you to confront problems earlier, typically leading to cleaner, more expressive code. Tibbles also have an enhanced print() method which makes them easier to use with large datasets containing complex objects."
-  },
-  {
-    "objectID": "slides/03-data-wrangling/index.html#creating-data-frames",
-    "href": "slides/03-data-wrangling/index.html#creating-data-frames",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "Creating data frames",
-    "text": "Creating data frames\n\n`my numbers` &lt;- 1:9\nfruits &lt;- rep(c(\"apple\", \"pear\", \"orange\"), 3)\n\n\n\n\ndata.frame(`my numbers`, \n           fruits)\n\n  my.numbers fruits\n1          1  apple\n2          2   pear\n3          3 orange\n4          4  apple\n5          5   pear\n6          6 orange\n7          7  apple\n8          8   pear\n9          9 orange\n\n\n\n\ntibble(`my numbers`, \n       fruits)\n\n# A tibble: 9 × 2\n  `my numbers` fruits\n         &lt;int&gt; &lt;chr&gt; \n1            1 apple \n2            2 pear  \n3            3 orange\n4            4 apple \n5            5 pear  \n6            6 orange\n7            7 apple \n8            8 pear  \n9            9 orange\n\n\n\n\nSpot the differences!"
-  },
-  {
-    "objectID": "slides/03-data-wrangling/index.html#import-dataset-button",
-    "href": "slides/03-data-wrangling/index.html#import-dataset-button",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "Import dataset (button)",
-    "text": "Import dataset (button)\nUsing the Import Dataset dialog in RStudio\n\nwe can import files stored locally or online in the following formats:\n\n.txt/.csv via read_delim/read_csv from readr.\n.xlsx via read_excel from readxl.\n.sav/.por , .sas7bdat and .dta via read_spss, read_sas and read_stata respectively from haven.\n\nMost of these functions also allow files to be compressed, e.g. as .zip."
-  },
-  {
-    "objectID": "slides/03-data-wrangling/index.html#file-names-and-paths-and-project-structure",
-    "href": "slides/03-data-wrangling/index.html#file-names-and-paths-and-project-structure",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "File names and paths and project structure",
-    "text": "File names and paths and project structure\nIt’s REALLY important to have good file names and paths, and a good project structure.\nI leave you in the extremely capable hand of Danielle Navarro to take you thoroughly through best practices:\nhttps://djnavarro.net/slides-project-structure/#1\nI also HIGHLY recommend you check out the here package, which enables easy file referencing in project-oriented workflows."
-  },
-  {
-    "objectID": "slides/03-data-wrangling/index.html#import-data-code",
-    "href": "slides/03-data-wrangling/index.html#import-data-code",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "Import data (code)",
-    "text": "Import data (code)\nThe rio package provides a common interface to the functions used by Import Dataset as well as many others.\nThe data format is automatically recognised from the file extension. To read the data in as a tibble, we use the setclass argument.\n\nlibrary(rio)\npenguins_lter &lt;- import(\"data/penguins_lter.csv\")\npenguins_lter_tbl &lt;- import(\"data/penguins_lter.csv\", setclass = \"tibble\")\n\nSee ?rio for the underlying functions used for each format and the corresponding optional arguments, e.g. the skip argument to read_excel to skip a certain number of rows."
-  },
-  {
-    "objectID": "slides/03-data-wrangling/index.html#import-data-demo",
-    "href": "slides/03-data-wrangling/index.html#import-data-demo",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "Import data demo",
-    "text": "Import data demo\nShow both button (in Environment and from the file itself) and code\n\nFrom file\n\ndata/penguins_lter.csv\n\nFrom URL\n\nhttps://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-08-09/wheels.csv\n\nYour turn!"
-  },
-  {
-    "objectID": "slides/03-data-wrangling/index.html#dplyr",
-    "href": "slides/03-data-wrangling/index.html#dplyr",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "dplyr",
-    "text": "dplyr\nThe dplyr package (part of the tidyverse) provides the following key functions to operate on data frames:\n\nfilter()\narrange()\nselect()\nmutate()\nsummarise()\n\nThey all take a data frame as their first argument. The subsequent arguments describe what to do with the data frame. The result is a new data frame."
-  },
-  {
-    "objectID": "slides/03-data-wrangling/index.html#load-packages",
-    "href": "slides/03-data-wrangling/index.html#load-packages",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "Load packages",
-    "text": "Load packages\n\nlibrary(dplyr)\nlibrary(palmerpenguins)"
-  },
-  {
-    "objectID": "slides/03-data-wrangling/index.html#filter-pick-rows-based-on-values-of-observations.",
-    "href": "slides/03-data-wrangling/index.html#filter-pick-rows-based-on-values-of-observations.",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "filter(): pick rows based on values of observations.",
-    "text": "filter(): pick rows based on values of observations.\n\nExampleNotes\n\n\n\n\nfilter(penguins, \n       species == \"Gentoo\", \n       bill_length_mm &gt; 48 & bill_depth_mm &gt; 15, \n       !is.na(sex))\n\n# A tibble: 39 × 8\n   species island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n 1 Gentoo  Biscoe           50            16.3               230        5700\n 2 Gentoo  Biscoe           50            15.2               218        5700\n 3 Gentoo  Biscoe           49            16.1               216        5550\n 4 Gentoo  Biscoe           49.3          15.7               217        5850\n 5 Gentoo  Biscoe           49.2          15.2               221        6300\n 6 Gentoo  Biscoe           48.7          15.1               222        5350\n 7 Gentoo  Biscoe           50            15.3               220        5550\n 8 Gentoo  Biscoe           59.6          17                 230        6050\n 9 Gentoo  Biscoe           48.4          16.3               220        5400\n10 Gentoo  Biscoe           48.7          15.7               208        5350\n# ℹ 29 more rows\n# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;\n\n\n\n\n\n\nvariable names are unquoted\nbuilding blocks of conditions:\n\n\n\n\nBuilding block\nR code\n\n\n\n\nBinary comparisons\n&gt;, &lt;, ==, &lt;=, &gt;=, !=\n\n\nLogical operators\nor |, and &, not !\n\n\nValue matching\ne.g. x %in% 6:9\n\n\nMissing indicator\ne.g. is.na(x)"
-  },
-  {
-    "objectID": "slides/03-data-wrangling/index.html#select-select-variables-columns-in-a-dataset",
-    "href": "slides/03-data-wrangling/index.html#select-select-variables-columns-in-a-dataset",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "select(): select variables (columns) in a dataset",
-    "text": "select(): select variables (columns) in a dataset\n\nExample 1Example 2Example 3Example 4Note\n\n\n\nselect(penguins, bill_length_mm, bill_depth_mm)\n\n# A tibble: 344 × 2\n   bill_length_mm bill_depth_mm\n            &lt;dbl&gt;         &lt;dbl&gt;\n 1           39.1          18.7\n 2           39.5          17.4\n 3           40.3          18  \n 4           NA            NA  \n 5           36.7          19.3\n 6           39.3          20.6\n 7           38.9          17.8\n 8           39.2          19.6\n 9           34.1          18.1\n10           42            20.2\n# ℹ 334 more rows\n\n\n\n\n\nselect(penguins, bill_length_mm:body_mass_g)\n\n# A tibble: 344 × 4\n   bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n            &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n 1           39.1          18.7               181        3750\n 2           39.5          17.4               186        3800\n 3           40.3          18                 195        3250\n 4           NA            NA                  NA          NA\n 5           36.7          19.3               193        3450\n 6           39.3          20.6               190        3650\n 7           38.9          17.8               181        3625\n 8           39.2          19.6               195        4675\n 9           34.1          18.1               193        3475\n10           42            20.2               190        4250\n# ℹ 334 more rows\n\n\n\n\n\nselect(penguins, starts_with(\"bill\"))\n\n# A tibble: 344 × 2\n   bill_length_mm bill_depth_mm\n            &lt;dbl&gt;         &lt;dbl&gt;\n 1           39.1          18.7\n 2           39.5          17.4\n 3           40.3          18  \n 4           NA            NA  \n 5           36.7          19.3\n 6           39.3          20.6\n 7           38.9          17.8\n 8           39.2          19.6\n 9           34.1          18.1\n10           42            20.2\n# ℹ 334 more rows\n\n\n\n\n\nselect(penguins, where(is.numeric))\n\n# A tibble: 344 × 5\n   bill_length_mm bill_depth_mm flipper_length_mm body_mass_g  year\n            &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt; &lt;int&gt;\n 1           39.1          18.7               181        3750  2007\n 2           39.5          17.4               186        3800  2007\n 3           40.3          18                 195        3250  2007\n 4           NA            NA                  NA          NA  2007\n 5           36.7          19.3               193        3450  2007\n 6           39.3          20.6               190        3650  2007\n 7           38.9          17.8               181        3625  2007\n 8           39.2          19.6               195        4675  2007\n 9           34.1          18.1               193        3475  2007\n10           42            20.2               190        4250  2007\n# ℹ 334 more rows\n\n\n\n\nThere are several other selectors. See ?dplyr::select or online for further details."
-  },
-  {
-    "objectID": "slides/03-data-wrangling/index.html#a-note-about-pipes-vs",
-    "href": "slides/03-data-wrangling/index.html#a-note-about-pipes-vs",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "A note about pipes: |> vs %>%",
-    "text": "A note about pipes: |&gt; vs %&gt;%\nPipes pass what comes before into an argument (by default the first) of what comes after.\nPipes are a powerful tool for clearly expressing a sequence of multiple operations.\n\n\n|&gt;\n\nThe ‘native’ pipe, built into base R since v4.1 (May 2021)\nImproved in v4.2 (April 2022)\n\n\n%&gt;%\n\nHas been around in the magrittr package since 2014\nUsed throughout the tidyverse (though that is changing)"
-  },
-  {
-    "objectID": "slides/03-data-wrangling/index.html#pipes-similarity",
-    "href": "slides/03-data-wrangling/index.html#pipes-similarity",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "Pipes: similarity",
-    "text": "Pipes: similarity\nBy default, a pipe takes what comes before and pass it to first argument of what comes after.\n\nExample 1Example 2\n\n\n\nlog(2, base = 10)\n\n[1] 0.30103\n\n2 %&gt;% log(base = 10)\n\n[1] 0.30103\n\n2 |&gt; log(base = 10)\n\n[1] 0.30103\n\n\n\n\n\npaste(\"a\", \"b\", \"c\")\n\n[1] \"a b c\"\n\n\"a\" %&gt;% paste(\"b\", \"c\")\n\n[1] \"a b c\"\n\n\"a\" |&gt; paste(\"b\", \"c\")\n\n[1] \"a b c\""
-  },
-  {
-    "objectID": "slides/03-data-wrangling/index.html#pipes-key-difference",
-    "href": "slides/03-data-wrangling/index.html#pipes-key-difference",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "Pipes: key difference",
-    "text": "Pipes: key difference\nSo far, so good, but what if we want to pipe into a subsequent argument?\n\nExample 1Example 2\n\n\n\nlog(2, 10) ## don't need to name the argument\n\n[1] 0.30103\n\n10 %&gt;% log(2, .)\n\n[1] 0.30103\n\n10 |&gt; log(2, base = _)\n\n[1] 0.30103\n\n\n\n\n\npaste(\"a\", \"b\", \"c\")\n\n[1] \"a b c\"\n\n\"b\" %&gt;% paste(\"a\", ., \"c\")\n\n[1] \"a b c\"\n\n\"b\" |&gt; paste(\"a\", ..2 = _, \"c\")\n\n[1] \"a b c\"\n\n\n\n\n\nDifferent placeholder (. vs _) and with native pipe need a named argument"
-  },
-  {
-    "objectID": "slides/03-data-wrangling/index.html#pipe-keyboard-shortcut",
-    "href": "slides/03-data-wrangling/index.html#pipe-keyboard-shortcut",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "Pipe keyboard shortcut",
-    "text": "Pipe keyboard shortcut\nThere is an RStudio shortcut for the pipe which also puts spaces around it:\nCtrl/⌘ + ⇧ + M.\nThis can be set to either %&gt;% or |&gt; in the RStudio preferences.\nGo to Tools -&gt; Global Options -&gt; Code and check/uncheck box for “Use native pipe operator”."
-  },
-  {
-    "objectID": "slides/03-data-wrangling/index.html#arrange-change-the-ordering-of-rows",
-    "href": "slides/03-data-wrangling/index.html#arrange-change-the-ordering-of-rows",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "arrange(): change the ordering of rows",
-    "text": "arrange(): change the ordering of rows\n\nExample 1Example 2Example 3\n\n\n\npenguins |&gt;\n  select(species, sex, flipper_length_mm) |&gt;\n  arrange(flipper_length_mm)\n\n# A tibble: 344 × 3\n   species   sex    flipper_length_mm\n   &lt;fct&gt;     &lt;fct&gt;              &lt;int&gt;\n 1 Adelie    female               172\n 2 Adelie    female               174\n 3 Adelie    female               176\n 4 Adelie    female               178\n 5 Adelie    male                 178\n 6 Adelie    female               178\n 7 Chinstrap female               178\n 8 Adelie    &lt;NA&gt;                 179\n 9 Adelie    &lt;NA&gt;                 180\n10 Adelie    male                 180\n# ℹ 334 more rows\n\n\n\n\n\npenguins |&gt;\n  select(species, sex, flipper_length_mm) |&gt;\n  arrange(species, flipper_length_mm)\n\n# A tibble: 344 × 3\n   species sex    flipper_length_mm\n   &lt;fct&gt;   &lt;fct&gt;              &lt;int&gt;\n 1 Adelie  female               172\n 2 Adelie  female               174\n 3 Adelie  female               176\n 4 Adelie  female               178\n 5 Adelie  male                 178\n 6 Adelie  female               178\n 7 Adelie  &lt;NA&gt;                 179\n 8 Adelie  &lt;NA&gt;                 180\n 9 Adelie  male                 180\n10 Adelie  male                 180\n# ℹ 334 more rows\n\n\n\n\n\npenguins |&gt;\n  select(species, sex, flipper_length_mm) |&gt;\n  arrange(desc(flipper_length_mm))\n\n# A tibble: 344 × 3\n   species sex   flipper_length_mm\n   &lt;fct&gt;   &lt;fct&gt;             &lt;int&gt;\n 1 Gentoo  male                231\n 2 Gentoo  male                230\n 3 Gentoo  male                230\n 4 Gentoo  male                230\n 5 Gentoo  male                230\n 6 Gentoo  male                230\n 7 Gentoo  male                230\n 8 Gentoo  male                230\n 9 Gentoo  male                229\n10 Gentoo  male                229\n# ℹ 334 more rows"
-  },
-  {
-    "objectID": "slides/03-data-wrangling/index.html#mutate-create-and-modify-columns",
-    "href": "slides/03-data-wrangling/index.html#mutate-create-and-modify-columns",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "mutate(): create and modify columns",
-    "text": "mutate(): create and modify columns\n\nExample 1Example 2Example 3\n\n\n\npenguins |&gt;\n  select(bill_length_mm) |&gt;\n  mutate(bill_length_mm_sq = bill_length_mm^2)\n\n# A tibble: 344 × 2\n   bill_length_mm bill_length_mm_sq\n            &lt;dbl&gt;             &lt;dbl&gt;\n 1           39.1             1529.\n 2           39.5             1560.\n 3           40.3             1624.\n 4           NA                 NA \n 5           36.7             1347.\n 6           39.3             1544.\n 7           38.9             1513.\n 8           39.2             1537.\n 9           34.1             1163.\n10           42               1764 \n# ℹ 334 more rows\n\n\n\n\n\npenguins |&gt;\n  filter(species == \"Gentoo\") |&gt;\n  select(sex, flipper_length_mm) |&gt;\n  mutate(size = if_else(flipper_length_mm &gt; 217, \"big\", \"small\"))\n\n# A tibble: 124 × 3\n   sex    flipper_length_mm size \n   &lt;fct&gt;              &lt;int&gt; &lt;chr&gt;\n 1 female               211 small\n 2 male                 230 big  \n 3 female               210 small\n 4 male                 218 big  \n 5 male                 215 small\n 6 female               210 small\n 7 female               211 small\n 8 male                 219 big  \n 9 female               209 small\n10 male                 215 small\n# ℹ 114 more rows\n\n\n\n\n\npenguins |&gt;\n  select(bill_length_mm) |&gt;\n  filter(!is.na(bill_length_mm)) |&gt;\n  mutate(bill_length_mm_cumsum = cumsum(bill_length_mm))\n\n# A tibble: 342 × 2\n   bill_length_mm bill_length_mm_cumsum\n            &lt;dbl&gt;                 &lt;dbl&gt;\n 1           39.1                  39.1\n 2           39.5                  78.6\n 3           40.3                 119. \n 4           36.7                 156. \n 5           39.3                 195. \n 6           38.9                 234. \n 7           39.2                 273  \n 8           34.1                 307. \n 9           42                   349. \n10           37.8                 387. \n# ℹ 332 more rows"
-  },
-  {
-    "objectID": "slides/03-data-wrangling/index.html#summarise-reduces-multiple-values-down-to-a-single-summary",
-    "href": "slides/03-data-wrangling/index.html#summarise-reduces-multiple-values-down-to-a-single-summary",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "summarise(): reduces multiple values down to a single summary",
-    "text": "summarise(): reduces multiple values down to a single summary\n\nExample 1Example 2Example 3Example 4: count\n\n\n\npenguins |&gt;\n  summarise(mean(body_mass_g, na.rm = TRUE))  \n\n# A tibble: 1 × 1\n  `mean(body_mass_g, na.rm = TRUE)`\n                              &lt;dbl&gt;\n1                             4202.\n\n\n\n\n\npenguins |&gt;\n  group_by(species, sex) |&gt;\n  filter(!is.na(sex)) |&gt;\n  summarise(mean = mean(body_mass_g, na.rm = TRUE)) |&gt;  # give column a name\n  ungroup() # best practice after group_by()\n\n# A tibble: 6 × 3\n  species   sex     mean\n  &lt;fct&gt;     &lt;fct&gt;  &lt;dbl&gt;\n1 Adelie    female 3369.\n2 Adelie    male   4043.\n3 Chinstrap female 3527.\n4 Chinstrap male   3939.\n5 Gentoo    female 4680.\n6 Gentoo    male   5485.\n\n\n\n\n\npenguins |&gt;\n  filter(!is.na(sex)) |&gt;\n  summarise(mean = mean(body_mass_g, na.rm = TRUE),\n            .by = c(species, sex)) # new in dplyr 1.1.0, note the `.`\n\n# A tibble: 6 × 3\n  species   sex     mean\n  &lt;fct&gt;     &lt;fct&gt;  &lt;dbl&gt;\n1 Adelie    male   4043.\n2 Adelie    female 3369.\n3 Gentoo    female 4680.\n4 Gentoo    male   5485.\n5 Chinstrap female 3527.\n6 Chinstrap male   3939.\n\n\n\n\n\npenguins |&gt;\n  count(species, island)\n\n# A tibble: 5 × 3\n  species   island        n\n  &lt;fct&gt;     &lt;fct&gt;     &lt;int&gt;\n1 Adelie    Biscoe       44\n2 Adelie    Dream        56\n3 Adelie    Torgersen    52\n4 Chinstrap Dream        68\n5 Gentoo    Biscoe      124\n\n\nShortcut for\n\npenguins |&gt;\n  summarise(n = n(), .by = c(species, island))\n\n\n\n\n\ncount() and summarise(n = n()) give different orderings"
-  },
-  {
-    "objectID": "slides/03-data-wrangling/index.html#your-turn-1",
-    "href": "slides/03-data-wrangling/index.html#your-turn-1",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "Your turn!",
-    "text": "Your turn!\n\nExplore the wheels data!\nBe ready to share some of your code in the chat"
-  },
-  {
-    "objectID": "slides/03-data-wrangling/index.html#tidydatatutor.com",
-    "href": "slides/03-data-wrangling/index.html#tidydatatutor.com",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "tidydatatutor.com",
-    "text": "tidydatatutor.com\nTidy Data Tutor lets you write R and Tidyverse code in your browser and see how your data frame changes at each step of a data analysis pipeline.\nDEMO"
-  },
-  {
-    "objectID": "slides/03-data-wrangling/index.html#additional-resources",
-    "href": "slides/03-data-wrangling/index.html#additional-resources",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "Additional resources",
-    "text": "Additional resources\n\nRStudio cheatsheets\nR for data science book\nferriswheels"
-  },
-  {
-    "objectID": "slides/03-data-wrangling/index.html#sources",
-    "href": "slides/03-data-wrangling/index.html#sources",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "Sources",
-    "text": "Sources\nMaterial inspired by and remixed from:\n\nhttps://stat545.com/r-basics.html\nhttps://swcarpentry.github.io/r-novice-inflammation/13-supp-data-structures/\nhttps://slides.silviacanelon.com/tour-of-the-tidyverse-v2/\nhttps://www.heatherturner.net/teaching/zero-to-hero/\nhttp://adv-r.had.co.nz/Style.html"
-  },
-  {
-    "objectID": "slides/03-data-wrangling/index.html#license",
-    "href": "slides/03-data-wrangling/index.html#license",
-    "title": "Data Types, Structures and Wrangling",
-    "section": "License",
-    "text": "License\nLicensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)."
-  },
-  {
-    "objectID": "schedule.html",
-    "href": "schedule.html",
-    "title": "Schedule",
+    "objectID": "prerequisites.html",
+    "href": "prerequisites.html",
+    "title": "Getting set up",
     "section": "",
-    "text": "Time\nSession\n\n\n\n\n09:30–10:00\nCoffee\n\n\n10:00–10:10\nWelcome!\n\n\n10:10–11:25\nIntroduction to R and RStudio\n\n\n11:25–11:40\nCoffee\n\n\n11:40–13:00\nData Types, Structures and Wrangling\n\n\n13:00–13:30\nLunch\n\n\n13:30–15:00\nGraphics\n\n\n15:00–15:15\nCoffee\n\n\n15:15–16:30\nQuarto"
+    "text": "Please ensure that you have the latest versions of R and RStudio installed prior to the first session. Currently, that’s R-4.3.3 and RStudio-2023.12.1.\nWe also strongly recommend you install the development tools to avoid potential issues installing packages.\n\nInstalling R\nDownload the pre-compiled binary for your OS from https://cloud.r-project.org/ and install. More specifically:\nFor Windows\nClick “Download R for Windows”, then “base”, then “Download R-4.3.3 for Windows”. This will download an .exe file; once downloaded, open to start the installation.\nFor Mac\nClick “Download R for macOS”, then “R-4.3.3-arm64.pkg” (the first option) to download the installer for Macs with Apple Silicon chips or “R-4.3.3-x86_64.pkg” (the second option) to download the installer for Macs with Intel chips. Run the installer to complete installation.\nFor Linux\nClick “Download R for Linux”. Instructions on installing are given for Debian, Fedora, Redhat, Suse and Ubuntu distributions. Where there is a choice, install both r-base and r-base-dev.\n\n\nInstalling R Studio Desktop (Open Source Edition)\nDownloads are available from https://posit.co/download/rstudio-desktop/\nDownload the relevant installer either under the “Install RStudio” header or, scrolling down the page, from the ‘All installers and Tarballs’ section. Run the installer to complete installation.\nFor Windows with no admin rights\nDownload the .zip source archive under “Zip/Tarballs”. Extract the files to a folder where you have write access, e.g. C:\\Users\\username\\RStudio. In this folder, open the bin directory and find the RStudio program: it is named rstudio.exe, but the file extension will typically be hidden, so look for rstudio. Right-click this executable to create a desktop shortcut. Double-click the executable or use the shortcut to open.\nFor all other operating systems\nDownload the relevant installer for your OS listed under “Installers for Supported Platforms”. Run the installer to complete installation.\n\n\nDevelopment Tools\nSome additional tools may be required to compile R packages from source.\nFor Windows with no admin rights\nDownload the latest (recommended) Rtools installer, Rtools.exe, from https://cran.r-project.org/bin/windows/Rtools/. Run the installer keeping the default settings.\nFor Windows with admin rights\nDownload the latest Rtools installer, Rtools.exe, from https://cran.r-project.org/bin/windows/Rtools/. Run the installer making the following selections: keep the default settings for the installation location and components to install; check the box to add rtools to the system PATH.\nFor Mac\nInstall XCode. Either:\n\nDownload and install XCode from the Mac AppStore: http://itunes.apple.com/us/app/xcode/id497799835?mt=12\nWithin XCode go to Preferences : Downloads and install the Command Line Tools\n\nOr for a smaller download size:\n\nRegister as an Apple Developer (free) here: https://developer.apple.com/programs/register/\nDownload the Command Line Tools for XCode appropriate for the version of OS X you are running from here: https://developer.apple.com/downloads/\n\nFor Linux\nIf you installed r-base-dev, when installing R, you should have all you need to build packages from source. Otherwise return to the instructions for installing R for your distribution and follow the instructions there to install the additional tools."
   }
 ]
