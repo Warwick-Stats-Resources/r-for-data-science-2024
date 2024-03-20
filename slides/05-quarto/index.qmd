@@ -1,6 +1,6 @@
 ---
 title: Quarto
-subtitle: R Foundations Course
+subtitle: R for Data Science
 author: Heather Turner | Department of Statistics | University of Warwick
 title-slide-attributes:
   data-background-color: "#552D62"
@@ -60,7 +60,7 @@ We learned from 10 years of literate programming with `knitr` + `rmarkdown`
 
 . . .
 
-For the R Foundations course, we'll focus on R and RStudio
+For this course, we'll focus on R and RStudio
 
 ## So what is Quarto?
 
@@ -86,6 +86,10 @@ Quarto comes **"batteries included"** straight out of the box
 
 -   Any language, *exact* same approach and syntax
 
+:::.notes
+all in one versus separate packages
+:::
+
 ## Quarto for RMarkdown users
 
 See [FAQs](https://quarto.org/docs/faq/rmarkdown.html), including a conversion from RMarkdown formats to Quarto equivalents.
@@ -108,10 +112,13 @@ format: html
 #| echo: fenced
 #| eval: true
 library(dplyr)
-mtcars %>% 
-  group_by(cyl) %>%
-  summarize(mean = mean(mpg), .groups = "drop")
+mtcars |>
+  summarize(mean = mean(mpg), .by = "cyl")
 ```
+
+:::.notes
+yaml within a code block
+:::
 
 ## Anatomy of a Quarto document
 
@@ -213,6 +220,7 @@ the document. The syntax is similar for embedding an inline image:
 #| output-location: column
 #| label: fig-airquality
 #| fig-cap: Temperature and ozone level.
+#| fig-alt: A scatterplot of ozone level against temparature, with a local regression fit that has a confidence band. The ozone level is fairly constant at around 15ppb from a temperature of 55°F to 75°F, then increases linearly to around 80ppb at a temperature of 90°F, where the ozone level starts to asymptote. The points are generally close to this curve apart from 7 outliers with higher than expected ozone between 75°F and 95°F.
 #| warning: false
 
 library(ggplot2)
@@ -347,6 +355,11 @@ mtcars %>%
 - Indicate engine (`r`) between curly braces `{r}`  
 - Place options underneath, behind the `#|` (hashpipe): 
   - `#| option1: value`  
+  
+:::.notes
+show how to navigate through code chunks in RStudio (click arrows in footer of code window)
+demo with and without echo
+:::
 
 ## Quarto presentations
 
@@ -369,18 +382,17 @@ format:
 ``` yaml
 ---
 title: Quarto
-subtitle: R Foundations course
-author: Ella Kaye | Department of Statistics | University of Warwick
+subtitle: R for Data Science
+author: Heather Turner | Department of Statistics | University of Warwick
 title-slide-attributes:
   data-background-color: "#552D62"
-date: 2023-11-16
+date: 2024-03-21
 date-format: long
 format: 
-  revealjs:
-    theme: [default, ../../slides.scss]
-    slide-number: true
+  warwickpres-revealjs:
     execute:
       echo: true
+      code-overflow: wrap
 ---
 ```
 
@@ -397,6 +409,14 @@ format:
   - 7 tips and tricks
 
 # Demo {background-color="#552D62"}
+
+:::.notes
+penguins_meet_quarto.Rmd
+ - show how to insert a table (look at visual and source views)
+ - cmd + / to insert whatever (see insert ... any for other OS)
+ - callout note
+ - citations
+:::
 
 # Publishing {.inverse}
 
