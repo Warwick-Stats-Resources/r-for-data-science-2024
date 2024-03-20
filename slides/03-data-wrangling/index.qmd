@@ -102,7 +102,7 @@ There is an RStudio shortcut for `<-` which also puts spaces around it:
 
 <kbd>Alt</kbd>/<kbd title = "option">⌥</kbd> + <kbd title = "minus">-</kbd>
 
-:::.notes
+:::{.notes}
 demo of arrow
 :::
 
@@ -124,7 +124,7 @@ demo of arrow
 
 N.B. double and integer types are both numeric
 
-:::.notes
+:::{.notes}
 double: 
   - floating-point numbers
   - double the precision of a float!
@@ -226,7 +226,7 @@ x[x > 4]
   
 - What does `rep(x, 2, 2)` give? Is it what you expected? Can you explain the output?
   
-::: {.notes}
+::: {{.notes}}
 rep(x, 2) or rep(x, times = 2)
 rep(x, each = 2)
 rep(x, 2, each = 2)
@@ -350,7 +350,7 @@ Show both button (in Environment and from the file itself) and code
   
 - Your turn!
 
-:::.notes
+:::{.notes}
 Show right-click on file name in file pane to import that way
 Option to View() or not after import
 When import wheels from URL, show how to skip column by right-clicking on column header
@@ -619,7 +619,7 @@ penguins |>
 
 :::
 
-::: {.notes}
+::: {{.notes}}
 count() and summarise(n = n()) give different orderings  
 count() drops zero counts
 :::

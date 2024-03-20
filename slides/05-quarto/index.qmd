@@ -86,7 +86,7 @@ Quarto comes **"batteries included"** straight out of the box
 
 -   Any language, *exact* same approach and syntax
 
-:::.notes
+:::{.notes}
 all in one versus separate packages
 :::
 
@@ -116,7 +116,7 @@ mtcars |>
   summarize(mean = mean(mpg), .by = "cyl")
 ```
 
-:::.notes
+:::{.notes}
 yaml within a code block
 :::
 
@@ -356,7 +356,7 @@ mtcars %>%
 - Place options underneath, behind the `#|` (hashpipe): 
   - `#| option1: value`  
   
-:::.notes
+:::{.notes}
 show how to navigate through code chunks in RStudio (click arrows in footer of code window)
 demo with and without echo
 :::
@@ -410,7 +410,7 @@ format:
 
 # Demo {background-color="#552D62"}
 
-:::.notes
+:::{.notes}
 penguins_meet_quarto.Rmd
  - show how to insert a table (look at visual and source views)
  - cmd + / to insert whatever (see insert ... any for other OS)
