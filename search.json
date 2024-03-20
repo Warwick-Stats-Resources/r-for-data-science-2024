@@ -1148,6 +1148,13 @@
     "text": "Literate programming\nLiterate programming is writing out the program logic in a human language with included (separated by a primitive markup) code snippets and macros. - Wikipedia\n---\ntitle: \"ggplot2 demo\"\ndate: \"5/22/2021\"\nformat: html\n---\n\n## Air Quality\n\nThere is a relationship between temperature and the ozone level.\n\n```{r}\n#| label: fig-airquality\nlibrary(ggplot2)\nggplot(airquality, aes(Temp, Ozone)) + \n  geom_point() + \n  geom_smooth(method = \"loess\")\n```"
   },
   {
+    "objectID": "slides/05-quarto/index.html#your-turn",
+    "href": "slides/05-quarto/index.html#your-turn",
+    "title": "Quarto",
+    "section": "Your Turn!",
+    "text": "Your Turn!\n\nInstall Quarto\nOpen a new, empty Quarto document in RStudio and copy the example code from the previous slide.\n\n\nRender the document\nTry setting format in the YAML to docx rather than html\nWhat does format: typst create?"
+  },
+  {
     "objectID": "slides/05-quarto/index.html#metadata-yaml-1",
     "href": "slides/05-quarto/index.html#metadata-yaml-1",
     "title": "Quarto",
@@ -1229,7 +1236,14 @@
     "href": "slides/05-quarto/index.html#quarto-publish",
     "title": "Quarto",
     "section": "quarto publish",
-    "text": "quarto publish\n\n\n\nAt the Terminal, run:\n\n\n\nquarto publish &lt;document&gt;"
+    "text": "quarto publish\n\n\n\nAt the Terminal, run:\n\n\n\nquarto publish &lt;document&gt;\n\nSee e.g. https://jjallaire.quarto.pub/"
+  },
+  {
+    "objectID": "slides/05-quarto/index.html#netlify",
+    "href": "slides/05-quarto/index.html#netlify",
+    "title": "Quarto",
+    "section": "Netlify",
+    "text": "Netlify\nVisit https://app.netlify.com/ and set up a free account.\nAt the Terminal, run:\n\nquarto publish netlify &lt;document&gt;"
   },
   {
     "objectID": "slides/05-quarto/index.html#resources",
