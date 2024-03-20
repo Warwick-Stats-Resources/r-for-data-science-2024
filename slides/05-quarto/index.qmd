@@ -252,6 +252,16 @@ ggplot(airquality, aes(Temp, Ozone)) +
       geom_point() + 
       geom_smooth(method = "loess")
     ```
+    
+## Your Turn!
+
+1. [Install Quarto](https://quarto.org/docs/get-started/)
+
+2. Open a new, empty Quarto document in RStudio and copy the example code from the previous slide.
+
+ - Render the document
+ - Try setting `format` in the YAML to `docx` rather than `html`
+ - What does `format: typst` create?
 
 ## Metadata: YAML
 
@@ -452,6 +462,21 @@ At the Terminal, run:
 :::{style="font-size: 2em"}
 ```bash
 quarto publish <document>
+```
+:::
+
+See e.g. <https://jjallaire.quarto.pub/>
+
+## Netlify
+
+Visit <https://app.netlify.com/> and set up a free account.
+
+
+At the Terminal, run:
+
+:::{style="font-size: 2em"}
+```bash
+quarto publish netlify <document>
 ```
 :::
 
