@@ -60,14 +60,14 @@
     "href": "slides/03-data-wrangling/index.html#rstudio-demo",
     "title": "Data Types, Structures and Wrangling",
     "section": "RStudio demo",
-    "text": "RStudio demo\nAssigning and environment pane.\nThere is an RStudio shortcut for &lt;- which also puts spaces around it:\nAlt/⌥ + -"
+    "text": "RStudio demo\nAssigning and environment pane.\nThere is an RStudio shortcut for &lt;- which also puts spaces around it:\nAlt/⌥ + -\n\ndemo of arrow"
   },
   {
     "objectID": "slides/03-data-wrangling/index.html#basic-data-types-in-r",
     "href": "slides/03-data-wrangling/index.html#basic-data-types-in-r",
     "title": "Data Types, Structures and Wrangling",
     "section": "Basic data types in R",
-    "text": "Basic data types in R\n\ncharacter: \"a\", \"hello, world!\"\ndouble: 3, 3.14, pi\ninteger: 3L (the L tells R to store this as an interger)\nlogical: TRUE and FALSE\ncomplex: 3+2i. N.B. need to write 1i for \\(\\sqrt(-1)\\).\nraw: holds raw bytes (rarely used)\n\nN.B. double and integer types are both numeric"
+    "text": "Basic data types in R\n\ncharacter: \"a\", \"hello, world!\"\ndouble: 3, 3.14, pi\ninteger: 3L (the L tells R to store this as an interger)\nlogical: TRUE and FALSE\ncomplex: 3+2i. N.B. need to write 1i for \\(\\sqrt(-1)\\).\nraw: holds raw bytes (rarely used)\n\nN.B. double and integer types are both numeric\n\ndouble: - floating-point numbers - double the precision of a float! - has precision of 15 decimal places - stored in 64 bits long - integer stored in 4 bytes = 32 bits, so -2^31 - (2^31 - 1)"
   },
   {
     "objectID": "slides/03-data-wrangling/index.html#special-values",
@@ -109,7 +109,7 @@
     "href": "slides/03-data-wrangling/index.html#your-turn",
     "title": "Data Types, Structures and Wrangling",
     "section": "Your turn!",
-    "text": "Your turn!\n\nIn your R-Foundations project from last week, create and save a new script called data-types.R\nLook at the help page for the rep() function: ?rep\nStarting with the vector x &lt;- c(1,3,6), can you make the following patterns:\n\n1, 3, 6, 1, 3, 6\n1, 1, 3, 3, 6, 6\n1, 1, 3, 3, 6, 6, 1, 1, 3, 3, 6, 6\n\nWhat does rep(x, 2, 2) give? Is it what you expected? Can you explain the output?\n\n\nrep(x, 2) or rep(x, times = 2) rep(x, each = 2) rep(x, 2, each = 2) rep(x, 2, 2) is rep(x, times = 2, length.out = 2)"
+    "text": "Your turn!\n\nIn your R-Foundations project from the last session, create and save a new script called data-types.R\nLook at the help page for the rep() function: ?rep\nStarting with the vector x &lt;- c(1,3,6), can you make the following patterns:\n\n1, 3, 6, 1, 3, 6\n1, 1, 3, 3, 6, 6\n1, 1, 3, 3, 6, 6, 1, 1, 3, 3, 6, 6\n\nWhat does rep(x, 2, 2) give? Is it what you expected? Can you explain the output?\n\n\nrep(x, 2) or rep(x, times = 2) rep(x, each = 2) rep(x, 2, each = 2) rep(x, 2, 2) is rep(x, times = 2, length.out = 2)"
   },
   {
     "objectID": "slides/03-data-wrangling/index.html#factors",
@@ -172,7 +172,7 @@
     "href": "slides/03-data-wrangling/index.html#import-data-demo",
     "title": "Data Types, Structures and Wrangling",
     "section": "Import data demo",
-    "text": "Import data demo\nShow both button (in Environment and from the file itself) and code\n\nFrom file\n\ndata/penguins_lter.csv\n\nFrom URL\n\nhttps://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-08-09/wheels.csv\n\nYour turn!"
+    "text": "Import data demo\nShow both button (in Environment and from the file itself) and code\n\nFrom file\n\ndata/penguins_lter.csv\n\nFrom URL\n\nhttps://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-08-09/wheels.csv\n\nYour turn!\n\n\nShow right-click on file name in file pane to import that way Option to View() or not after import When import wheels from URL, show how to skip column by right-clicking on column header"
   },
   {
     "objectID": "slides/03-data-wrangling/index.html#dplyr",
@@ -249,14 +249,14 @@
     "href": "slides/03-data-wrangling/index.html#summarise-reduces-multiple-values-down-to-a-single-summary",
     "title": "Data Types, Structures and Wrangling",
     "section": "summarise(): reduces multiple values down to a single summary",
-    "text": "summarise(): reduces multiple values down to a single summary\n\nExample 1Example 2Example 3Example 4: count\n\n\n\npenguins |&gt;\n  summarise(mean(body_mass_g, na.rm = TRUE))  \n\n# A tibble: 1 × 1\n  `mean(body_mass_g, na.rm = TRUE)`\n                              &lt;dbl&gt;\n1                             4202.\n\n\n\n\n\npenguins |&gt;\n  group_by(species, sex) |&gt;\n  filter(!is.na(sex)) |&gt;\n  summarise(mean = mean(body_mass_g, na.rm = TRUE)) |&gt;  # give column a name\n  ungroup() # best practice after group_by()\n\n# A tibble: 6 × 3\n  species   sex     mean\n  &lt;fct&gt;     &lt;fct&gt;  &lt;dbl&gt;\n1 Adelie    female 3369.\n2 Adelie    male   4043.\n3 Chinstrap female 3527.\n4 Chinstrap male   3939.\n5 Gentoo    female 4680.\n6 Gentoo    male   5485.\n\n\n\n\n\npenguins |&gt;\n  filter(!is.na(sex)) |&gt;\n  summarise(mean = mean(body_mass_g, na.rm = TRUE),\n            .by = c(species, sex)) # new in dplyr 1.1.0, note the `.`\n\n# A tibble: 6 × 3\n  species   sex     mean\n  &lt;fct&gt;     &lt;fct&gt;  &lt;dbl&gt;\n1 Adelie    male   4043.\n2 Adelie    female 3369.\n3 Gentoo    female 4680.\n4 Gentoo    male   5485.\n5 Chinstrap female 3527.\n6 Chinstrap male   3939.\n\n\n\n\n\npenguins |&gt;\n  count(species, island)\n\n# A tibble: 5 × 3\n  species   island        n\n  &lt;fct&gt;     &lt;fct&gt;     &lt;int&gt;\n1 Adelie    Biscoe       44\n2 Adelie    Dream        56\n3 Adelie    Torgersen    52\n4 Chinstrap Dream        68\n5 Gentoo    Biscoe      124\n\n\nShortcut for\n\npenguins |&gt;\n  summarise(n = n(), .by = c(species, island))\n\n\n\n\n\ncount() and summarise(n = n()) give different orderings"
+    "text": "summarise(): reduces multiple values down to a single summary\n\nExample 1Example 2Example 3Example 4: count\n\n\n\npenguins |&gt;\n  summarise(mean(body_mass_g, na.rm = TRUE))  \n\n# A tibble: 1 × 1\n  `mean(body_mass_g, na.rm = TRUE)`\n                              &lt;dbl&gt;\n1                             4202.\n\n\n\n\n\npenguins |&gt;\n  group_by(species, sex) |&gt;\n  filter(!is.na(sex)) |&gt;\n  summarise(mean = mean(body_mass_g, na.rm = TRUE)) |&gt;  # give column a name\n  ungroup() # best practice after group_by()\n\n# A tibble: 6 × 3\n  species   sex     mean\n  &lt;fct&gt;     &lt;fct&gt;  &lt;dbl&gt;\n1 Adelie    female 3369.\n2 Adelie    male   4043.\n3 Chinstrap female 3527.\n4 Chinstrap male   3939.\n5 Gentoo    female 4680.\n6 Gentoo    male   5485.\n\n\n\n\n\npenguins |&gt;\n  filter(!is.na(sex)) |&gt;\n  summarise(mean = mean(body_mass_g, na.rm = TRUE),\n            .by = c(species, sex)) # new in dplyr 1.1.0, note the `.`\n\n# A tibble: 6 × 3\n  species   sex     mean\n  &lt;fct&gt;     &lt;fct&gt;  &lt;dbl&gt;\n1 Adelie    male   4043.\n2 Adelie    female 3369.\n3 Gentoo    female 4680.\n4 Gentoo    male   5485.\n5 Chinstrap female 3527.\n6 Chinstrap male   3939.\n\n\n\n\n\npenguins |&gt;\n  count(species, island)\n\n# A tibble: 5 × 3\n  species   island        n\n  &lt;fct&gt;     &lt;fct&gt;     &lt;int&gt;\n1 Adelie    Biscoe       44\n2 Adelie    Dream        56\n3 Adelie    Torgersen    52\n4 Chinstrap Dream        68\n5 Gentoo    Biscoe      124\n\n\nShortcut for\n\npenguins |&gt;\n  summarise(n = n(), .by = c(species, island))\n\n\n\n\n\ncount() and summarise(n = n()) give different orderings\ncount() drops zero counts"
   },
   {
     "objectID": "slides/03-data-wrangling/index.html#your-turn-1",
     "href": "slides/03-data-wrangling/index.html#your-turn-1",
     "title": "Data Types, Structures and Wrangling",
     "section": "Your turn!",
-    "text": "Your turn!\n\nExplore the wheels data!\nBe ready to share some of your code in the chat"
+    "text": "Your turn!\n\nExplore the wheels data!\nBe ready to share some of your code after the exercise!"
   },
   {
     "objectID": "slides/03-data-wrangling/index.html#tidydatatutor.com",
