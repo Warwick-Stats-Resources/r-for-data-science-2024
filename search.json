@@ -1047,7 +1047,7 @@
     "href": "slides/05-quarto/index.html#for-everyone",
     "title": "Quarto",
     "section": "For everyone",
-    "text": "For everyone\n\nWorks with R, Python, Julia, Observable JS\nknitr and jupyter engines\nWorks in RStudio, Jupyter Notebooks, VS Code\n\n\nFor the R Foundations course, we’ll focus on R and RStudio"
+    "text": "For everyone\n\nWorks with R, Python, Julia, Observable JS\nknitr and jupyter engines\nWorks in RStudio, Jupyter Notebooks, VS Code\n\n\nFor this course, we’ll focus on R and RStudio"
   },
   {
     "objectID": "slides/05-quarto/index.html#so-what-is-quarto-1",
@@ -1061,7 +1061,7 @@
     "href": "slides/05-quarto/index.html#one-install-batteries-included",
     "title": "Quarto",
     "section": "One install, “Batteries included”",
-    "text": "One install, “Batteries included”\n\nRMarkdown grew into a large ecosystem, with varying syntax.\n\n\nQuarto comes “batteries included” straight out of the box\n\nHTML reports and websites\nPDF reports\nMS Office (Word, Powerpoint)\nPresentations (Powerpoint, Beamer, revealjs)\nBooks\n\n\n\n\nAny language, exact same approach and syntax"
+    "text": "One install, “Batteries included”\n\nRMarkdown grew into a large ecosystem, with varying syntax.\n\n\nQuarto comes “batteries included” straight out of the box\n\nHTML reports and websites\nPDF reports\nMS Office (Word, Powerpoint)\nPresentations (Powerpoint, Beamer, revealjs)\nBooks\n\n\n\n\nAny language, exact same approach and syntax\n\n\nall in one versus separate packages"
   },
   {
     "objectID": "slides/05-quarto/index.html#quarto-for-rmarkdown-users",
@@ -1082,7 +1082,7 @@
     "href": "slides/05-quarto/index.html#anatomy-of-a-quarto-document-1",
     "title": "Quarto",
     "section": "Anatomy of a Quarto document",
-    "text": "Anatomy of a Quarto document\n\nCode\n\n\n```{r}\n#| eval: true\nlibrary(dplyr)\nmtcars %&gt;% \n  group_by(cyl) %&gt;%\n  summarize(mean = mean(mpg), .groups = \"drop\")\n```\n\n# A tibble: 3 × 2\n    cyl  mean\n  &lt;dbl&gt; &lt;dbl&gt;\n1     4  26.7\n2     6  19.7\n3     8  15.1"
+    "text": "Anatomy of a Quarto document\n\nCode\n\n\n```{r}\n#| eval: true\nlibrary(dplyr)\nmtcars |&gt;\n  summarize(mean = mean(mpg), .by = \"cyl\")\n```\n\n  cyl     mean\n1   6 19.74286\n2   4 26.66364\n3   8 15.10000\n\n\n\nyaml within a code block"
   },
   {
     "objectID": "slides/05-quarto/index.html#anatomy-of-a-quarto-document-2",
@@ -1138,7 +1138,7 @@
     "href": "slides/05-quarto/index.html#code",
     "title": "Quarto",
     "section": "Code",
-    "text": "Code\n\n\n```{r}\n#| output-location: column\n#| label: fig-airquality\n#| fig-cap: Temperature and ozone level.\n#| warning: false\n\nlibrary(ggplot2)\n\nggplot(airquality, aes(Temp, Ozone)) + \n  geom_point() + \n  geom_smooth(method = \"loess\")\n```\n\n\n\n\n\n\n\n\nFigure 1: Temperature and ozone level."
+    "text": "Code\n\n\n```{r}\n#| output-location: column\n#| label: fig-airquality\n#| fig-cap: Temperature and ozone level.\n#| fig-alt: A scatterplot of ozone level against temparature, with a local regression fit that has a confidence band. The ozone level is fairly constant at around 15ppb from a temperature of 55°F to 75°F, then increases linearly to around 80ppb at a temperature of 90°F, where the ozone level starts to asymptote. The points are generally close to this curve apart from 7 outliers with higher than expected ozone between 75°F and 95°F.\n#| warning: false\n\nlibrary(ggplot2)\n\nggplot(airquality, aes(Temp, Ozone)) + \n  geom_point() + \n  geom_smooth(method = \"loess\")\n```\n\n\n\n\n\n\n\n\nFigure 1: Temperature and ozone level."
   },
   {
     "objectID": "slides/05-quarto/index.html#literate-programming",
@@ -1187,7 +1187,7 @@
     "href": "slides/05-quarto/index.html#anatomy-of-a-code-chunk",
     "title": "Quarto",
     "section": "Anatomy of a code chunk",
-    "text": "Anatomy of a code chunk\n```{r}\n#| label: car-stuff\n#| echo: false\nmtcars %&gt;% \n  distinct(cyl)\n```\n\n\nHas 3x backticks on each end ```\n\nIndicate engine (r) between curly braces {r}\n\nPlace options underneath, behind the #| (hashpipe):\n\n#| option1: value"
+    "text": "Anatomy of a code chunk\n```{r}\n#| label: car-stuff\n#| echo: false\nmtcars %&gt;% \n  distinct(cyl)\n```\n\n\nHas 3x backticks on each end ```\n\nIndicate engine (r) between curly braces {r}\n\nPlace options underneath, behind the #| (hashpipe):\n\n#| option1: value\n\n\n\nshow how to navigate through code chunks in RStudio (click arrows in footer of code window) demo with and without echo"
   },
   {
     "objectID": "slides/05-quarto/index.html#quarto-presentations",
@@ -1201,7 +1201,7 @@
     "href": "slides/05-quarto/index.html#this-quarto-presentation",
     "title": "Quarto",
     "section": "This Quarto presentation",
-    "text": "This Quarto presentation\n---\ntitle: Quarto\nsubtitle: R Foundations course\nauthor: Ella Kaye | Department of Statistics | University of Warwick\ntitle-slide-attributes:\n  data-background-color: \"#552D62\"\ndate: 2023-11-16\ndate-format: long\nformat: \n  revealjs:\n    theme: [default, ../../slides.scss]\n    slide-number: true\n    execute:\n      echo: true\n---"
+    "text": "This Quarto presentation\n---\ntitle: Quarto\nsubtitle: R for Data Science\nauthor: Heather Turner | Department of Statistics | University of Warwick\ntitle-slide-attributes:\n  data-background-color: \"#552D62\"\ndate: 2024-03-21\ndate-format: long\nformat: \n  warwickpres-revealjs:\n    execute:\n      echo: true\n      code-overflow: wrap\n---"
   },
   {
     "objectID": "slides/05-quarto/index.html#more-on-quarto-presentations",

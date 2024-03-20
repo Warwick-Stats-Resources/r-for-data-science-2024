@@ -395,7 +395,7 @@
 
 <section id="title-slide" data-background-color="#552D62" class="quarto-title-block center">
   <h1 class="title">Quarto</h1>
-  <p class="subtitle">R Foundations Course</p>
+  <p class="subtitle">R for Data Science</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -461,7 +461,7 @@ Heather Turner | Department of Statistics | University of Warwick
 <li><p>Works in RStudio, Jupyter Notebooks, VS Code</p></li>
 </ul>
 <div class="fragment">
-<p>For the R Foundations course, we’ll focus on R and RStudio</p>
+<p>For this course, we’ll focus on R and RStudio</p>
 </div>
 </section>
 <section id="so-what-is-quarto-1" class="slide level2">
@@ -490,6 +490,9 @@ Heather Turner | Department of Statistics | University of Warwick
 <ul>
 <li>Any language, <em>exact</em> same approach and syntax</li>
 </ul>
+<div class=".notes">
+<p>all in one versus separate packages</p>
+</div>
 </div>
 </section>
 <section id="quarto-for-rmarkdown-users" class="slide level2">
@@ -514,18 +517,18 @@ Heather Turner | Department of Statistics | University of Warwick
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a></a><span class="in">```{r}</span></span>
 <span id="cb2-2"><a></a><span class="in">#| eval: true</span></span>
 <span id="cb2-3"><a></a><span class="in">library(dplyr)</span></span>
-<span id="cb2-4"><a></a><span class="in">mtcars %&gt;% </span></span>
-<span id="cb2-5"><a></a><span class="in">  group_by(cyl) %&gt;%</span></span>
-<span id="cb2-6"><a></a><span class="in">  summarize(mean = mean(mpg), .groups = "drop")</span></span>
-<span id="cb2-7"><a></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-4"><a></a><span class="in">mtcars |&gt;</span></span>
+<span id="cb2-5"><a></a><span class="in">  summarize(mean = mean(mpg), .by = "cyl")</span></span>
+<span id="cb2-6"><a></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 2
-    cyl  mean
-  &lt;dbl&gt; &lt;dbl&gt;
-1     4  26.7
-2     6  19.7
-3     8  15.1</code></pre>
+<pre><code>  cyl     mean
+1   6 19.74286
+2   4 26.66364
+3   8 15.10000</code></pre>
 </div>
+</div>
+<div class=".notes">
+<p>yaml within a code block</p>
 </div>
 </section>
 <section id="anatomy-of-a-quarto-document-2" class="slide level2">
@@ -669,20 +672,21 @@ Heather Turner | Department of Statistics | University of Warwick
 <span id="cb17-2"><a></a><span class="in">#| output-location: column</span></span>
 <span id="cb17-3"><a></a><span class="in">#| label: fig-airquality</span></span>
 <span id="cb17-4"><a></a><span class="in">#| fig-cap: Temperature and ozone level.</span></span>
-<span id="cb17-5"><a></a><span class="in">#| warning: false</span></span>
-<span id="cb17-6"><a></a></span>
-<span id="cb17-7"><a></a><span class="in">library(ggplot2)</span></span>
-<span id="cb17-8"><a></a></span>
-<span id="cb17-9"><a></a><span class="in">ggplot(airquality, aes(Temp, Ozone)) + </span></span>
-<span id="cb17-10"><a></a><span class="in">  geom_point() + </span></span>
-<span id="cb17-11"><a></a><span class="in">  geom_smooth(method = "loess")</span></span>
-<span id="cb17-12"><a></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-5"><a></a><span class="in">#| fig-alt: A scatterplot of ozone level against temparature, with a local regression fit that has a confidence band. The ozone level is fairly constant at around 15ppb from a temperature of 55°F to 75°F, then increases linearly to around 80ppb at a temperature of 90°F, where the ozone level starts to asymptote. The points are generally close to this curve apart from 7 outliers with higher than expected ozone between 75°F and 95°F.</span></span>
+<span id="cb17-6"><a></a><span class="in">#| warning: false</span></span>
+<span id="cb17-7"><a></a></span>
+<span id="cb17-8"><a></a><span class="in">library(ggplot2)</span></span>
+<span id="cb17-9"><a></a></span>
+<span id="cb17-10"><a></a><span class="in">ggplot(airquality, aes(Temp, Ozone)) + </span></span>
+<span id="cb17-11"><a></a><span class="in">  geom_point() + </span></span>
+<span id="cb17-12"><a></a><span class="in">  geom_smooth(method = "loess")</span></span>
+<span id="cb17-13"><a></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<div id="fig-airquality" class="quarto-figure quarto-figure-center quarto-float" data-fig-align="center">
+<div id="fig-airquality" class="quarto-figure quarto-figure-center quarto-float" alt="A scatterplot of ozone level against temparature, with a local regression fit that has a confidence band. The ozone level is fairly constant at around 15ppb from a temperature of 55°F to 75°F, then increases linearly to around 80ppb at a temperature of 90°F, where the ozone level starts to asymptote. The points are generally close to this curve apart from 7 outliers with higher than expected ozone between 75°F and 95°F." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-airquality-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img data-src="index_files/figure-revealjs/fig-airquality-1.png" class="quarto-figure quarto-figure-center" width="1920">
+<img data-src="index_files/figure-revealjs/fig-airquality-1.png" class="quarto-figure quarto-figure-center" alt="A scatterplot of ozone level against temparature, with a local regression fit that has a confidence band. The ozone level is fairly constant at around 15ppb from a temperature of 55°F to 75°F, then increases linearly to around 80ppb at a temperature of 90°F, where the ozone level starts to asymptote. The points are generally close to this curve apart from 7 outliers with higher than expected ozone between 75°F and 95°F." width="1920">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-airquality-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Temperature and ozone level.
@@ -796,6 +800,9 @@ Figure&nbsp;1: Temperature and ozone level.
 <li><code>#| option1: value</code></li>
 </ul></li>
 </ul>
+<div class=".notes">
+<p>show how to navigate through code chunks in RStudio (click arrows in footer of code window) demo with and without echo</p>
+</div>
 </div>
 </section>
 <section id="quarto-presentations" class="slide level2">
@@ -813,19 +820,18 @@ Figure&nbsp;1: Temperature and ozone level.
 <h2>This Quarto presentation</h2>
 <div class="sourceCode" id="cb30"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb30-1"><a></a><span class="pp">---</span></span>
 <span id="cb30-2"><a></a><span class="fu">title</span><span class="kw">:</span><span class="at"> Quarto</span></span>
-<span id="cb30-3"><a></a><span class="fu">subtitle</span><span class="kw">:</span><span class="at"> R Foundations course</span></span>
-<span id="cb30-4"><a></a><span class="fu">author</span><span class="kw">:</span><span class="at"> Ella Kaye | Department of Statistics | University of Warwick</span></span>
+<span id="cb30-3"><a></a><span class="fu">subtitle</span><span class="kw">:</span><span class="at"> R for Data Science</span></span>
+<span id="cb30-4"><a></a><span class="fu">author</span><span class="kw">:</span><span class="at"> Heather Turner | Department of Statistics | University of Warwick</span></span>
 <span id="cb30-5"><a></a><span class="fu">title-slide-attributes</span><span class="kw">:</span></span>
 <span id="cb30-6"><a></a><span class="at">  </span><span class="fu">data-background-color</span><span class="kw">:</span><span class="at"> </span><span class="st">"#552D62"</span></span>
-<span id="cb30-7"><a></a><span class="fu">date</span><span class="kw">:</span><span class="at"> 2023-11-16</span></span>
+<span id="cb30-7"><a></a><span class="fu">date</span><span class="kw">:</span><span class="at"> 2024-03-21</span></span>
 <span id="cb30-8"><a></a><span class="fu">date-format</span><span class="kw">:</span><span class="at"> long</span></span>
 <span id="cb30-9"><a></a><span class="fu">format</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb30-10"><a></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
-<span id="cb30-11"><a></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">default</span><span class="kw">,</span><span class="at"> ../../slides.scss</span><span class="kw">]</span></span>
-<span id="cb30-12"><a></a><span class="at">    </span><span class="fu">slide-number</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb30-13"><a></a><span class="at">    </span><span class="fu">execute</span><span class="kw">:</span></span>
-<span id="cb30-14"><a></a><span class="at">      </span><span class="fu">echo</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb30-15"><a></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb30-10"><a></a><span class="at">  </span><span class="fu">warwickpres-revealjs</span><span class="kw">:</span></span>
+<span id="cb30-11"><a></a><span class="at">    </span><span class="fu">execute</span><span class="kw">:</span></span>
+<span id="cb30-12"><a></a><span class="at">      </span><span class="fu">echo</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb30-13"><a></a><span class="at">      </span><span class="fu">code-overflow</span><span class="kw">:</span><span class="at"> wrap</span></span>
+<span id="cb30-14"><a></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="more-on-quarto-presentations" class="slide level2">
 <h2>More on Quarto presentations</h2>
@@ -843,7 +849,9 @@ Figure&nbsp;1: Temperature and ozone level.
 </section></section>
 <section id="demo" class="title-slide slide level1 center" data-background-color="#552D62">
 <h1>Demo</h1>
-
+<div class=".notes">
+<p>penguins_meet_quarto.Rmd - show how to insert a table (look at visual and source views) - cmd + / to insert whatever (see insert … any for other OS) - callout note - citations</p>
+</div>
 </section>
 
 <section>
