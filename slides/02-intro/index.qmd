@@ -102,7 +102,7 @@ https://en.wikipedia.org/wiki/R_package#Base_and_recommended_packages
 
 -   Official R repository
 -   <https://cran.r-project.org>
--   nearly 20000 packages
+-   over 20000 packages
 :::
 
 ::: {.column width="50%"}
@@ -110,7 +110,7 @@ https://en.wikipedia.org/wiki/R_package#Base_and_recommended_packages
 
 -   Bioinformatics packages
 -   <https://www.bioconductor.org>
--   \~2100 packages
+-   over 2000 packages
 :::
 :::
 
@@ -189,6 +189,12 @@ An RStudio project is a contect for working on a specific project
 
 -   Create first script
 
+::: notes
+ - Show how to create a new project
+     - Show .Rproj file, name of project in top-right corner
+ - Show menu/buttons to open up a new R script (empty!)
+:::
+
 ## Using the console
 
 -   For things that only need doing once, e.g. installing packages
@@ -218,6 +224,12 @@ install.packages("tidyverse")
 install.packages("palmerpenguins")
 ```
 
+::: notes
+Type above code into the console!
+   - explain `[1]` that shows in print out
+   - only need to install packages once per version of R
+:::
+
 ## Using scripts
 
 Text files saved with an .R suffix are recognised as R code
@@ -246,7 +258,7 @@ Organising your R script well will help you and others understand and use it.
 -   Load required data and packages at the start
 -   Avoid hard-coding: define variables such as file paths early on
 -   Give functions and variable meaningful names
--   use `###` or `#---` to separate sections (in RStudio Code \> Insert Section)
+-   Add  `----` to comment to separate sections (in RStudio Code \> Insert Section)
 
 ## Installing packages
 
@@ -342,6 +354,11 @@ browseVignettes("package_name")
 
 RStudio Help home demo
 
+::: notes
+help(package = "dplyr") # look at various pages
+?dplyr::
+:::
+
 ## Your turn
 
 -   Create an R project called "R-foundations"
@@ -358,13 +375,14 @@ link to [slides](https://warwick-stats-resources.github.io/R-foundations/slides/
 
 ## Getting help at Warwick
 
-### During the course
-
--   Clinic hours: Thursday 10-11 in weeks 3, 5 and 9.
-
-### In general
+### Any time
 
 -   The [Warwick R Users Viva Engage](https://web.yammer.com/main/org/warwick.ac.uk/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiIxMTk5MzIzODczMjgifQ/all)
+
+### By appointment
+
+-   Research computing drop-in: <https://warwick.ac.uk/research/rtp/sc/user_support/research-computing-drop-in/>
+    - Contact Heather at <h.turner.1@warwick.ac.uk> to arrange a meeting.
 
 #  {#penguin-questions data-menu-title="What can we learn about penguins?" background-image="images/gentoo.jpeg"}
 
@@ -402,6 +420,10 @@ count(penguins, species)
 ```{r}
 count(penguins, species, island, .drop = FALSE)
 ```
+
+::: notes
+.drop = FALSE to show count even if zero
+:::
 
 ## Show me the bill dimensions of the 5 heaviest female Gentoo penguins
 
@@ -441,7 +463,7 @@ penguins |>
 
 ### plot 1
 
-![](`r knitr::fig_chunk("bill-no-species", "png")`){width="80%"}
+![](%60r%20knitr::fig_chunk(%22bill-no-species%22,%20%22png%22)%60){width="80%"}
 
 ### code 1
 
@@ -463,7 +485,7 @@ ggplot(data = penguins,
 
 ### plot 2
 
-![](`r knitr::fig_chunk("bill-species", "png")`){width="80%"}
+![](%60r%20knitr::fig_chunk(%22bill-species%22,%20%22png%22)%60){width="80%"}
 
 ### code 2
 
@@ -514,6 +536,13 @@ Material inspired by and remixed from:
 -   <https://portal.stats.ox.ac.uk/userdata/ruth/APTS2013/Rcourse1.pdf>
 
 -   <https://carpentries-incubator.github.io/r-tidyverse-4-datasets/>
+
+::: notes
+See also resources on session webpage (under slide embed)
+ - example webpages for specific tidyverse packages.
+ - usethis::browse_package() to open e.g. open dplyr package website
+ - customise appearance of RStudio
+:::
 
 ## License
 
@@ -567,4 +596,3 @@ div.callout-warning.callout-style-default .callout-title {
 }
 </style>
 ```
-
