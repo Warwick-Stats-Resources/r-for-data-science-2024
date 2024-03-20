@@ -11,6 +11,6 @@ subtitle: "Thursday, March 21th, 2024"
 | 11:25--11:40 | Coffee                     | 
 | 11:40--13:00 | [Data Types, Structures and Wrangling](content/03-data-wrangling/index.qmd)  | 
 | 13:00--13:30 | Lunch                             | 
-| 13:30--15:00 | [Graphics](content/04-graphics/index.qmd)   |
+| 13:30--15:00 | [Graphs and Tables](content/04-graphics/index.qmd)   |
 | 15:00--15:15 | Coffee              | 
 | 15:15--16:30 | [Quarto](content/05-quarto/index.qmd) | 

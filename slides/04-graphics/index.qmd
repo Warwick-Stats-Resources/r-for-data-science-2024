@@ -1,5 +1,5 @@
 ---
-title: Graphics
+title: Graphs and Tables
 subtitle: R Foundations Course
 author: Heather Turner | Department of Statistics | University of Warwick
 title-slide-attributes:
@@ -53,6 +53,10 @@ boxplot(penguins$body_mass_g)
 #| dpi: 120
 with(penguins, boxplot(body_mass_g ~ species))
 ```
+:::
+
+:::.notes
+use with() to avoid using dollar notation
 :::
 
 ## Histogram/Density
@@ -223,6 +227,11 @@ ggplot(data = penguins,
 ```
 
 Note that `color` and `shape` are *inside* `aes()` but `size` and `alpha` are *outside*.
+:::
+
+:::.notes
+made points bigger
+added transparency as points overlap
 :::
 
 ## Add additional geoms
@@ -467,6 +476,12 @@ Back and forward arrows allow you to navigate through graphs that have been plot
 Plots can be saved in various formats using the Export drop down menu, which also has an option to copy to the clipboard.
 
 **DEMO**
+
+:::.notes
+using plots.R
+ - show resizing plot window
+ - fancy plot big and small
+:::
 
 # Tables {background-color="#552D62"}
 
