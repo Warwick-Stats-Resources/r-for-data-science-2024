@@ -102,6 +102,10 @@ There is an RStudio shortcut for `<-` which also puts spaces around it:
 
 <kbd>Alt</kbd>/<kbd title = "option">⌥</kbd> + <kbd title = "minus">-</kbd>
 
+:::.notes
+demo of arrow
+:::
+
 # Data types and structures {.inverse}
 
 ## Basic data types in R
@@ -119,6 +123,16 @@ There is an RStudio shortcut for `<-` which also puts spaces around it:
 -   raw: holds raw bytes (rarely used)
 
 N.B. double and integer types are both numeric
+
+:::.notes
+double: 
+  - floating-point numbers
+  - double the precision of a float!
+  - has precision of 15 decimal places
+  - stored in 64 bits
+long
+  - integer stored in 4 bytes = 32 bits, so -2^31 - (2^31 - 1)
+:::
 
 ## Special values
 
@@ -200,7 +214,7 @@ x[x > 4]
 
 ## Your turn!
 
-- In your R-Foundations project from last week, create and save a new script called data-types.R
+- In your R-Foundations project from the last session, create and save a new script called data-types.R
 
 - Look at the help page for the `rep()` function: `?rep`
 
@@ -335,6 +349,12 @@ Show both button (in Environment and from the file itself) and code
   - [<https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-08-09/wheels.csv>]{.smaller60}
   
 - Your turn!
+
+:::.notes
+Show right-click on file name in file pane to import that way
+Option to View() or not after import
+When import wheels from URL, show how to skip column by right-clicking on column header
+:::
 
 # Data wrangling {background-color="#552D62"}
 
@@ -601,13 +621,14 @@ penguins |>
 
 ::: {.notes}
 count() and summarise(n = n()) give different orderings  
+count() drops zero counts
 :::
 
 ## Your turn!
 
 - Explore the `wheels` data!
 
-- Be ready to share some of your code in the chat
+- Be ready to share some of your code after the exercise!
 
 ## tidydatatutor.com
 
